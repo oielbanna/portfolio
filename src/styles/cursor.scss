@@ -1,0 +1,41 @@
+@import "./colors.scss";
+
+$size: 15px;
+
+.follow {
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  position: absolute;
+  width: $size;
+  height: $size;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  animation: pulse 2s infinite;
+  mix-blend-mode: difference;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: 0.5s cubic-bezier(0.670, 0.005, 0.355, 1.650) width, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) height;
+  background: $mustard;
+}
+
+// scale doesnt work because of animation
+.follow__active {
+    width: calc(#{$size} * 3);
+    height: calc(#{$size}  * 3);
+}
+
+
+@keyframes pulse {
+    0% {
+      transform: scale(0.8) translate(-50%, -50%);;
+    }
+    50% {
+      transform: scale(1) translate(-50%, -50%);;
+    }
+    100% {
+        transform: scale(0.8) translate(-50%, -50%);;
+    }
+  }
+  
