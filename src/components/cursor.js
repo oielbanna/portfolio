@@ -9,7 +9,7 @@ export default () => {
         setTimeout(()=>{
             setX(x);
             setY(y);
-        }, 100)
+        }, 120)
     }
 
 
