@@ -1,5 +1,6 @@
 import React from 'react';
 import A from "./a";
+import LanguageSelector from "./LanguageSelector";
 import '../styles/header.scss';
 import { motion } from "framer-motion"
 
@@ -21,6 +22,8 @@ function Header() {
         <A href="#">LN</A>
         <A href="#">GT</A>
       </div>
+
+        <LanguageSelector className="header__lang"/>
     </header>
   );
 }
