@@ -2,7 +2,7 @@ import React from "react";
 
 export default (props) => {
 
-    var enter = (e) => {
+    var enter = function(){
         document.getElementsByClassName("follow")[0].classList.add("follow__active");
     }
 

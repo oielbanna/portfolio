@@ -1,0 +1,68 @@
+@import "./colors.scss";
+
+.intro {
+  height: 100vh;
+  width: calc(100vw - 70px);
+  overflow-wrap: break-word;
+
+  .intro-container {
+    height: 100%;
+    display: inline-flex;
+    width: 50%;
+    padding: 16px;
+    flex-direction: column;
+  }
+
+  .intro__left {
+    background: $mustard;
+    text-align: right;
+    align-items: flex-end;
+    height: 200%;
+
+    p {
+      font-size: 2em;
+      width: 72%;
+      margin: 0;
+    }
+  }
+
+  .intro__right {
+    background: $gray;
+    text-align: left;
+    text-transform: uppercase;
+
+    .intro__right-container {
+      transform: translate(-34%, -50%);
+      top: 50%;
+      position: relative;
+
+      h3 {
+        margin: 0;
+        font-size: 3em;
+        font-weight: 100;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 10em;
+        line-height: 0.8em;
+        font-weight: 500;
+        position: relative;
+
+        span {
+          &::after {
+            content: "";
+            width: 25px;
+            height: 25px;
+            display: block;
+            background-color: $mustard;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 15px;
+            left: 412px;
+          }
+        }
+      }
+    }
+  }
+}

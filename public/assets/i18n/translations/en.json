@@ -1,4 +1,5 @@
 {
-    "hello.label": "Hello",
-    "thankyou.label": "Thank you"
+    "hello": "Hello, I am",
+    "thankyou": "Thank you",
+    "intro": "A CS and Psychology Graduate from McGill University"
   }

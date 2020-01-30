@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import './styles/App.scss';
 import './i18n'
-import { Cursor, A, Header } from "./components";
+import { Cursor, Header, Intro } from "./components";
 
 function App() {
   return (
@@ -9,15 +9,7 @@ function App() {
       <div className="App">
         <Cursor />
         <Header />
-
-        <A
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </A>
+        <Intro />
       </div>
     </Suspense>
   );
