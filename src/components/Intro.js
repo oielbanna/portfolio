@@ -1,18 +1,34 @@
-import React from 'react';
+import React, {useState, useRef, useLayoutEffect} from 'react';
 import '../styles/intro.scss';
 import { useTranslation } from 'react-i18next'
-import { motion, useViewportScroll, useTransform } from "framer-motion"
+import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
 
 export const Intro = (props) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const refIntro = useRef();
+    const [offsetTop, setOffsetTop] = useState(0);
+
+    useLayoutEffect(() => {
+        if (!refIntro.current) return null;
+        setOffsetTop(refIntro.current.offsetTop);
+    }, [refIntro]);
+
+    const springConfig = {
+        damping: 50,
+        stiffness: 100,
+        mass: 4
+      };
     const { scrollY } = useViewportScroll();
-    // const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
+    const y = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 50] , ["0%", "20%"]), springConfig);
 
     return (
-        <motion.div className="intro" style={{translateX: scrollY}}>
+        <motion.div ref={refIntro} className="intro" style={{ translateX: y }}>
             <motion.div className="intro-container intro__left">
-                <p>
+                <p >
                     {t('intro')}
+                </p>
+                <p style={{ color: "white", fontSize: "1.5em" }}>
+                    {t('intro-sub')}
                 </p>
             </motion.div>
             <div className="intro-container intro__right">
