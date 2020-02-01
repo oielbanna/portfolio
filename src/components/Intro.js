@@ -20,6 +20,7 @@ export const Intro = (props) => {
       };
     const { scrollY } = useViewportScroll();
     const y = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 50] , ["0%", "20%"]), springConfig);
+    const n = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 50] , ["-16%", "1%"]), springConfig);
 
     return (
         <motion.div ref={refIntro} className="intro" style={{ translateX: y }}>
@@ -32,7 +33,7 @@ export const Intro = (props) => {
                 </p>
             </motion.div>
             <div className="intro-container intro__right">
-                <motion.div className="intro__right-container">
+                <motion.div className="intro__right-container" style={{translateX: n, translateY: "-50%"}}>
                     <h3>{t('hello')}</h3>
                     <h1>
                         Omar <br />  Ibrahim <span />
