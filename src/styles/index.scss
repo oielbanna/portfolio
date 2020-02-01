@@ -1,9 +1,13 @@
+@import "./colors.scss";
+
 body, html {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-family: 'Bebas Neue', cursive;
   height: 100vh;
-  
+  color: $lightblack;
+  // overflow-x: hidden;
+  // overflow-y: auto;
 }
 
 * {
@@ -13,6 +17,7 @@ body, html {
 #root {
   position: relative;
   height: 100%;
+  
 }
 
 

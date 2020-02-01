@@ -9,7 +9,8 @@ function App() {
       <div className="App">
         <Cursor />
         <Header />
-        <Intro />
+        <section><Intro /></section>
+        
       </div>
     </Suspense>
   );

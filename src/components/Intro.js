@@ -5,26 +5,25 @@ import { motion, useViewportScroll, useTransform } from "framer-motion"
 
 export const Intro = (props) => {
     const { t } = useTranslation()
-    const { scrollYProgress } = useViewportScroll();
-    const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
+    const { scrollY } = useViewportScroll();
+    // const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
 
     return (
-        <div className="intro">
-            <motion.div className="intro-container intro__left" >
+        <motion.div className="intro" style={{translateX: scrollY}}>
+            <motion.div className="intro-container intro__left">
                 <p>
                     {t('intro')}
                 </p>
             </motion.div>
             <div className="intro-container intro__right">
-                <div className="intro__right-container">
+                <motion.div className="intro__right-container">
                     <h3>{t('hello')}</h3>
-                    <motion.h1 animate={{ opacity: 0.5 }}
-                        transition={{ duration: 2 }}>
+                    <h1>
                         Omar <br />  Ibrahim <span />
-                    </motion.h1>
-                </div>
+                    </h1>
+                </motion.div>
             </div>
 
-        </div>
+        </motion.div>
     );
 }
