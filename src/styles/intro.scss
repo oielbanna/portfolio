@@ -11,7 +11,7 @@
   // overflow-x: hidden;
 
   .intro-container {
-    height: 150%;
+    height: 120%;
     display: inline-flex;
     padding: 16px;
     flex-direction: column;
@@ -28,7 +28,7 @@
       font-size: 2em;
       width: 32%;
       margin: 0;
-      top: 60%;
+      top: calc(100vh - 20%);
       position: relative;
     }
   }
@@ -39,7 +39,7 @@
     text-transform: uppercase;
 
     .intro__right-container {
-      top: calc(100% - 100vh);
+      top: calc(100vh / 2);
       position: relative;
 
       h3 {

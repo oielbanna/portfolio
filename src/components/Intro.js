@@ -19,19 +19,20 @@ export const Intro = (props) => {
         mass: 4
       };
     const { scrollY } = useViewportScroll();
-    const y = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 50] , ["0%", "20%"]), springConfig);
-    const n = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 50] , ["-16%", "1%"]), springConfig);
+    const y = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 20] , ["0%", "20%"]), springConfig);
+    const n = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 10] , ["-16%", "1%"]), springConfig);
+    const o = useSpring(useTransform(scrollY, [offsetTop+50, offsetTop + 60] , [0, 1]), springConfig);
 
     return (
         <motion.div ref={refIntro} className="intro" style={{ translateX: y }}>
-            <motion.div className="intro-container intro__left">
-                <p >
+            <div className="intro-container intro__left"  >
+                <motion.p style={{opacity : o}}>
                     {t('intro')}
-                </p>
-                <p style={{ color: "white", fontSize: "1.5em" }}>
+                </motion.p>
+                <motion.p style={{ color: "white", fontSize: "1.5em", opacity: o}}>
                     {t('intro-sub')}
-                </p>
-            </motion.div>
+                </motion.p>
+            </div>
             <div className="intro-container intro__right">
                 <motion.div className="intro__right-container" style={{translateX: n, translateY: "-50%"}}>
                     <h3>{t('hello')}</h3>
