@@ -4,26 +4,35 @@ import A from "./a";
 import { useTranslation } from 'react-i18next'
 import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
 
-export const Navigation = (props) => {
+export const Navigation = () => {
     const [isHovered, setHovered] = useState(false)
+    const [isClicked, setClicked] = useState(false)
+
+    const menuClicked = () => {
+        setClicked(!isClicked)
+
+    }
 
     return (
         <nav>
             <A>
-                <motion.div className="nav__menu" 
+                <motion.div className="nav__menu"
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
+                    onTapStart={menuClicked}
+                    animate={{translateX: isClicked? "20px": "0px"}}
+                    transition={{ duration: 0.3, delay: 0.1}}
                 >
-                    <i className="icon-menu">
-                        <span className="line"></span>
-                        <span className="line"></span>
-                        <span className="line"></span>
+                    <i className="icon-menu" >
+                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "14px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
+                        <motion.span className="line" animate={{ opacity: isClicked ? 0 : 1 }}></motion.span>
+                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "14px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-10px" : "0px" }}></motion.span>
                     </i>
-                    <span className="icon-menu__txt"><span>U</span><span>N</span><span>E</span><span>M</span></span>
+                    <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span>
                 </motion.div>
             </A>
 
-            <motion.div className="nav-container" initial={false} animate={{ translateX: isHovered ? "80px" : "0px" }} transition={{ duration: 0.3 }}>
+            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked? "100%": isHovered ? "11%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 40 }}>
                 SOME STUFF
             </motion.div>
         </nav>
