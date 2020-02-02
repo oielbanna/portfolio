@@ -7,7 +7,7 @@ function App() {
   return (
     <Suspense fallback={null}>
       <div className="App">
-        <Navigation />
+        
         <Cursor />
         <Header />
         <section><Intro /></section>

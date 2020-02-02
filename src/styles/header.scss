@@ -8,7 +8,6 @@
   border-style: solid;
   box-sizing: border-box;
   z-index: 99;
-  // background-color: lightgray;
 }
 
 .header__links {
@@ -23,92 +22,6 @@
     color: black;
     text-decoration: none;
     margin-bottom: 12px;
-  }
-}
-
-.header__menu {
-  position: absolute;
-  top: 50%;
-  left: -12.5px;
-  cursor: pointer;
-
-  &:hover {
-    .icon-menu {
-      &:nth-child(1) {
-        transform: scaleX(1.4);
-      }
-
-      &:nth-child(2) {
-        transform: scaleX(2.5);
-      }
-
-      &:nth-child(3) {
-        transform: scaleX(2.2);
-      }
-    }
-
-    .icon-menu__txt {
-      :nth-child(1),
-      :nth-child(3) {
-        transform: rotate(-90deg) translateY(-5px);
-      }
-
-      :nth-child(2),
-      :nth-child(4) {
-        transform: rotate(-90deg) translateY(-12px);
-      }
-    }
-  }
-
-  .icon-menu {
-    position: relative;
-    display: block;
-    min-height: 12px;
-    transform-origin: center right;
-    transition: all 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
-
-    .line {
-      float: right;
-      clear: right;
-      display: block;
-      height: 2px;
-      background: #1c1b20;
-
-      &:nth-child(1) {
-        width: 16px;
-      }
-
-      &:nth-child(2) {
-        margin-top: 3px;
-        width: 20px;
-      }
-
-      &:nth-child(3) {
-        margin-top: 3px;
-        width: 12px;
-      }
-    }
-  }
-
-  .icon-menu__txt {
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: 9px;
-    right: -25px;
-    text-align: center;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.2em;
-    transform: translate(5px, -55%) scale(0.7);
-
-    span {
-      display: inline-block;
-      transform: rotate(-90deg);
-      transition: transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
-    }
   }
 }
 
