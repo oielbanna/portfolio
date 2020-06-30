@@ -1,8 +1,9 @@
+@import "./colors.scss";
+
 nav {
   position: fixed;
   display: block;
   z-index: 100;
-  top: 35px;
   right: 100vw;
 }
 
@@ -17,8 +18,8 @@ nav {
 
 .nav__menu {
   position: absolute;
-  top: 50%;
-  right: calc(-6px - 35px);
+  top: 120px;
+  right: calc(-20px - 35px);
   cursor: pointer;
   z-index: 98;
 
@@ -56,26 +57,23 @@ nav {
     min-height: 12px;
     transform-origin: center right;
     transition: all 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    
 
     .line {
-      float: right;
-      clear: right;
+      float: left;
+      clear: left;
       display: block;
-      height: 2px;
-      background: #1c1b20;
-
-      &:nth-child(1) {
-        width: 16px;
-      }
+      height: 3px;
+      background: $mustard;
+      width: 23px;
+      
 
       &:nth-child(2) {
-        margin-top: 3px;
-        width: 20px;
+        margin-top: 4px;
       }
 
       &:nth-child(3) {
-        margin-top: 3px;
-        width: 12px;
+        margin-top: 4px;
       }
     }
   }

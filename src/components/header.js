@@ -9,12 +9,12 @@ function Header() {
     <header className="App-header">
       <Navigation />
 
-      <div className="header__links">
+      {/* <div className="header__links">
         <A href="#">LN</A>
         <A href="#">GT</A>
-      </div>
+      </div> */}
 
-      <LanguageSelector className="header__lang" />
+      {/* <LanguageSelector className="header__lang" /> */}
     </header>
   );
 }

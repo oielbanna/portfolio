@@ -1,6 +1,6 @@
 {
-    "hello": "Hello, I am",
+    "hello": "👋 Hello, I am",
     "thankyou": "Thank you",
-    "intro": "A CS and Psychology Graduate from McGill University",
+    "intro": "Sometimes a developer, <br/> sometimes an artist, <br />but mostly both.",
     "intro-sub": "This will be some subtext"
   }

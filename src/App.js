@@ -10,7 +10,7 @@ function App() {
         
         <Cursor />
         <Header />
-        <section><Intro /></section>
+        <section style={{width: "100%"}}><Intro /></section>
         
       </div>
     </Suspense>

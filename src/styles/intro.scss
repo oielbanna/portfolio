@@ -1,76 +1,50 @@
 @import "./colors.scss";
 
 .intro {
-  height: 100vh;
-  width: calc(200vw - 140px);
-  overflow-wrap: break-word;
+  height: 100%;
+  width: 100%;
 
-  // transform: translateX(-160px);
   display: flex;
-  flex-wrap: nowrap;
-  // overflow-x: hidden;
-
-  .intro-container {
-    height: 120%;
-    display: inline-flex;
-    padding: 16px;
-    flex-direction: column;
-    flex: 0 0 auto;
-    width: 100vw;
-  }
+  flex-grow: 1;
+  justify-content: space-around;
 
   .intro__left {
-    background: $mustard;
+    max-width: 30%;
     text-align: left;
-    align-items: center;
 
-    p {
-      font-size: 2em;
-      width: 32%;
+    h3 {
       margin: 0;
-      top: calc(100vh - 20%);
+      font-size: 1em;
+      font-weight: 100;
+      margin-left: 5px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 3em;
+      line-height: 0.8em;
+      font-weight: 500;
       position: relative;
+
+      span {
+        &::after {
+          content: "";
+          width: 10px;
+          height: 10px;
+          display: block;
+          background-color: $mustard;
+          border-radius: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 2.6em;
+          transform: translateY(-10px);
+        }
+      }
     }
   }
 
   .intro__right {
-    background: $gray;
-    text-align: left;
-    text-transform: uppercase;
-
-    .intro__right-container {
-      top: calc(100vh / 2);
-      position: relative;
-
-      h3 {
-        margin: 0;
-        font-size: 2em;
-        font-weight: 100;
-        margin-left: 5px;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 8em;
-        line-height: 0.8em;
-        font-weight: 500;
-        position: relative;
-
-        span {
-          &::after {
-            content: "";
-            width: 20px;
-            height: 20px;
-            display: block;
-            background-color: $mustard;
-            border-radius: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 2.6em;
-            transform: translateY(-10px);
-          }
-        }
-      }
-    }
+    max-width: 30%;
+    text-align: right;
   }
 }

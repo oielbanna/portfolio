@@ -24,11 +24,11 @@ export const Navigation = () => {
                     transition={{ duration: 0.3, delay: 0.1}}
                 >
                     <i className="icon-menu" >
-                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "14px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
+                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "20px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
                         <motion.span className="line" animate={{ opacity: isClicked ? 0 : 1 }}></motion.span>
-                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "14px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-10px" : "0px" }}></motion.span>
+                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "16px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-10px" : "0px" }}></motion.span>
                     </i>
-                    <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span>
+                    {/* <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span> */}
                 </motion.div>
             </A>
 
