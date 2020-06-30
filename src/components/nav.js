@@ -7,6 +7,8 @@ import { motion, useViewportScroll, useTransform, useSpring } from "framer-motio
 export const Navigation = () => {
     const [isHovered, setHovered] = useState(false)
     const [isClicked, setClicked] = useState(false)
+    const { scrollY } = useViewportScroll();
+
 
     const menuClicked = () => {
         setClicked(!isClicked)

@@ -1,5 +1,8 @@
+@import "./colors.scss";
+
 .App {
   text-align: center;
   display: flex;
     justify-content: center;
+    color: $lightblack
 }

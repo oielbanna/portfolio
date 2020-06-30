@@ -1,6 +1,6 @@
 {
-    "hello": "👋 Hello, I am",
+    "hello": "👋 hi, I am",
     "thankyou": "Thank you",
-    "intro": "Sometimes a developer, <br/> sometimes an artist, <br />but mostly both.",
+    "intro": "Sometimes a <span class='outline_text'>developer</span>, <br/> sometimes an <span class='outline_text'>artist</span>, <br />but mostly both.",
     "intro-sub": "This will be some subtext"
   }
