@@ -6,10 +6,8 @@ export default () => {
     const [y, setY] = useState(0);
 
     function setCoords(x,y){
-        setTimeout(()=>{
             setX(x);
             setY(y);
-        }, 160)
     }
 
 

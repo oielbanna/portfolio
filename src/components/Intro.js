@@ -10,6 +10,7 @@ export const Intro = (props) => {
     const starsG = useRef();
 
     React.useLayoutEffect(() => {
+        // blinking stars
         const stars = starsG.current.children;
         let i = 0;
         for (let star of stars) {
