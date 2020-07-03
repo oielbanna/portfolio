@@ -9,7 +9,7 @@ const LanguageSelector = (props) => {
     }
 
     return (
-        <div {...props} onChange={changeLanguage}>
+        <div {...props} className="lang_selector" onChange={changeLanguage}>
             <A>
                 <input type="radio" value="en" id="en" name="language" defaultChecked />
                 <label htmlFor="en" className={i18n.language !== "en" ? 'active' : null}>EN.</label>

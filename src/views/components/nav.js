@@ -3,11 +3,12 @@ import '../../styles/nav.scss';
 import A from "./a";
 import { useTranslation } from 'react-i18next'
 import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
+import LanguageSelector from "./LanguageSelector";
 
 export const Navigation = () => {
     const [isHovered, setHovered] = useState(false)
     const [isClicked, setClicked] = useState(true)
-
+    const { t, _ } = useTranslation();
     const menuClicked = () => {
         setClicked(!isClicked)
 
@@ -20,8 +21,8 @@ export const Navigation = () => {
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                     onTapStart={menuClicked}
-                    animate={{translateX: isClicked? "20px": "0px", top: isClicked?"50%":""}}
-                    transition={{ duration: 0.3, delay: 0.1}}
+                    animate={{ translateX: isClicked ? "20px" : "0px", top: isClicked ? "50%" : "" }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
                 >
                     <i className="icon-menu" >
                         <motion.span className="line" animate={{ width: isClicked ? "20px" : "20px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
@@ -32,8 +33,41 @@ export const Navigation = () => {
                 </motion.div>
             </A>
 
-            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked? "100%": isHovered ? "11%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
-                SOME STUFF
+            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : isHovered ? "11%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
+                <h1>Feeling lost?</h1>
+
+                <ul>
+                    <li>
+                        <A href="#">
+                            {t('home')}
+                        </A>
+                    </li>
+                    <li>
+                        <A href="#about">
+                            {t('about')}
+                        </A>
+                    </li>
+                    <li>
+                        <A href="#experience">
+                            {t('experience')}
+                        </A>
+                    </li>
+                    <li>
+                        <A>
+                            {t('projects')}
+                        </A>
+                    </li>
+                    <li>
+                        <A>
+                            {t('contact')}
+                        </A>
+                    </li>
+                </ul>
+
+                <div className="graphic_area">
+                    <LanguageSelector />
+                    
+                </div>
             </motion.div>
         </nav>
     );

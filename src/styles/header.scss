@@ -10,21 +10,6 @@
   // z-index: 99;
 }
 
-.header__links {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  right: -17.5px;
-  top: 50%;
-  transform: translate(50%, -50%);
-
-  a {
-    color: black;
-    text-decoration: none;
-    margin-bottom: 12px;
-  }
-}
-
 .header__lang {
   position: absolute;
   right: 0;

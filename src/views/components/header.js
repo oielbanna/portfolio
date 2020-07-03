@@ -1,7 +1,6 @@
 import React from 'react';
 import A from "./a";
 import { Navigation } from "./nav";
-import LanguageSelector from "./LanguageSelector";
 import '../../styles/header.scss';
 
 function Header() {

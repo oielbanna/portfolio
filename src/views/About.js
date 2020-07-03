@@ -6,7 +6,7 @@ export default () => {
     const { t } = useTranslation();
 
     return (
-        <section>
+        <section id="about">
             <h1>
                 {t('about-location')}
             </h1>
