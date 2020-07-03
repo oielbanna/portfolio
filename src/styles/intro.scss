@@ -16,14 +16,13 @@
 
 .intro {
   width: 100%;
-
   display: flex;
   flex-grow: 1;
   justify-content: space-around;
   align-items: center;
 
   position: absolute;
-  bottom: 15%;
+  top: 55%;
 
   .intro__left {
     max-width: 30%;
@@ -80,8 +79,7 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: $lightblack;
-  letter-spacing: 1px;
-  transition: all 5.4s ease-out;
+  letter-spacing: 2px;
 
   &:hover {
     -webkit-text-fill-color: $lightblack;

@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
-// import useMouse from "@react-hook/mouse-position";
-import { gsap } from "gsap";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
-export const Intro = (props) => {
+
+function Intro(props) {
     const { t } = useTranslation();
 
     const starsG = useRef();
@@ -46,7 +45,7 @@ export const Intro = (props) => {
 
 
     return (
-        <>
+        <section style={{padding: 0}}>
             <svg
                 id="home__svg"
                 style={{ left: 0, top: "-15px" }}
@@ -1973,6 +1972,8 @@ export const Intro = (props) => {
 
                 </div>
             </div>
-        </>
+        </section>
     );
 }
+
+export default Intro

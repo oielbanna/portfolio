@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/cursor.scss';
+import '../../styles/cursor.scss';
 
 export default () => {
     const [x, setX] = useState(0);

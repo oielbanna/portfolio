@@ -1,17 +1,21 @@
 import React, { Suspense } from 'react';
 import './styles/App.scss';
 import './i18n'
-import { Cursor, Header, Intro, Navigation } from "./components";
+import { Cursor, Header } from "./views/components";
+import About from "./views/About"
+import Intro from "./views/Intro"
 
 function App() {
   return (
     <Suspense fallback={null}>
       <div className="App">
-        
+
         <Cursor />
         <Header />
-        <section style={{width: "100%"}}><Intro /></section>
-        
+        <main>
+          <Intro />
+          <About />
+        </main>
       </div>
     </Suspense>
   );

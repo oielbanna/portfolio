@@ -8,8 +8,8 @@ nav {
 }
 
 .nav-container {
-  width: calc(90vw - 70px);
-  height: calc(100vh - 70px);
+  width: 100vw;
+  height: 100vh;
   background-color: white;
   z-index: 97;
   display: relative;
@@ -19,7 +19,7 @@ nav {
 .nav__menu {
   position: absolute;
   top: 120px;
-  right: calc(-20px - 35px);
+  right: -55px;
   cursor: pointer;
   z-index: 98;
 
