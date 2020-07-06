@@ -10,29 +10,29 @@
   // z-index: 99;
 }
 
-.header__lang {
-  position: absolute;
-  right: 0;
-  top: -27px;
+// .header__lang {
+//   position: absolute;
+//   right: 0;
+//   top: -27px;
 
-  input[type="radio"] {
-    display: none;
-  }
+//   input[type="radio"] {
+//     display: none;
+//   }
 
-  label {
-    transition: all 0.3s ease-in-out;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 900;
-    font-size: 0.4em;
-    letter-spacing: 2px;
-    cursor: pointer;
+//   label {
+//     transition: all 0.3s ease-in-out;
+//     font-family: "Montserrat", sans-serif;
+//     font-weight: 900;
+//     font-size: 0.4em;
+//     letter-spacing: 2px;
+//     cursor: pointer;
 
-    &:nth-child(2) {
-      margin-left: 5px;
-    }
-  }
+//     &:nth-child(2) {
+//       margin-left: 5px;
+//     }
+//   }
 
-  .active {
-    color: lighten(black, 60);
-  }
-}
+//   .active {
+//     color: lighten(black, 60);
+//   }
+// }

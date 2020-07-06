@@ -2,14 +2,13 @@
     "hello": "👋 hi, I am",
     "thankyou": "Thank you",
     "intro": "Sometimes a <span class='outline_text'>developer</span>, <br/> sometimes an <span class='outline_text'>artist</span>, <br />but mostly both.",
+    
     "about-location": "I'm a full-stack developer based in Toronto, Canada",
     "about-degree": "recently graduated from McGill university with a degree in computer science and psychology",
     "about-work": "I enjoy problem solving and bringing websites to life through creative coding",
     "about-personal": "When im not coding, Im discovering my inner (healthy) chef, playing all kinds of sports and doing DIYs",
     
-    
     "nav-lost?":"Feeling <br/> lost?",
-
 
     "home": "Home",
     "about": "About",

@@ -34,7 +34,7 @@ export const Navigation = () => {
                 </motion.div>
             </A>
 
-            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : isHovered ? "11%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
+            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : isHovered ? "5%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
                 <h1 dangerouslySetInnerHTML={{ __html: t("nav-lost?") }} />
                 <div className="border" />
                 <ul className="nav-container_menu">
@@ -67,14 +67,7 @@ export const Navigation = () => {
 
                 <div className="graphic_area">
                     <LanguageSelector />
-                    <img src={require("../../assets/nav-art.png")} height="600"/>
-
-
-
-
-
-
-
+                    <img src={require("../../assets/nav-art.png")} height="600" />
                 </div>
             </motion.div>
         </nav>

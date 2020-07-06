@@ -7,13 +7,6 @@ function Header() {
   return (
     <header className="App-header">
       <Navigation />
-
-      {/* <div className="header__links">
-        <A href="#">LN</A>
-        <A href="#">GT</A>
-      </div> */}
-
-      {/* <LanguageSelector className="header__lang" /> */}
     </header>
   );
 }
