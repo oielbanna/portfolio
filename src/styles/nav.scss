@@ -5,6 +5,7 @@ nav {
   display : block;
   z-index : 100;
   right   : 100vw;
+  font-family: Helvetica, sans-serif;
 }
 
 .nav-container {
@@ -15,19 +16,53 @@ nav {
   display         : flex;
   padding         : 25px;
   color           : $gray;
+  align-items: center;
 
   h1 {
-    flex-grow: 1;
+    flex-grow: 2;
+    text-align: right;
+    font-weight: 100;
+    font-family: roboto, sans-serif;
+    padding-right: 25px;
+    font-size: 38px;
   }
 
-  ul {
-    flex-grow: 1;
+  .border {
+    display: block;
+    height: 40%;
+    width: 1px;
+    background: $mustard;
+    flex-grow: 0;
+    margin: 0px 25px 0px 25px;
+  }
+
+  .nav-container_menu {
+    flex-grow: 3;
+    list-style: none;
+    text-transform: uppercase;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    // margin-left: 50px;
+    li {
+      padding: 15px 0px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+
+    }
   }
 
   .graphic_area {
     flex-grow: 1;
     position : relative;
-
+    margin-left: -100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-right: 25px;
 
     .lang_selector {
 
@@ -35,6 +70,10 @@ nav {
         text-decoration: none;
         margin-bottom  : 12px;
       }
+    }
+
+    img {
+      max-height: 600px;
     }
 
   }

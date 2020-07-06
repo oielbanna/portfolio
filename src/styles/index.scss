@@ -22,3 +22,10 @@ body {
 }
 
 
+a {
+  &:visited {
+    color: darken($gray, 0.5);
+    text-decoration: none;
+  }
+}
+

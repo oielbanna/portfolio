@@ -17,7 +17,7 @@ $size: 23px;
   z-index: 10000;
   transform: translate(-50%, -50%);
   transition: 0.5s cubic-bezier(0.670, 0.005, 0.355, 1.650) width, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) height, 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) top, left 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  background: darken($mustard, 0.5);
+  background: $mustard;
   opacity: 0.8;
 }
 

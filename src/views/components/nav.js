@@ -4,6 +4,7 @@ import A from "./a";
 import { useTranslation } from 'react-i18next'
 import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
 import LanguageSelector from "./LanguageSelector";
+// import Pattern from "./nav-art";
 
 export const Navigation = () => {
     const [isHovered, setHovered] = useState(false)
@@ -34,9 +35,9 @@ export const Navigation = () => {
             </A>
 
             <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : isHovered ? "11%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
-                <h1>Feeling lost?</h1>
-
-                <ul>
+                <h1 dangerouslySetInnerHTML={{ __html: t("nav-lost?") }} />
+                <div className="border" />
+                <ul className="nav-container_menu">
                     <li>
                         <A href="#">
                             {t('home')}
@@ -53,12 +54,12 @@ export const Navigation = () => {
                         </A>
                     </li>
                     <li>
-                        <A>
+                        <A href="#projects">
                             {t('projects')}
                         </A>
                     </li>
                     <li>
-                        <A>
+                        <A href="#contact">
                             {t('contact')}
                         </A>
                     </li>
@@ -66,7 +67,14 @@ export const Navigation = () => {
 
                 <div className="graphic_area">
                     <LanguageSelector />
-                    
+                    <img src={require("../../assets/nav-art.png")} height="600"/>
+
+
+
+
+
+
+
                 </div>
             </motion.div>
         </nav>
