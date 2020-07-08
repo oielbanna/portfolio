@@ -6,16 +6,75 @@ import { motion, useViewportScroll, useTransform, useSpring } from "framer-motio
 import LanguageSelector from "./LanguageSelector";
 // import Pattern from "./nav-art";
 
-export function Links(props){
+export function MenuLinks({ isClicked, className }) {
+    console.log(isClicked)
+    const { t, _ } = useTranslation();
+    const data = [{
+        id: "home",
+        link: "#"
+    }, {
+        id: "about",
+        link: "#about"
+    }, {
+        id: "experience",
+        link: "#experience"
+    }, {
+        id: "projects",
+        link: "#projects"
+    }, {
+        id: "contact",
+        link: "#contact"
+    }];
+
+    const ul_variants = {
+        open: {
+            transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+        },
+        closed: {
+            transition: { staggerChildren: 0.05, staggerDirection: -1 }
+        }
+    };
+
+    const li_variants = {
+        open: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                y: { stiffness: 1000, velocity: -100 }
+            }
+        },
+        closed: {
+            y: 50,
+            opacity: 0,
+            transition: {
+                y: { stiffness: 1000 }
+            }
+        }
+    };
+    return (
+        <motion.ul
+            animate={isClicked ? "open" : "closed"}
+            variants={ul_variants}
+            transition={{ delay: 10 }}
+            className={className}>
+
+            {data.map((d, i) => {
+                return <motion.li key={d.id} transition={{delay: i * 10}} variants={li_variants}><A href={d.link}>{t(d.id)}</A></motion.li>
+            })}
+        </motion.ul>
+    )
+}
+
+export function SocialLinks(props) {
     const data = [{
         id: "linkedin",
         label: "LN",
         link: "https://www.linkedin.com/in/oielbanna"
-    },{
+    }, {
         id: "github",
         label: "GT",
         link: "https://github.com/oielbanna"
-    },{
+    }, {
         id: "twitter",
         label: "TW",
         link: "https://twitter.com/notelbanna"
@@ -24,9 +83,22 @@ export function Links(props){
     return (
         <ul {...props}>
             {data.map(d => {
-                return <li><A href={d.link} key={d.id} target="_blank">{d.label}</A></li>
+                return <li key={d.id}><A href={d.link} target="_blank">{d.label}</A></li>
             })}
         </ul>
+    )
+}
+
+export function MenuIcon({ isClicked }) {
+    return (
+        <>
+            <i className="icon-menu" >
+                <motion.span className="line" animate={{ width: isClicked ? "20px" : "20px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
+                <motion.span className="line" animate={{ opacity: isClicked ? 0 : 1 }}></motion.span>
+                <motion.span className="line" animate={{ width: isClicked ? "20px" : "16px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-13px" : "0px" }}></motion.span>
+            </i>
+            {/* <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span> */}
+        </>
     )
 }
 
@@ -34,77 +106,39 @@ export const Navigation = () => {
     const [isHovered, setHovered] = useState(false)
     const [isClicked, setClicked] = useState(true)
     const { t, _ } = useTranslation();
-    const menuClicked = () => {
-        setClicked(!isClicked)
-
-    }
 
     return (
         <nav>
             <A>
                 <motion.div className="nav__menu"
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                    onTapStart={menuClicked}
+                    onTapStart={() => setClicked(!isClicked)}
                     animate={{ translateX: isClicked ? "20px" : "0px", top: isClicked ? "50%" : "" }}
                     transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                    <i className="icon-menu" >
-                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "20px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
-                        <motion.span className="line" animate={{ opacity: isClicked ? 0 : 1 }}></motion.span>
-                        <motion.span className="line" animate={{ width: isClicked ? "20px" : "16px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-13px" : "0px" }}></motion.span>
-                    </i>
-                    {/* <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span> */}
-                </motion.div>
+                    <MenuIcon isClicked={isClicked} />
+                 </motion.div>
             </A>
 
-            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : isHovered ? "5%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
+            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
                 <div className="nav-container-left" >
 
                     <div className="text">
                         <h1 dangerouslySetInnerHTML={{ __html: t("nav-lost?") }} />
                         <div className="border" />
-                        <ul className="menu">
-                            <li>
-                                <A href="#">
-                                    {t('home')}
-                                </A>
-                            </li>
-                            <li>
-                                <A href="#about">
-                                    {t('about')}
-                                </A>
-                            </li>
-                            <li>
-                                <A href="#experience">
-                                    {t('experience')}
-                                </A>
-                            </li>
-                            <li>
-                                <A href="#projects">
-                                    {t('projects')}
-                                </A>
-                            </li>
-                            <li>
-                                <A href="#contact">
-                                    {t('contact')}
-                                </A>
-                            </li>
-                        </ul>
+
+                        <MenuLinks className="menu" isClicked={isClicked} />
                     </div>
 
                     <div className="contact">
 
-                        <span class='the-arrow -right'>
-                            <span class='shaft'></span>
+                        <span className='the-arrow -right'>
+                            <span className='shaft'></span>
                         </span>
                         <div>
                             <h4 style={{ margin: "2px" }}>Want to have a chat?</h4>
                             <A className="mustard-text" href="mailto:oielbanna@email.com">oielbanna@gmail.com</A>
                         </div>
-
-                       
-                        <Links className="links"/>
+                        <SocialLinks className="links" />
 
                     </div>
                 </div>
