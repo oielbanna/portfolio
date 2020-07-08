@@ -6,7 +6,7 @@ export default () => {
     const { t } = useTranslation();
 
     return (
-        <section id="about">
+        <section id="about" style={{height: 1000}}>
             <h1>
                 {t('about-location')}
             </h1>

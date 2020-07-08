@@ -7,8 +7,7 @@ import LanguageSelector from "./LanguageSelector";
 // import Pattern from "./nav-art";
 
 export function MenuLinks({ isClicked, className }) {
-    console.log(isClicked)
-    const { t, _ } = useTranslation();
+    const { t } = useTranslation();
     const data = [{
         id: "home",
         link: "#"
@@ -59,7 +58,7 @@ export function MenuLinks({ isClicked, className }) {
             className={className}>
 
             {data.map((d, i) => {
-                return <motion.li key={d.id} transition={{delay: i * 10}} variants={li_variants}><A href={d.link}>{t(d.id)}</A></motion.li>
+                return <motion.li key={d.id} transition={{ delay: i * 10 }} variants={li_variants}><A href={d.link}>{t(d.id)}</A></motion.li>
             })}
         </motion.ul>
     )
@@ -89,35 +88,49 @@ export function SocialLinks(props) {
     )
 }
 
-export function MenuIcon({ isClicked }) {
+export function MenuIcon({ isClicked, onClickChange }) {
+    const { scrollY } = useViewportScroll();
+    const yRange = useTransform(scrollY, [25, 50], ["15%", "50%"]);
+    const top = useSpring(yRange, { stiffness: 100, damping: 20 });
+
+    const springConfig = {
+        damping: 50,
+        stiffness: 100,
+        mass: 4
+    };
+    // const y = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 100], ["0%", "50%"]), springConfig);
+
     return (
-        <>
-            <i className="icon-menu" >
-                <motion.span className="line" animate={{ width: isClicked ? "20px" : "20px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
-                <motion.span className="line" animate={{ opacity: isClicked ? 0 : 1 }}></motion.span>
-                <motion.span className="line" animate={{ width: isClicked ? "20px" : "16px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-13px" : "0px" }}></motion.span>
-            </i>
-            {/* <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span> */}
-        </>
+        <A>
+            <motion.div className="nav__menu"
+                onTapStart={() => onClickChange(!isClicked)}
+                animate={{ translateX: isClicked ? "20px" : "0px", top: isClicked? "15%": "50%"}}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                style={{top}}
+            >
+
+                <i className="icon-menu" >
+                    <motion.span className="line" animate={{ width: isClicked ? "20px" : "20px", rotate: isClicked ? "-45deg" : "0deg" }}></motion.span>
+                    <motion.span className="line" animate={{ opacity: isClicked ? 0 : 1 }}></motion.span>
+                    <motion.span className="line" animate={{ width: isClicked ? "20px" : "16px", rotate: isClicked ? "45deg" : "0deg", translateY: isClicked ? "-13px" : "0px" }}></motion.span>
+                </i>
+                {/* <motion.span className="icon-menu__txt" animate={{ visibility: isClicked ? "hidden" : "visible" }}><span>U</span><span>N</span><span>E</span><span>M</span></motion.span> */}
+
+            </motion.div>
+        </A>
     )
 }
 
 export const Navigation = () => {
     const [isHovered, setHovered] = useState(false)
-    const [isClicked, setClicked] = useState(true)
-    const { t, _ } = useTranslation();
+    const [isClicked, setClicked] = useState(false)
+    const { t } = useTranslation();
 
     return (
         <nav>
-            <A>
-                <motion.div className="nav__menu"
-                    onTapStart={() => setClicked(!isClicked)}
-                    animate={{ translateX: isClicked ? "20px" : "0px", top: isClicked ? "50%" : "" }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                >
-                    <MenuIcon isClicked={isClicked} />
-                 </motion.div>
-            </A>
+            {/* im really sorry about passing the click state like that.*/}
+            <MenuIcon isClicked={isClicked} onClickChange={setClicked} />
+
 
             <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
                 <div className="nav-container-left" >
