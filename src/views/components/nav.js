@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import '../../styles/nav.scss';
 import A from "./a";
 import { useTranslation } from 'react-i18next'
@@ -89,24 +89,30 @@ export function SocialLinks(props) {
 }
 
 export function MenuIcon({ isClicked, onClickChange }) {
+    const initial = !isClicked ? "17%" : "49%";
+    const final = "50%";
     const { scrollY } = useViewportScroll();
-    const yRange = useTransform(scrollY, [25, 50], ["15%", "50%"]);
-    const top = useSpring(yRange, { stiffness: 100, damping: 20 });
+    const yRange = useTransform(scrollY, [100, 115], [initial, final]);
+    const top = useSpring(yRange, { stiffness: 200, damping: 50 });
 
-    const springConfig = {
-        damping: 50,
-        stiffness: 100,
-        mass: 4
-    };
-    // const y = useSpring(useTransform(scrollY, [offsetTop, offsetTop + 100], ["0%", "50%"]), springConfig);
-
+    const theIcon = useRef();
+    useEffect(() => {
+        if (isClicked && theIcon.current) {
+            console.log('helllooo bitch')
+            theIcon.current.style.top = "50%"; // force it!
+            document.getElementsByClassName('nav__menu')[0].style.top = "50%"
+            console.log(theIcon)
+        }
+    }, [isClicked])
     return (
         <A>
             <motion.div className="nav__menu"
                 onTapStart={() => onClickChange(!isClicked)}
-                animate={{ translateX: isClicked ? "20px" : "0px", top: isClicked? "15%": "50%"}}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                style={{top}}
+                animate={{ translateX: isClicked ? "20px" : "0px", opacity: 1 }}
+                style={{ top }}
+                ref={theIcon}
+                initial={{ opacity: 0, translateX: -50 }} 
+                transition={{ ease: "easeInOut", duration: 0.4, delay: 1.7 }}
             >
 
                 <i className="icon-menu" >
