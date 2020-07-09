@@ -27,7 +27,8 @@ export function MenuLinks({ isClicked, className }) {
 
     const ul_variants = {
         open: {
-            transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+            transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+            delay: 2
         },
         closed: {
             transition: { staggerChildren: 0.05, staggerDirection: -1 }
@@ -96,14 +97,14 @@ export function MenuIcon({ isClicked, onClickChange }) {
     const top = useSpring(yRange, { stiffness: 200, damping: 50 });
 
     const theIcon = useRef();
-    useEffect(() => {
-        if (isClicked && theIcon.current) {
-            console.log('helllooo bitch')
-            theIcon.current.style.top = "50%"; // force it!
-            document.getElementsByClassName('nav__menu')[0].style.top = "50%"
-            console.log(theIcon)
-        }
-    }, [isClicked])
+    // useEffect(() => {
+    //     if (isClicked && theIcon.current) {
+    //         console.log('helllooo bitch')
+    //         theIcon.current.style.top = "50%"; // force it!
+    //         document.getElementsByClassName('nav__menu')[0].style.top = "50%"
+    //         console.log(theIcon)
+    //     }
+    // }, [isClicked])
     return (
         <A>
             <motion.div className="nav__menu"
@@ -111,7 +112,7 @@ export function MenuIcon({ isClicked, onClickChange }) {
                 animate={{ translateX: isClicked ? "20px" : "0px", opacity: 1 }}
                 style={{ top }}
                 ref={theIcon}
-                initial={{ opacity: 0, translateX: -50 }} 
+                initial={{ opacity: 0, translateX: -50 }}
                 transition={{ ease: "easeInOut", duration: 0.4, delay: 1.7 }}
             >
 
@@ -128,17 +129,27 @@ export function MenuIcon({ isClicked, onClickChange }) {
 }
 
 export const Navigation = () => {
-    const [isHovered, setHovered] = useState(false)
     const [isClicked, setClicked] = useState(false)
     const { t } = useTranslation();
 
+    const container_variant = {
+        open: {
+            visibility: "visible",
+            opacity: 1
+        },
+        closed: {
+            visibility: "hidden",
+            opacity: 0
+        }
+    };
     return (
         <nav>
             {/* im really sorry about passing the click state like that.*/}
             <MenuIcon isClicked={isClicked} onClickChange={setClicked} />
 
 
-            <motion.div className="nav-container" initial={false} animate={{ translateX: isClicked ? "100%" : "0%" }} transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
+            <motion.div className="nav-container" variants={container_variant} animate={isClicked ? "open" : "closed"}
+                transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>
                 <div className="nav-container-left" >
 
                     <div className="text">

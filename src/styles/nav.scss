@@ -6,7 +6,6 @@ nav {
   position: fixed;
   display : block;
   z-index : 100;
-  right   : 100vw;
   font-family: Helvetica, sans-serif;
 }
 
@@ -150,7 +149,7 @@ nav {
 
 .nav__menu {
   position: absolute;
-  right   : -55px;
+  left   : 35px;
   cursor  : pointer;
   z-index : 98;
 
