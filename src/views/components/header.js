@@ -1,5 +1,4 @@
 import React from 'react';
-import A from "./a";
 import { Navigation } from "./nav";
 import '../../styles/header.scss';
 

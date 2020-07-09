@@ -106,7 +106,7 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 25px;
 
     .lang_selector {

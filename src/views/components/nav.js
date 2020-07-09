@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import '../../styles/nav.scss';
 import A from "./a";
 import { useTranslation } from 'react-i18next'
@@ -174,7 +174,7 @@ export const Navigation = () => {
                 </div>
                 <div className="graphic_area" >
                     <LanguageSelector />
-                    <img src={require("../../assets/nav-art.png")} height="600" />
+                    <img src={require("../../assets/nav-art.png")} height="600" alt={"polka dots on white background"}/>
                 </div>
             </motion.div>
         </nav>
