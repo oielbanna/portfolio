@@ -10,7 +10,7 @@ function Intro(props) {
         <section style={{ padding: 0 }}>
             <Character />
             <div className="intro">
-                <motion.div className="intro__left" initial={{ opacity: 0, translateX: -20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 1.2 }}
+                <motion.div className="intro__left" initial={{ opacity: 0, translateX: -20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}
                 >
                     <h3 id="hello">{t('hello')}</h3>
                     <h1>
@@ -18,7 +18,7 @@ function Intro(props) {
                     </h1>
                 </motion.div>
 
-                <motion.div className="intro__right" initial={{ opacity: 0, translateX: 20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 1.2}}>
+                <motion.div className="intro__right" initial={{ opacity: 0, translateX: 20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4}}>
                     <h1 dangerouslySetInnerHTML={{ __html: t("intro") }} />
 
                 </motion.div>
@@ -76,6 +76,7 @@ function Character() {
                 <motion.path
                     className="stars_clip"
                     id="a"
+                    pathLength={100}
                     d="M 0 0 
                             v 64
                             c 86 27 107 102 171 160
