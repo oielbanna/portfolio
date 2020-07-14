@@ -37,6 +37,7 @@ export default () => {
       <BioLength bio={bio} changeBio={changeBio} />
       <h1>
         {bio}
+        {t('')}
       </h1>
     </section>
   )
