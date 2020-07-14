@@ -3,10 +3,13 @@
 .about {
     display: flex;
     flex-direction: column;
+    min-height: 300px;
+    background-color: $navy;
+    color: $gray;
 }
 
 
-$check-size: 15px;
+$check-size: 12px;
 #bio-length-form {
     max-width: 270px;
     min-width: 200px;
@@ -26,7 +29,6 @@ $check-size: 15px;
         padding: 0;
         text-transform: lowercase;
         font-family: 'Roboto';
-        color: #646368;
     }
 
 
@@ -38,16 +40,13 @@ $check-size: 15px;
     grid-template-columns: repeat(4,1fr);
 
     li {
-        color: lighten($lightblack, 0.4);
+        color: lighten($gray, 0.4);
         display: inline-block;
         position: relative;
 
-        &:last-of-type {
-            color: pink;
-            ~ label {
-                &::before {
-                    right: 0px;
-                }
+        &:first-child { // "shortest"
+            label {
+                letter-spacing: 0.05em;
             }
         }
 
@@ -91,7 +90,7 @@ $check-size: 15px;
                 height: $check-size;
                 width: $check-size;
                 background-color: transparent;
-                border: 1px solid $lightblack;
+                border: 1px solid $gray;
                 top: - (($check-size * 0.5) + $check-size);
                 left: 0px;
                 // transform: translateX(-50%);
@@ -104,7 +103,7 @@ $check-size: 15px;
                 content: "";
                 position: absolute;
                 background-color: $mustard;
-                top: -21.5px;
+                top: - ($check-size + ($check-size * 0.5) - 1);
                 left: 1px;
                 width: $check-size;
                 height: $check-size;

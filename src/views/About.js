@@ -36,8 +36,7 @@ export default () => {
     <section id="about" className="about">
       <BioLength bio={bio} changeBio={changeBio} />
       <h1>
-        {bio}
-        {t('')}
+        {t('about-' + bio)}
       </h1>
     </section>
   )

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
 import LanguageSelector from "./LanguageSelector";
 
-export function MenuLinks({ isClicked, className }) {
+export function MenuLinks({ isClicked, className, onClickChange}) {
     const { t } = useTranslation();
     const data = [{
         id: "home",
@@ -58,7 +58,7 @@ export function MenuLinks({ isClicked, className }) {
             className={className}>
 
             {data.map((d, i) => {
-                return <motion.li key={d.id} transition={{ delay: i * 10 }} variants={li_variants}><A href={d.link}>{t(d.id)}</A></motion.li>
+                return <motion.li key={d.id} onClick={() => onClickChange(false)} transition={{ delay: i * 10 }} variants={li_variants}><A href={d.link}>{t(d.id)}</A></motion.li>
             })}
         </motion.ul>
     )
@@ -152,7 +152,7 @@ export const Navigation = () => {
                         <h1 dangerouslySetInnerHTML={{ __html: t("nav-lost?") }} />
                         <div className="border" />
 
-                        <MenuLinks className="menu" isClicked={isClicked} />
+                        <MenuLinks className="menu" isClicked={isClicked} onClickChange={setClicked}/>
                     </div>
 
                     <div className="contact">
