@@ -1949,8 +1949,8 @@ function Character() {
                     </g>
 
                     <g id="eyes">
-                            <motion.path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="89.47734069824219 83.69889068603516" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></motion.path>
-                            <motion.path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="113.6673355102539 83.69889068603516" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></motion.path>
+                            <path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="716px 495px" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></path>
+                            <path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="743px 495px" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></path>
                             <path id="eye-right-2" d="M743 495 a5.72 5.72 0 002.48.72 6.46 6.46 0 002.59-.45" opacity="1" fill="none" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="114.11000061035156 88" ></path>
                             <path id="eye-left-2" d="M716 495 a5.77 5.77 0 002.56.3 6.48 6.48 0 002.49-.87" fill="none" opacity="1" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="89.8499984741211 87.43000030517578" ></path>
                         </g>

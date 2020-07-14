@@ -34,7 +34,7 @@ export default () => {
 
   return (
     <section id="about" className="about">
-      {/* <BioLength bio={bio} changeBio={changeBio} /> */}
+      <BioLength bio={bio} changeBio={changeBio} />
       <h1>
         {bio}
         {t('')}
