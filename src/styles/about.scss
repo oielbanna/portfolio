@@ -14,30 +14,21 @@ $check-size: 15px;
     .fieldset {
         border: none;
         padding: 0;
-        padding-top: $check-size + 8; // leave the size of the radio button to the top
+        padding-top: $check-size * 2; // leave the size of the radio button to the top
     }
       
     .legend {
-        color: $lightblack;
         font-size: 0.85rem;
         font-variant: small-caps;
         font-weight: 400;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.05em;
         margin: 0;
         padding: 0;
         text-transform: lowercase;
+        font-family: 'Roboto';
+        color: #646368;
     }
-    
-}
 
-
-
-
-
-
-
-
-// OKAYYYYY *********
 
 .container{
     list-style: none;
@@ -47,9 +38,18 @@ $check-size: 15px;
     grid-template-columns: repeat(4,1fr);
 
     li {
-        color: #AAAAAA;
+        color: lighten($lightblack, 0.4);
         display: inline-block;
         position: relative;
+
+        &:last-of-type {
+            color: pink;
+            ~ label {
+                &::before {
+                    right: 0px;
+                }
+            }
+        }
 
         input[type=radio] {
             position: absolute;
@@ -66,7 +66,7 @@ $check-size: 15px;
                     }
         
                     &::after {
-                        top: -$check-size - 3;
+                        transform: translate(0%, 0%);
                         visibility: visible;
                     }
                 }
@@ -77,10 +77,13 @@ $check-size: 15px;
             display: block;
             position: relative;
             font-weight: 300;
-            font-size: 1.35em;
+            font-size: 0.85em;
+            letter-spacing: 0.2em;
             z-index: 9;
+            font-family: 'Roboto';
             cursor: pointer;
             transition: all 0.25s linear;
+
 
             &::before { // using this as the outer radiobutton
                 content: "";
@@ -89,7 +92,9 @@ $check-size: 15px;
                 width: $check-size;
                 background-color: transparent;
                 border: 1px solid $lightblack;
-                top: -$check-size - 4;
+                top: - (($check-size * 0.5) + $check-size);
+                left: 0px;
+                // transform: translateX(-50%);
                 border-radius: 100%;
                 transition: all 0.25s linear;
 
@@ -99,11 +104,11 @@ $check-size: 15px;
                 content: "";
                 position: absolute;
                 background-color: $mustard;
-                top: 2 * -$check-size - 4;
+                top: -21.5px;
                 left: 1px;
                 width: $check-size;
                 height: $check-size;
-                transform: scale(0.5);
+                transform: translate(0%, -100%);
                 border-radius: 100%;
                 transition: all 0.25s cubic-bezier(.68,-0.55,.27,1.55);
                 visibility: hidden;
@@ -113,6 +118,8 @@ $check-size: 15px;
         }
     }
   }
+    
+}
 
 
   
