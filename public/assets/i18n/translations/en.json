@@ -3,6 +3,11 @@
     "thankyou": "Thank you",
     "intro": "Sometimes a <span class='outline_text'>developer</span>, <br/> sometimes an <span class='outline_text'>artist</span>, <br />but mostly both.",
     
+    "about-shortest": "Omar is trying his very best.",
+    "about-shorter":"",
+    "about-long": "",
+    "about-longest": "",
+    
     "about-location": "I'm a full-stack developer based in Toronto, Canada",
     "about-degree": "recently graduated from McGill university with a degree in computer science and psychology",
     "about-work": "I enjoy problem solving and bringing websites to life through creative coding",

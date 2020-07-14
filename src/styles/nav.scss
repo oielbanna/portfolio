@@ -5,19 +5,20 @@ $img-size: 600px;
 nav {
   position: fixed;
   display : block;
-  z-index : 100;
   font-family: Helvetica, sans-serif;
+  z-index: 100;
 }
 
 .nav-container {
   width           : 100vw;
   height          : 100vh;
   background-color: $navy;
-  z-index         : 97;
+  // z-index         : 97;
   display         : flex;
   padding         : 50px;
   color           : $gray;
   align-items: center;
+  position: fixed;
 
 
   .nav-container-left {
@@ -148,10 +149,10 @@ nav {
 }
 
 .nav__menu {
-  position: absolute;
+  position: fixed;
   left   : 35px;
   cursor  : pointer;
-  z-index : 98;
+  z-index : 1;
 
   &:hover {
     .icon-menu {

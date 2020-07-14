@@ -4,7 +4,6 @@ import A from "./a";
 import { useTranslation } from 'react-i18next'
 import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
 import LanguageSelector from "./LanguageSelector";
-// import Pattern from "./nav-art";
 
 export function MenuLinks({ isClicked, className }) {
     const { t } = useTranslation();
@@ -93,7 +92,7 @@ export function MenuIcon({ isClicked, onClickChange }) {
     const initial = !isClicked ? "17%" : "49%";
     const final = "50%";
     const { scrollY } = useViewportScroll();
-    const yRange = useTransform(scrollY, [100, 115], [initial, final]);
+    const yRange = useTransform(scrollY, [20, 80], [initial, final]);
     const top = useSpring(yRange, { stiffness: 200, damping: 50 });
 
     const theIcon = useRef();
@@ -109,7 +108,7 @@ export function MenuIcon({ isClicked, onClickChange }) {
         <A>
             <motion.div className="nav__menu"
                 onTapStart={() => onClickChange(!isClicked)}
-                animate={{ translateX: isClicked ? "20px" : "0px", opacity: 1 }}
+                animate={{ translateX: 0, opacity: 1 }}
                 style={{ top }}
                 ref={theIcon}
                 initial={{ opacity: 0, translateX: -50 }}
@@ -134,19 +133,16 @@ export const Navigation = () => {
 
     const container_variant = {
         open: {
-            visibility: "visible",
-            opacity: 1
+            visibility: "visible"
         },
         closed: {
-            visibility: "hidden",
-            opacity: 0
+            visibility: "hidden"
         }
     };
     return (
         <nav>
             {/* im really sorry about passing the click state like that.*/}
             <MenuIcon isClicked={isClicked} onClickChange={setClicked} />
-
 
             <motion.div className="nav-container" variants={container_variant} animate={isClicked ? "open" : "closed"}
                 transition={{ duration: 0.1, type: "spring", stiffness: 20 }}>

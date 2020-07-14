@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 
-function Intro(props) {
+function Intro() {
     const { t } = useTranslation();
 
     return (
@@ -18,7 +18,7 @@ function Intro(props) {
                     </h1>
                 </motion.div>
 
-                <motion.div className="intro__right" initial={{ opacity: 0, translateX: 20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4}}>
+                <motion.div className="intro__right" initial={{ opacity: 0, translateX: 20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}>
                     <h1 dangerouslySetInnerHTML={{ __html: t("intro") }} />
 
                 </motion.div>
@@ -29,6 +29,15 @@ function Intro(props) {
 
 function Character() {
     const starsG = useRef();
+
+    const eye_transition = {
+        loop: Infinity,
+        yoyo: Infinity,
+        flip: Infinity,
+        ease: "circInOut",
+        duration: 0.2,
+        repeatDelay: 4
+    };
 
     React.useLayoutEffect(() => {
         // blinking stars
@@ -76,7 +85,6 @@ function Character() {
                 <motion.path
                     className="stars_clip"
                     id="a"
-                    pathLength={100}
                     d="M 0 0 
                             v 64
                             c 86 27 107 102 171 160
@@ -1939,20 +1947,18 @@ function Character() {
                     <g fill="#684a35">
                         <path d="M725 483s0 3-2 4-14-2-17-2l-8 2s5-5 9-5l18 1zM738 484s0 2 3 3c2 1 13-2 17-2l7 2s-5-5-8-5l-19 2z" />
                     </g>
-                    <g
-                        fill="none"
-                        stroke="#dd9976"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeMiterlimit="10"
-                        strokeWidth="3"
-                    >
-                        <path d="M710 493s0 7 6 7 6-7 6-7M741 493s-1 7 6 7 6-7 6-7" />
-                    </g>
+
+                    <g id="eyes">
+                            <motion.path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="89.47734069824219 83.69889068603516" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></motion.path>
+                            <motion.path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="113.6673355102539 83.69889068603516" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></motion.path>
+                            <path id="eye-right-2" d="M743 495 a5.72 5.72 0 002.48.72 6.46 6.46 0 002.59-.45" opacity="1" fill="none" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="114.11000061035156 88" ></path>
+                            <path id="eye-left-2" d="M716 495 a5.77 5.77 0 002.56.3 6.48 6.48 0 002.49-.87" fill="none" opacity="1" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="89.8499984741211 87.43000030517578" ></path>
+                        </g>
                     <g fill="#eab1a0">
                         <path d="M762 518l-7 15c-1 2-8-5-7-8l4-10c1-1 8 1 10 3zM701 518l7 15c1 2 8-5 8-8 0-2-3-9-5-10-1-1-8 1-10 3z" />
                     </g>
                     <path
+                        id="nose"
                         fill="none"
                         stroke="#dd9976"
                         strokeLinecap="round"
