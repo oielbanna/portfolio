@@ -10,7 +10,6 @@ export default () => {
             setY(y);
     }
 
-
     useEffect(() => {
         document.onmousemove = (event) => {
             var e = event;
