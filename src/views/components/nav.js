@@ -92,7 +92,7 @@ export function MenuIcon({ isClicked, onClickChange }) {
     const initial = !isClicked ? "17%" : "49%";
     const final = "50%";
     const { scrollY } = useViewportScroll();
-    const yRange = useTransform(scrollY, [20, 80], [initial, final]);
+    const yRange = useTransform(scrollY, [20, 40], [initial, final]);
     const top = useSpring(yRange, { stiffness: 200, damping: 50 });
 
     const theIcon = useRef();

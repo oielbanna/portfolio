@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useAnimation, useTransform, useViewportScroll } from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 
@@ -29,19 +29,15 @@ function Intro() {
 
 function Character() {
     const starsG = useRef();
-    // const { scrollY } = useViewportScroll();
-    // const yRange = useTransform(scrollY, [20, 80], [initial, final]);
-    // const top = useSpring(yRange, { stiffness: 200, damping: 50 });
-
-    const { scrollY } = useViewportScroll();
-    const controls = useAnimation();
-    const inputRange = [0, 100];
+    
+    const { scrollY, scrollYProgress } = useViewportScroll();
+    const inputRange = [20, 150];
     const outputRange = [
       `
       M 0 0 v 64 c 86 27 107 102 171 160 s 148 62 223 93 c 130 54 183 216 330 216 s 202 -162 332 -216 c 75 -31 159 -35 223 -93 s 85 -134 171 -160 V 0 H 0 z
       `,
       `
-      M 0 0 v 49 c 88 23 94 67 170 133 s 149 17 225 74 c 133 86 170 277 329 278 s 173 -140 327 -203 c 75 -31 159 -9 223 -93 s 58 -146 191 -163 V 0 H 0 z
+      M 0 0 v 792 c 63 1 133 -1 189 0 s 104 4 215 6 c 124 -1 215 4 322 6 s 183 2 325 -1 c 111 2 173 -2 233 -3 s 96 1 233 5 V 0 H 0 z
       `
     ];
     const yRange = useTransform(scrollY, inputRange, outputRange);
@@ -92,24 +88,24 @@ function Character() {
                 <motion.path
                     className="stars_clip"
                     id="a"
-                    d="M 0 0 
-                            v 64
-                            c 86 27 107 102 171 160
-                            s 148 62 223 93
-                            c 130 54 183 216 330 216
-                            s 202 -162 332 -216 
-                            c 75 -31 159 -35 223 -93
-                            s 85 -134 171 -160
-                            V 0
-                            H 0
-                            z"
+                    // d="M 0 0 
+                    //         v 64
+                    //         c 86 27 107 102 171 160
+                    //         s 148 62 223 93
+                    //         c 130 54 183 216 330 216
+                    //         s 202 -162 332 -216 
+                    //         c 75 -31 159 -35 223 -93
+                    //         s 85 -134 171 -160
+                    //         V 0
+                    //         H 0
+                    //         z"
 
                             d={yRange}
-                              transition={{
-                                type: "spring",
-                                damping: 50,
-                                stiffness: 200
-                              }}
+                            transition={{
+                            type: "spring",
+                            damping: 50,
+                            stiffness: 200,
+                            }}
                 />
             </defs>
             <use fill="#1c2e4a" overflow="visible" href="#a" />
