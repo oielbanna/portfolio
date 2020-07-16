@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useTransform, useViewportScroll } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 
@@ -29,15 +29,22 @@ function Intro() {
 
 function Character() {
     const starsG = useRef();
+    // const { scrollY } = useViewportScroll();
+    // const yRange = useTransform(scrollY, [20, 80], [initial, final]);
+    // const top = useSpring(yRange, { stiffness: 200, damping: 50 });
 
-    const eye_transition = {
-        loop: Infinity,
-        yoyo: Infinity,
-        flip: Infinity,
-        ease: "circInOut",
-        duration: 0.2,
-        repeatDelay: 4
-    };
+    const { scrollY } = useViewportScroll();
+    const controls = useAnimation();
+    const inputRange = [0, 100];
+    const outputRange = [
+      `
+      M 0 0 v 64 c 86 27 107 102 171 160 s 148 62 223 93 c 130 54 183 216 330 216 s 202 -162 332 -216 c 75 -31 159 -35 223 -93 s 85 -134 171 -160 V 0 H 0 z
+      `,
+      `
+      M 0 0 v 49 c 88 23 94 67 170 133 s 149 17 225 74 c 133 86 170 277 329 278 s 173 -140 327 -203 c 75 -31 159 -9 223 -93 s 58 -146 191 -163 V 0 H 0 z
+      `
+    ];
+    const yRange = useTransform(scrollY, inputRange, outputRange);
 
     React.useLayoutEffect(() => {
         // blinking stars
@@ -96,6 +103,13 @@ function Character() {
                             V 0
                             H 0
                             z"
+
+                            d={yRange}
+                              transition={{
+                                type: "spring",
+                                damping: 50,
+                                stiffness: 200
+                              }}
                 />
             </defs>
             <use fill="#1c2e4a" overflow="visible" href="#a" />
@@ -1949,8 +1963,8 @@ function Character() {
                     </g>
 
                     <g id="eyes">
-                            <path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="716px 495px" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></path>
-                            <path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="743px 495px" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={eye_transition}></path>
+                            <path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="716px 495px"></path>
+                            <path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="743px 495px"></path>
                             <path id="eye-right-2" d="M743 495 a5.72 5.72 0 002.48.72 6.46 6.46 0 002.59-.45" opacity="1" fill="none" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="114.11000061035156 88" ></path>
                             <path id="eye-left-2" d="M716 495 a5.77 5.77 0 002.56.3 6.48 6.48 0 002.49-.87" fill="none" opacity="1" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="89.8499984741211 87.43000030517578" ></path>
                         </g>
