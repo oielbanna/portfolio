@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useViewportScroll } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 
@@ -29,19 +29,31 @@ function Intro() {
 
 function Character() {
     const starsG = useRef();
-    
-    const { scrollY, scrollYProgress } = useViewportScroll();
-    const inputRange = [20, 150];
+    const [hasScrolled, setHasScrolled] = useState(false);
+    const { scrollY } = useViewportScroll();
     const outputRange = [
-      `
+        `
       M 0 0 v 64 c 86 27 107 102 171 160 s 148 62 223 93 c 130 54 183 216 330 216 s 202 -162 332 -216 c 75 -31 159 -35 223 -93 s 85 -134 171 -160 V 0 H 0 z
       `,
-      `
+        `
       M 0 0 v 792 c 63 1 133 -1 189 0 s 104 4 215 6 c 124 -1 215 4 322 6 s 183 2 325 -1 c 111 2 173 -2 233 -3 s 96 1 233 5 V 0 H 0 z
       `
     ];
-    const yRange = useTransform(scrollY, inputRange, outputRange);
-
+    const clip_path_variants = {
+        open: {
+            d: outputRange[0]
+        },
+        closed: {
+            d: outputRange[1]
+        }
+    };
+    scrollY.onChange(value => {
+        if (value > 100) {
+            setHasScrolled(true);
+        } else {
+            setHasScrolled(false);
+        }
+    });
     React.useLayoutEffect(() => {
         // blinking stars
         const stars = starsG.current.children;
@@ -54,26 +66,6 @@ function Character() {
             star.style["animation-duration"] = (Math.random() * 2 + 4) + "s";
 
         }
-        //   gsap.fromTo(
-        //     ".stars_clip",
-        //     {
-        //       attr: {
-        //         d:
-        //           "M 0 0 v 64 c 86 27 107 102 171 160 s 148 62 223 93 c 130 54 183 216 330 216 s 202 -162 332 -216 c 75 -31 159 -35 223 -93 s 85 -134 171 -160 V 0 H 0 z"
-        //       }
-        //     },
-        //     {
-        //       duration: 3.5,
-        //       repeat: -1,
-        //       yoyo: true,
-        //       ease: "sin",
-        //       attr: {
-        //         d:
-        //           "M 0 0 v 49 c 88 23 94 67 170 133 s 149 17 225 74 c 133 86 170 277 329 278 s 173 -140 327 -203 c 75 -31 159 -9 223 -93 s 58 -146 191 -163 V 0 H 0 z"
-        //       }
-        //     }
-        //   );
-
     }, []);
 
     return (
@@ -88,24 +80,24 @@ function Character() {
                 <motion.path
                     className="stars_clip"
                     id="a"
-                    // d="M 0 0 
-                    //         v 64
-                    //         c 86 27 107 102 171 160
-                    //         s 148 62 223 93
-                    //         c 130 54 183 216 330 216
-                    //         s 202 -162 332 -216 
-                    //         c 75 -31 159 -35 223 -93
-                    //         s 85 -134 171 -160
-                    //         V 0
-                    //         H 0
-                    //         z"
+                    d="M 0 0 
+                            v 64
+                            c 86 27 107 102 171 160
+                            s 148 62 223 93
+                            c 130 54 183 216 330 216
+                            s 202 -162 332 -216 
+                            c 75 -31 159 -35 223 -93
+                            s 85 -134 171 -160
+                            V 0
+                            H 0
+                            z"
 
-                            d={yRange}
-                            transition={{
-                            type: "spring",
-                            damping: 50,
-                            stiffness: 200,
-                            }}
+                    // d={yRange}
+                    variants={clip_path_variants}
+                    animate={hasScrolled ? "closed" : "open"}
+                    transition={{
+                        ease: "easeInOut", duration: 0.2
+                    }}
                 />
             </defs>
             <use fill="#1c2e4a" overflow="visible" href="#a" />
@@ -1773,7 +1765,7 @@ function Character() {
                     d="M188 257l5 6c1 1 1 2-1 2-2 1-4 1-4 4h4c1-1 2-2 3 1l-2 5c-1 1-2 3 0 4 1 1 2-1 2-2l1-1 1-3h2v2l4 4v-2c0-2-2-4-1-5l4 2h1l1 1 3-1-2-1-6-4c0-2 1-2 2-2h5c1-1 2-1 0-2h-3c-7-1-7-1-5-8v-3l-1-3c-2 0-2 2-2 3l-2 7h-1l-2-5-1-2-1-2c-1-1-1-3-3-3-1 1 0 2 1 3s2 2 0 3c-1 0-2-2-3 0l1 2z"
                 />
             </g>
-            <motion.g id="character" initial={{ opacity: 0, translateY: 20 }} animate={{ opacity: 1, translateY: 0 }} transition={{ ease: "easeInOut", duration: 0.4 }}>
+            <motion.g id="character" initial={{ opacity: 0, translateY: 20 }} animate={{ opacity: hasScrolled? 0 : 1, translateY: hasScrolled? 20 : 0 }} transition={{ ease: "easeInOut", duration: 0.4 }} >
 
                 <g fill="#efbda8" id="arms">
                     <path d="M687 704c0-4-30-16-37-14-1-3 11-37 4-50 15-12 12-71 12-71-15 0-35 9-31 67 0 0-14 23-4 66 0 1 41 20 52 18 10-2 4-12 4-16zM776 704c0-4 30-16 37-14 1-3-11-37-4-50-15-12-12-71-12-71 15 0 35 9 31 67 0 0 14 23 4 66 0 1-44 20-52 18-7-2-4-12-4-16z" />
@@ -1959,11 +1951,11 @@ function Character() {
                     </g>
 
                     <g id="eyes">
-                            <path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="716px 495px"></path>
-                            <path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="743px 495px"></path>
-                            <path id="eye-right-2" d="M743 495 a5.72 5.72 0 002.48.72 6.46 6.46 0 002.59-.45" opacity="1" fill="none" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="114.11000061035156 88" ></path>
-                            <path id="eye-left-2" d="M716 495 a5.77 5.77 0 002.56.3 6.48 6.48 0 002.49-.87" fill="none" opacity="1" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04"  data-svg-origin="89.8499984741211 87.43000030517578" ></path>
-                        </g>
+                        <path id="eye-left" d="M716 495 c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="716px 495px"></path>
+                        <path id="eye-right" d="M743 495c-.07 2.08 1.25 3.8 2.94 3.85s3.1-1.59 3.16-3.67-1.25-3.8-2.94-3.85-3.1 1.59-3.16 3.67z" fill="#2b343b" data-svg-origin="743px 495px"></path>
+                        <path id="eye-right-2" d="M743 495 a5.72 5.72 0 002.48.72 6.46 6.46 0 002.59-.45" opacity="1" fill="none" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04" data-svg-origin="114.11000061035156 88" ></path>
+                        <path id="eye-left-2" d="M716 495 a5.77 5.77 0 002.56.3 6.48 6.48 0 002.49-.87" fill="none" opacity="1" stroke="#282828" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.04" data-svg-origin="89.8499984741211 87.43000030517578" ></path>
+                    </g>
                     <g fill="#eab1a0">
                         <path d="M762 518l-7 15c-1 2-8-5-7-8l4-10c1-1 8 1 10 3zM701 518l7 15c1 2 8-5 8-8 0-2-3-9-5-10-1-1-8 1-10 3z" />
                     </g>
