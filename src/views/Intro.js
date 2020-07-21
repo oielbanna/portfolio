@@ -47,11 +47,29 @@ function Character() {
             d: outputRange[1]
         }
     };
+    const stars_variants = {
+        open: {
+            y: 0,
+            visibility: "visible"
+        },
+        closed: {
+            y: 20,
+            visibility: "hidden"
+        }
+    }
     scrollY.onChange(value => {
         if (value > 100) {
             setHasScrolled(true);
+            // const stars = starsG.current.children;
+            // for (let star of stars) {
+            //     star.classList.add("stars_exit")
+            // }
         } else {
             setHasScrolled(false);
+            // const stars = starsG.current.children;
+            // for (let star of stars) {
+            //     star.classList.remove("stars_exit")
+            // }
         }
     });
     React.useLayoutEffect(() => {
@@ -71,8 +89,7 @@ function Character() {
     return (
         <svg
             id="home__svg"
-            style={{ left: 0, top: "-15px" }}
-
+            style={{ left: 0, top: "-10px" }}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1450 788"
         >
@@ -92,7 +109,6 @@ function Character() {
                             H 0
                             z"
 
-                    // d={yRange}
                     variants={clip_path_variants}
                     animate={hasScrolled ? "closed" : "open"}
                     transition={{
@@ -105,8 +121,15 @@ function Character() {
                 <use overflow="visible" href="#a" />
             </clipPath>
             <g ref={starsG} clipPath="url(#b)">
-                <path
-                    fill="#88b8c7"
+                <motion.path
+                    variants={stars_variants}
+                    animate={hasScrolled ? "closed" : "open"}
+                    transition={{
+                        ease: "easeInOut", duration: 0.2
+                    }}
+                    opacity="1"
+                    visibility="visible"
+                    fill="#000000"
                     d="M1103 146c-1 4 0 6 5 9-5 1-9 2-9 7-2-4-5-7-10-6 4-3 4-6 3-10 2 1 7 6 11 0z"
                 />
                 <path
@@ -1765,7 +1788,7 @@ function Character() {
                     d="M188 257l5 6c1 1 1 2-1 2-2 1-4 1-4 4h4c1-1 2-2 3 1l-2 5c-1 1-2 3 0 4 1 1 2-1 2-2l1-1 1-3h2v2l4 4v-2c0-2-2-4-1-5l4 2h1l1 1 3-1-2-1-6-4c0-2 1-2 2-2h5c1-1 2-1 0-2h-3c-7-1-7-1-5-8v-3l-1-3c-2 0-2 2-2 3l-2 7h-1l-2-5-1-2-1-2c-1-1-1-3-3-3-1 1 0 2 1 3s2 2 0 3c-1 0-2-2-3 0l1 2z"
                 />
             </g>
-            <motion.g id="character" initial={{ opacity: 0, translateY: 20 }} animate={{ opacity: hasScrolled? 0 : 1, translateY: hasScrolled? 20 : 0 }} transition={{ ease: "easeInOut", duration: 0.4 }} >
+            <motion.g id="character" initial={{ opacity: 0, translateY: 20 }} animate={{ opacity: hasScrolled ? 0 : 1, translateY: hasScrolled ? 20 : 0 }} transition={{ ease: "easeInOut", duration: 0.4 }} >
 
                 <g fill="#efbda8" id="arms">
                     <path d="M687 704c0-4-30-16-37-14-1-3 11-37 4-50 15-12 12-71 12-71-15 0-35 9-31 67 0 0-14 23-4 66 0 1 41 20 52 18 10-2 4-12 4-16zM776 704c0-4 30-16 37-14 1-3-11-37-4-50-15-12-12-71-12-71 15 0 35 9 31 67 0 0 14 23 4 66 0 1-44 20-52 18-7-2-4-12-4-16z" />
