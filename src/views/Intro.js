@@ -27,7 +27,7 @@ function Intro() {
     );
 }
 
-function Character() {
+const Character = (props) => {
     const starsG = useRef();
     const [hasScrolled, setHasScrolled] = useState(false);
     const { scrollY } = useViewportScroll();
@@ -106,21 +106,20 @@ function Character() {
                     className="stars_clip"
                     id="a"
                     d="M 0 0 
-                            v 64
-                            c 86 27 107 102 171 160
-                            s 148 62 223 93
-                            c 130 54 183 216 330 216
-                            s 202 -162 332 -216 
-                            c 75 -31 159 -35 223 -93
-                            s 85 -134 171 -160
-                            V 0
-                            H 0
-                            z"
-
+                        v 64
+                        c 86 27 107 102 171 160
+                        s 148 62 223 93
+                        c 130 54 183 216 330 216
+                        s 202 -162 332 -216 
+                        c 75 -31 159 -35 223 -93
+                        s 85 -134 171 -160
+                        V 0
+                        H 0
+                        z"
                     variants={clip_path_variants}
                     animate={hasScrolled ? "closed" : "open"}
                     transition={{
-                        ease: "easeInOut", duration: 0.2
+                        ease: "easeInOut", duration: 0.5
                     }}
                 />
             </defs>
@@ -129,20 +128,7 @@ function Character() {
                 <use overflow="visible" href="#a" />
             </clipPath>
             <g ref={starsG} clipPath="url(#b)">
-                {[...Array(50).fill(Array(15))].map((col, i) => {
-                    col = Array(col)
-                    return col.map((row, j) => {
-                        // console.log("row??? ", typeof row)
-                        return (<motion.path
-                            className="stars_hov"
-                            key={i + "," + j}
-                            // style={"animation-delay:" + Math.random() * 10 + "s; animation-duration: " + (Math.random() * 2 + 4) + "s"}
-
-                            fill={stars_color[Math.round(Math.random() * 4)]}
-                            d={"M" + (i * 10) + " " + ((j + 1) * 50) + star_paths[Math.round(Math.random() * 5)]}
-                        />);
-                    })
-                })}
+                <Stars />
             </g>
             <motion.g id="character" initial={{ opacity: 0, translateY: 20 }} animate={{ opacity: hasScrolled ? 0 : 1, translateY: hasScrolled ? 20 : 0 }} transition={{ ease: "easeInOut", duration: 0.4 }} >
 
@@ -369,6 +355,34 @@ function Character() {
 
     )
 }
+// React.memo prevents re-renders which we dont want because it will move the stars locations.
+const Stars = React.memo(() => {
+    const star_paths = ["c7-6 10-13 5-21 1-2 2-1 3-1 6 4 12 4 17-2 3-2 4 0 3 2v1c-2 7 2 11 7 15l2 1 1 2c-10 0-16 5-17 15-4-10-11-13-21-12z",
+        "c0 4 6 10 11 11 1 1 0 2-1 3h-1l-1 1c-1 0-3 1-2 2h3l1-1 3 1c0 1 0 3 2 3s1-2 1-3v-2l4 1h5c2 0 3-1 1-3l-3-1c-2 0-3-1-1-3h1l3-4c-1-1 2-3-2-2l-2 1-2 2c-1 1-2 2-2-1l-1-2c-4-1-3 2-4 4v2c-3-1-6-3-7-5-3-1-4-4-6-4zm10 16h0z",
+        "c0-2 0-3 2-3 2 2 3 4 5 3 1-2-2-3-3-5l-1-1h-1c0-1-2-1-1-3h6c1-2 1-2-2-3l-2-1 1-1c1-1 3-1 3-3l1-2-4 1-2 2-4 1-1-4-1-1-1 2v1c0 1 1 2-2 3l-2-2-2-1-1 1v2c2 5 1 6-2 7l-1 1c1 4 3 1 5 1h1c1 0 2-2 3-1 2 0 1 2 1 3l1 3 2 2c2 0 2-1 2-2z",
+        "c-5 4-6 7-4 12-5-3-8-3-12 0 1-4 0-7-3-10-2 0-1-1 0-1 5 0 6-3 8-8 2 5 5 8 11 7z",
+        "v1l1 4c-1 3 1 4 3 4s3 2 4 3c-1 4-5 3-7 4l-1 4v1c-1 1 0 3-2 3s-2-1-3-2l-1-3c-2-2-3-1-5-1h-4c-1-1 2-2 2-4v-7c-1-1-2-2-1-4l6 2c1 0 3 0 4-2l4-3z"];
+
+    // teal, yellow, orange, white
+    const stars_color = ["#89bbc8", "#edaf5b", "#dc633c", "#f1f4f4"]
+
+    return (
+        [...Array(50).fill(Array(15))].map((col, i) => {
+            col = Array(col)
+            return col.map((row, j) => {
+                // console.log("row??? ", typeof row)
+                return (<motion.path
+                    className="stars_hov"
+                    key={i + "," + j}
+                    // style={"animation-delay:" + Math.random() * 10 + "s; animation-duration: " + (Math.random() * 2 + 4) + "s"}
+
+                    fill={stars_color[Math.round(Math.random() * 4)]}
+                    d={"M" + (i * 10) + " " + ((j + 1) * 50) + star_paths[Math.round(Math.random() * 5)]}
+                />);
+            })
+        })
+    );
+})
 
 
 export default Intro
