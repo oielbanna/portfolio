@@ -27,7 +27,7 @@ function Intro() {
     );
 }
 
-const Character = (props) => {
+const Character = () => {
     const starsG = useRef();
     const [hasScrolled, setHasScrolled] = useState(false);
     const { scrollY } = useViewportScroll();
@@ -36,7 +36,7 @@ const Character = (props) => {
       M 0 0 v 64 c 86 27 107 102 171 160 s 148 62 223 93 c 130 54 183 216 330 216 s 202 -162 332 -216 c 75 -31 159 -35 223 -93 s 85 -134 171 -160 V 0 H 0 z
       `,
         `
-      M 0 0 v 792 c 63 1 133 -1 189 0 s 104 4 215 6 c 124 -1 215 4 322 6 s 183 2 325 -1 c 111 2 173 -2 233 -3 s 96 1 233 5 V 0 H 0 z
+      M 0 0 v 992 c 63 1 133 -1 189 0 s 104 4 215 6 c 124 -1 215 4 322 6 s 183 2 325 -1 c 111 2 173 -2 233 -3 s 96 1 233 5 V 0 H 0 z
       `
     ];
     const clip_path_variants = {
@@ -47,50 +47,19 @@ const Character = (props) => {
             d: outputRange[1]
         }
     };
-    // const stars_variants = {
-    //     open: {
-    //         y: 0,
-    //         visibility: "visible"
-    //     },
-    //     closed: {
-    //         y: 20,
-    //         visibility: "hidden"
-    //     }
-    // }
     scrollY.onChange(value => {
         if (value > 100) {
             setHasScrolled(true);
-            // const stars = starsG.current.children;
-            // for (let star of stars) {
-            //     star.classList.add("stars_exit")
-            // }
         } else {
             setHasScrolled(false);
-            // const stars = starsG.current.children;
-            // for (let star of stars) {
-            //     star.classList.remove("stars_exit")
-            // }
         }
     });
-    // React.useLayoutEffect(() => {
-    //     // blinking stars
-    //     const stars = starsG.current.children;
-    //     let i = 0;
-    //     for (let star of stars) {
-    //         i++;
-    //         if (i % 50 === 0) continue;
-    //         star.classList.add("stars_hov")
-    //         star.style["animation-delay"] = Math.random() * 10 + "s"
-    //         star.style["animation-duration"] = (Math.random() * 2 + 4) + "s";
-
-    //     }
-    // }, []);
     return (
         <svg
             id="home__svg"
             style={{ left: 0, top: "-10px" }}
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1450 788"
+            viewBox="0 0 1450 800"
         >
             <defs>
                 <motion.path
@@ -119,7 +88,7 @@ const Character = (props) => {
                 <use overflow="visible" href="#a" />
             </clipPath>
             <g ref={starsG} clipPath="url(#b)">
-                <Stars />
+                <Stars hasScrolled={hasScrolled} />
             </g>
             <motion.g id="character" initial={{ opacity: 0, translateY: 20 }} animate={{ opacity: hasScrolled ? 0 : 1, translateY: hasScrolled ? 20 : 0 }} transition={{ ease: "easeInOut", duration: 0.4 }} >
 
@@ -347,19 +316,34 @@ const Character = (props) => {
     )
 }
 // React.memo prevents re-renders which we dont want because it will move the stars locations.
-const Stars = React.memo(() => {
+const Stars = React.memo(({hasScrolled}) => {
     // teal, teal, yellow, orange, white
     const stars_color = ["#89bbc8", "#89bbc8",  "#edaf5b", "#dc633c", "#f1f4f4"]
 
+    const stars_variants = {
+        open: {
+            y: 0,
+            x: 0,
+            opacity: 1,
+        },
+        closed: {
+            y: -(100 + Math.random() * 20),
+            x: (100 + Math.random() * 20) * Math.random() > 0.5? -1: 1,
+            opacity: 0,
+        }
+    }
     return (
-        STARS_COORDS.map((item) => {
+        STARS_COORDS.map((item, i) => {
             return (<motion.path
-                className="stars_hov"
-                key={item[0]}
-                // style={"animation-delay:" + Math.random() * 10 + "s; animation-duration: " + (Math.random() * 2 + 4) + "s"}
-                style={{scale: Math.min(Math.random() + 0.5, 1)}}
+                // className="stars_hov"
+                key={item}
+                style={{animationDelay: Math.random() * 10 + "s", animationDuration: i % 30 === 0 ? 0 : (Math.random() * 2 + 4) + "s"}}
                 fill={stars_color[Math.round(Math.random() * (stars_color.length - 1))]}
                 d={item}
+                initial={{opacity: 1}}
+                variants={stars_variants}
+                animate={hasScrolled ? "closed" : "open"}
+                transition={{ duration: Math.random() * 3 }}
             />);  
         })
     );
