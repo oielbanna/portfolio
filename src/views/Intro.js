@@ -47,16 +47,16 @@ const Character = (props) => {
             d: outputRange[1]
         }
     };
-    const stars_variants = {
-        open: {
-            y: 0,
-            visibility: "visible"
-        },
-        closed: {
-            y: 20,
-            visibility: "hidden"
-        }
-    }
+    // const stars_variants = {
+    //     open: {
+    //         y: 0,
+    //         visibility: "visible"
+    //     },
+    //     closed: {
+    //         y: 20,
+    //         visibility: "hidden"
+    //     }
+    // }
     scrollY.onChange(value => {
         if (value > 100) {
             setHasScrolled(true);
