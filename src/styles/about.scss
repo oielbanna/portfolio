@@ -3,9 +3,17 @@
 .about {
     display: flex;
     flex-direction: column;
-    min-height: 600px;
     // background-color: $navy;
     color: $gray;
+
+    .about_text-container {
+        padding: 50px 0px;
+        h1 {
+            font-weight: 500;
+        }
+    }
+    
+    
 }
 
 

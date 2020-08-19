@@ -30,14 +30,14 @@ function BioLength({bio, changeBio}) {
 
 export default () => {
   const { t } = useTranslation();
-  const [bio, changeBio] = useState("short")
+  const [bio, changeBio] = useState("short");
 
   return (
     <section id="about" className="about">
       <BioLength bio={bio} changeBio={changeBio} />
-      <h1>
-        {t('about-' + bio)}
-      </h1>
+      <div className="about_text-container">
+        <h1 dangerouslySetInnerHTML={{ __html: t('about-'+bio) }}/>
+      </div>
     </section>
   )
 }

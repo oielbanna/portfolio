@@ -11,7 +11,7 @@ function App() {
     <Suspense fallback={null}>
       <Context.Provider>
         <div className="App">
-          <Navigation />
+          {/* <Navigation /> */}
           <Cursor />
           
           <main>

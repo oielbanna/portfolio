@@ -5,11 +5,20 @@ import "../styles/intro.scss";
 import { STARS_COORDS } from "../constants";
 function Intro() {
     const { t } = useTranslation();
+    const [hasScrolled, setHasScrolled] = useState(false);
+    const { scrollY } = useViewportScroll();
+    scrollY.onChange(value => {
+        if (value > 90) {
+            setHasScrolled(true);
+        } else {
+            setHasScrolled(false);
+        }
+    });
 
     return (
         <section style={{ padding: 0 }}>
             <Character />
-            <div className="intro">
+            <motion.div className="intro" transition={{ ease: "easeInOut", duration: 0.2 }} animate={{color: hasScrolled? "#f4f4f4": "#1c1b20"}}>
                 <motion.div className="intro__left" initial={{ opacity: 0, translateX: -20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}
                 >
                     <h3 id="hello">{t('hello')}</h3>
@@ -20,9 +29,8 @@ function Intro() {
 
                 <motion.div className="intro__right" initial={{ opacity: 0, translateX: 20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}>
                     <h1 dangerouslySetInnerHTML={{ __html: t("intro") }} />
-
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 }
@@ -59,7 +67,7 @@ const Character = () => {
             id="home__svg"
             style={{ left: 0, top: "-10px" }}
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1450 800"
+            viewBox="0 0 1450 960"
         >
             <defs>
                 <motion.path
@@ -332,18 +340,17 @@ const Stars = React.memo(({hasScrolled}) => {
             opacity: 0,
         }
     }
+    const { scrollY, scrollYProgress } = useViewportScroll()
     return (
         STARS_COORDS.map((item, i) => {
             return (<motion.path
-                // className="stars_hov"
                 key={item}
-                style={{animationDelay: Math.random() * 10 + "s", animationDuration: i % 30 === 0 ? 0 : (Math.random() * 2 + 4) + "s"}}
                 fill={stars_color[Math.round(Math.random() * (stars_color.length - 1))]}
                 d={item}
                 initial={{opacity: 1}}
                 variants={stars_variants}
                 animate={hasScrolled ? "closed" : "open"}
-                transition={{ duration: Math.random() * 3 }}
+                transition={{ duration: Math.random() }}
             />);  
         })
     );
