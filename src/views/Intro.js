@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useViewportScroll } from "framer-motion";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 import { STARS_COORDS } from "../constants";
@@ -8,7 +8,7 @@ function Intro() {
     const [hasScrolled, setHasScrolled] = useState(false);
     const { scrollY } = useViewportScroll();
     scrollY.onChange(value => {
-        if (value > 90) {
+        if (value > 100) {
             setHasScrolled(true);
         } else {
             setHasScrolled(false);
@@ -18,7 +18,7 @@ function Intro() {
     return (
         <section style={{ padding: 0 }}>
             <Character />
-            <motion.div className="intro" transition={{ ease: "easeInOut", duration: 0.2 }} animate={{color: hasScrolled? "#f4f4f4": "#1c1b20"}}>
+            <motion.div className="intro" transition={{ ease: "easeInOut", duration: 0.2 }} animate={{ color: hasScrolled ? "#f4f4f4" : "#1c1b20" }}>
                 <motion.div className="intro__left" initial={{ opacity: 0, translateX: -20 }} animate={{ opacity: 1, translateX: 0 }} transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}
                 >
                     <h3 id="hello">{t('hello')}</h3>
@@ -324,34 +324,22 @@ const Character = () => {
     )
 }
 // React.memo prevents re-renders which we dont want because it will move the stars locations.
-const Stars = React.memo(({hasScrolled}) => {
+const Stars = React.memo(() => {
     // teal, teal, yellow, orange, white
-    const stars_color = ["#89bbc8", "#89bbc8",  "#edaf5b", "#dc633c", "#f1f4f4"]
-
-    const stars_variants = {
-        open: {
-            y: 0,
-            x: 0,
-            opacity: 1,
-        },
-        closed: {
-            y: -(100 + Math.random() * 20),
-            x: (100 + Math.random() * 20) * Math.random() > 0.5? -1: 1,
-            opacity: 0,
-        }
-    }
-    const { scrollY, scrollYProgress } = useViewportScroll()
+    const stars_color = ["#89bbc8", "#89bbc8", "#edaf5b", "#dc633c", "#f1f4f4"]
+    const { scrollY } = useViewportScroll()
+    const opacity = useTransform(scrollY, [5, 110], [1, 0]);
     return (
         STARS_COORDS.map((item, i) => {
+            const x = useTransform(scrollY, [30, 110], [0, (100 + Math.random() * 150) * Math.random() > 0.5 ? -1 : 1]);
+            const y = useTransform(scrollY, [20, 110], [0, (100 + Math.random() * 100)]);
+
             return (<motion.path
                 key={item}
                 fill={stars_color[Math.round(Math.random() * (stars_color.length - 1))]}
                 d={item}
-                initial={{opacity: 1}}
-                variants={stars_variants}
-                animate={hasScrolled ? "closed" : "open"}
-                transition={{ duration: Math.random() }}
-            />);  
+                style={{ x, y, opacity }}
+            />);
         })
     );
 })

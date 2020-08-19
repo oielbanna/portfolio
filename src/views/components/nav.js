@@ -96,14 +96,6 @@ export function MenuIcon({ isClicked, onClickChange }) {
     const top = useSpring(yRange, { stiffness: 200, damping: 50 });
 
     const theIcon = useRef();
-    // useEffect(() => {
-    //     if (isClicked && theIcon.current) {
-    //         console.log('helllooo bitch')
-    //         theIcon.current.style.top = "50%"; // force it!
-    //         document.getElementsByClassName('nav__menu')[0].style.top = "50%"
-    //         console.log(theIcon)
-    //     }
-    // }, [isClicked])
     return (
         <A>
             <motion.div className="nav__menu"
