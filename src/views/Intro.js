@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 import { STARS_COORDS } from "../constants";
@@ -328,12 +328,13 @@ const Stars = React.memo(() => {
     // teal, teal, yellow, orange, white
     const stars_color = ["#89bbc8", "#89bbc8", "#edaf5b", "#dc633c", "#f1f4f4"]
     const { scrollY } = useViewportScroll()
-    const opacity = useTransform(scrollY, [5, 110], [1, 0]);
+    const opacity = useTransform(scrollY, [5, 140], [1, 0]);
     return (
         STARS_COORDS.map((item, i) => {
-            const x = useTransform(scrollY, [30, 110], [0, (100 + Math.random() * 150) * Math.random() > 0.5 ? -1 : 1]);
-            const y = useTransform(scrollY, [20, 110], [0, (100 + Math.random() * 100)]);
-
+            const x = useTransform(scrollY, [30, 140], [0, (Math.random() > 0.3 ? 1 : -1) * (Math.random() * 20)]);
+            const y = useSpring(
+                useTransform(scrollY, [20, 140], [0, (100 + Math.random() * 100)]),
+                {stiffness: 140, damping: 100});
             return (<motion.path
                 key={item}
                 fill={stars_color[Math.round(Math.random() * (stars_color.length - 1))]}

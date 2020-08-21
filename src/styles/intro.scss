@@ -69,6 +69,7 @@
     max-width: 30%;
     text-align: right;
     padding-left: 70px;
+    
     h1 {
       font-size: 2em;
     }
@@ -76,14 +77,9 @@
 }
 
 .outline_text {
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: $lightblack;
-  letter-spacing: 2px;
+  color: $mustard;
+  letter-spacing: 3px;
 
-  &:hover {
-    -webkit-text-fill-color: $lightblack;
-  }
 }
 
 
