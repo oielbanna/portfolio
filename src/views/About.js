@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { useTranslation } from 'react-i18next'
+// import { useTranslation } from 'react-i18next'
 import "../styles/about.scss";
-
+import { A } from "./components";
 function BioLength({bio, changeBio}) {
 
   return (
@@ -29,14 +29,21 @@ function BioLength({bio, changeBio}) {
 
 
 export default () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [bio, changeBio] = useState("short");
-
   return (
     <section id="about" className="about">
       <BioLength bio={bio} changeBio={changeBio} />
       <div className="about_text-container">
-        <h1 dangerouslySetInnerHTML={{ __html: t('about-'+bio) }}/>
+        { bio === "shortest" && (<p><strong>Omar</strong> is trying his very best.</p>)}
+
+        { bio === "short" && (<p><strong>Omar</strong> is a Computer Science &#38; Psychology graduate from <A className="link" target="_blank" href="https://www.mcgill.ca">McGill University</A>. Now, he is working as a full-stack web developer at <A className="link" target="_blank" href="https://www.capitalone.ca">Capital One.</A></p>)}
+
+        { bio === "long" && (<p><strong>Omar</strong> is a full-stack web developer. He likes to experiment with different creative mediums. He spends his time working on <A className="link" href="https://github.com/oielbanna">creative coding projects</A>, writing <A className="link" href="https://medium.com/@oielbanna">Medium articles</A>, making <A className="link" href="https://www.behance.net/oielbanna">digital art</A> while <A className="link" href="https://twitter.com/Omarcodess">tweeting</A> about all of it.</p>)}
+
+        { bio === "longest" && (<p><strong>Omar</strong> </p>)}
+
+        { !["shortest", "short", "long", "longest"].includes(bio) && <p><strong>Omar</strong> is embarassed because there has been an error. Oops.</p>}
       </div>
     </section>
   )

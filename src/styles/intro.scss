@@ -18,8 +18,8 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  font-family: 'Bebas Neue', cursive;
-
+  
+  z-index: 1;
   div {
     margin-bottom: 20vh;
   }
@@ -28,6 +28,7 @@
     max-width: 30%;
     text-align: left;
     padding-right: 70px;
+    font-family: 'Bebas Neue', cursive;
 
     h3 {
       margin: 0;
@@ -51,15 +52,15 @@
       span {
         &::after {
           content: "";
-          width: 10px;
-          height: 10px;
+          width: 12px;
+          height: 12px;
           display: block;
           background-color: $mustard;
           border-radius: 100%;
           position: absolute;
           bottom: 0;
           left: 2.56em;
-          transform: translateY(-10px);
+          transform: translateY(-60%);
         }
       }
     }
@@ -68,8 +69,12 @@
   .intro__right {
     max-width: 30%;
     text-align: right;
-    padding-left: 70px;
-    
+    z-index: inherit;
+    // padding-left: 70px;
+    font-family: 'Bebas Neue', cursive;
+    // text-transform: uppercase;
+    // line-height: 25px;
+
     h1 {
       font-size: 2em;
     }
@@ -82,12 +87,10 @@
 
 }
 
-
-
-
 #home__svg {
   position: fixed;
-  z-index: -1;
+  left: 0px;
+  top: -10px;
 
 }
 
@@ -106,3 +109,5 @@
     transform: scaleY(0);
   } 
 }
+
+@import "./screens.scss";

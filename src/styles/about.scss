@@ -3,24 +3,31 @@
 .about {
     display: flex;
     flex-direction: column;
-    // background-color: $navy;
+    // background-color: $mustard;
     color: $gray;
-
+    z-index: 2;
     .about_text-container {
         padding: 50px 0px;
-        h1 {
-            font-weight: 500;
+        z-index: inherit;
+        max-width: 50%;
+        p {
+            font-size: 21px;
+            line-height: 25px;
+            z-index: inherit;
+
+            .link {
+                text-decoration:underline;
+                color: $mustard;
+            }
         }
     }
-    
-    
 }
-
 
 $check-size: 12px;
 #bio-length-form {
     max-width: 270px;
     min-width: 200px;
+    z-index: inherit;
 
     .fieldset {
         border: none;
@@ -38,7 +45,6 @@ $check-size: 12px;
         text-transform: lowercase;
         font-family: 'Roboto';
     }
-
 
 .container{
     list-style: none;
@@ -86,11 +92,9 @@ $check-size: 12px;
             font-weight: 300;
             font-size: 0.85em;
             letter-spacing: 0.2em;
-            z-index: 9;
             font-family: 'Roboto';
             cursor: pointer;
             transition: all 0.25s linear;
-
 
             &::before { // using this as the outer radiobutton
                 content: "";
@@ -107,7 +111,7 @@ $check-size: 12px;
 
             }
 
-            &::after { // we are using this as the inner dot
+            &::after { // using this as the inner dot
                 content: "";
                 position: absolute;
                 background-color: $mustard;
@@ -127,6 +131,3 @@ $check-size: 12px;
   }
     
 }
-
-
-  

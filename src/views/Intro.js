@@ -65,7 +65,6 @@ const Character = () => {
     return (
         <svg
             id="home__svg"
-            style={{ left: 0, top: "-10px" }}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1450 960"
         >
@@ -328,12 +327,12 @@ const Stars = React.memo(() => {
     // teal, teal, yellow, orange, white
     const stars_color = ["#89bbc8", "#89bbc8", "#edaf5b", "#dc633c", "#f1f4f4"]
     const { scrollY } = useViewportScroll()
-    const opacity = useTransform(scrollY, [5, 140], [1, 0]);
+    const opacity = useTransform(scrollY, [5, 240], [1, 0]);
     return (
         STARS_COORDS.map((item, i) => {
-            const x = useTransform(scrollY, [30, 140], [0, (Math.random() > 0.3 ? 1 : -1) * (Math.random() * 20)]);
+            const x = useTransform(scrollY, [30, 200], [0, (Math.random() > 0.3 ? 1 : -1) * (Math.random() * 20)]);
             const y = useSpring(
-                useTransform(scrollY, [20, 140], [0, (100 + Math.random() * 100)]),
+                useTransform(scrollY, [20, 200], [0, (100 + Math.random() * 100)]),
                 {stiffness: 140, damping: 100});
             return (<motion.path
                 key={item}
