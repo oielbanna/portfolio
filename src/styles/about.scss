@@ -6,6 +6,7 @@
     // background-color: $mustard;
     color: $gray;
     z-index: 2;
+    
     .about_text-container {
         padding: 50px 0px;
         z-index: inherit;
@@ -25,8 +26,8 @@
 
 $check-size: 12px;
 #bio-length-form {
-    max-width: 270px;
-    min-width: 200px;
+    max-width: 160px;
+    min-width: 130px;
     z-index: inherit;
 
     .fieldset {
@@ -51,7 +52,7 @@ $check-size: 12px;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
 
     li {
         color: lighten($gray, 0.4);
@@ -60,7 +61,7 @@ $check-size: 12px;
 
         &:first-child { // "shortest"
             label {
-                letter-spacing: 0.05em;
+                letter-spacing: 0.01em;
             }
         }
 
@@ -115,10 +116,10 @@ $check-size: 12px;
                 content: "";
                 position: absolute;
                 background-color: $mustard;
-                top: - ($check-size + ($check-size * 0.5) - 1);
-                left: 1px;
-                width: $check-size;
-                height: $check-size;
+                top: - ($check-size + ($check-size * 0.5));
+                left: 0px;
+                width: $check-size + 2;
+                height: $check-size + 2;
                 transform: translate(0%, -100%);
                 border-radius: 100%;
                 transition: all 0.25s cubic-bezier(.68,-0.55,.27,1.55);

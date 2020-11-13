@@ -2,19 +2,18 @@ import React, { useState } from "react"
 // import { useTranslation } from 'react-i18next'
 import "../styles/about.scss";
 import { A } from "./components";
+
 function BioLength({bio, changeBio}) {
-
   return (
-
     <form id="bio-length-form">
       <fieldset className="fieldset">
         <legend className="legend">Adjust bio length:</legend>
         <ul className="container">
-          {['shortest', 'short', 'long', 'longest'].map((item, i) => {
+          {bioLengths.map((item, i) => {
             return (
               <li key={i}>
                 <input id={'input' + (i + 1)} name="bio-length" type="radio" value={item} checked={bio === item} onChange={() => changeBio(item)} />
-                <label htmlFor={'input' + (i + 1)} >{i === 0 || i === 3 ? item : ""}</label>
+                <label htmlFor={'input' + (i + 1)} >{i === 0 || i === 2 ? item : ""}</label>
               </li>
             );
           })}
@@ -22,15 +21,14 @@ function BioLength({bio, changeBio}) {
 
       </fieldset>
     </form>
-
-
   );
 }
 
+const bioLengths = ['shortest', 'mid', 'longest'];
 
 export default () => {
   // const { t } = useTranslation();
-  const [bio, changeBio] = useState("short");
+  const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
   return (
     <section id="about" className="about">
       <BioLength bio={bio} changeBio={changeBio} />
@@ -43,7 +41,7 @@ export default () => {
 
         { bio === "longest" && (<p><strong>Omar</strong> </p>)}
 
-        { !["shortest", "short", "long", "longest"].includes(bio) && <p><strong>Omar</strong> is embarassed because there has been an error. Oops.</p>}
+        { !bioLengths.includes(bio) && <p><strong>Omar</strong> is embarassed because there has been an error. Oops.</p>}
       </div>
     </section>
   )
