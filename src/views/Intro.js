@@ -330,9 +330,9 @@ const Stars = React.memo(() => {
     const opacity = useTransform(scrollY, [5, 240], [1, 0]);
     return (
         STARS_COORDS.map((item, i) => {
-            const x = useTransform(scrollY, [30, 200], [0, (Math.random() > 0.3 ? 1 : -1) * (Math.random() * 20)]);
+            const x = useTransform(scrollY, [30, 200], [0, (Math.random() > 0.3 ? 1 : -1) * (Math.random() * 2)]);
             const y = useSpring(
-                useTransform(scrollY, [20, 200], [0, (100 + Math.random() * 100)]),
+                useTransform(scrollY, [20, 200], [0, (Math.random() * 50)]),
                 {stiffness: 140, damping: 100});
             return (<motion.path
                 key={item}
