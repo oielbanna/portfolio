@@ -2,8 +2,13 @@
 
 #intro {
     display: flex;
-    
+    height: 100vh;
+    padding-left: 14%;
+
     .bio_intro-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         #hello {
             transform-origin: center left;
@@ -15,9 +20,11 @@
 
         #name {
             font-family: "bebas neue";
-            font-size: 15em;
-            line-height: 175px;
-            margin: 0;
+            font-size: 17em;
+            line-height: 187px;
+            margin: 22px 0 0 0;
+            transform: scaleY(1.2);
+            letter-spacing: -7px;
         }
     }
 

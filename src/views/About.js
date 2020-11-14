@@ -40,6 +40,7 @@ export default () => {
             Omar <br /> Ibrahim
         </h1>
         </div>
+        <Character />
       </section>
       <section id="about" className="about">
         <BioLength bio={bio} changeBio={changeBio} />
