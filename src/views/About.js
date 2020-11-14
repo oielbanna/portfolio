@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import "../styles/about.scss";
 import { A, Character } from "./components";
 import { CONTACTS } from "../constants";
@@ -28,8 +28,6 @@ function BioLength({ bio, changeBio }) {
 }
 
 const fullScrollRange = [15, 160];
-const shortScrollRange = [130, 170];
-// const shortestRange = [160, 163];
 
 export default () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -87,7 +85,7 @@ export default () => {
         <div className="bio_text-container">
           {bio === "shortest" && (<p><strong>Omar</strong> is trying his very best.</p>)}
 
-          {bio === "mid" && (<p><strong>Omar</strong> likes to make fun, interactive things with code. He gets particularly excited when these things involve working with others to make an even bigger impact.</p>)}
+          {bio === "mid" && (<p><strong>Omar</strong> likes to make fun, <span className="shake">interactive</span> things with code. He gets particularly excited when these things involve working with others to make an even bigger impact.</p>)}
 
           {bio === "longest" && (<p><strong>Omar</strong> is a full-stack web developer at <A className="link" href="https://www.capitalone.ca/">Capital One</A> based in Toronto, Canada (but that's flexible considering, you know...the pandemic). He likes to <A className="link" target="_blank" href={CONTACTS.GITHUB.URL}>code</A> with React/Vue and Spring Boot. But his true passion lies in Software Architecture. So, he set out on a journey to take the <A className="link" href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">AWS Certified Solutions Architect</A> Course - which you can follow on <A className="link" href={CONTACTS.TWITTER.URL}>Twitter.</A> He also enjoys writing medium articles sometimes - he says it helps him <q><i>explore a new medium.</i></q></p>)}
 
