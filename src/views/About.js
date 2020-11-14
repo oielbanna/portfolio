@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-// import { useTranslation } from 'react-i18next'
+import React, { useState } from "react";
+import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion";
 import "../styles/about.scss";
 import { A, Character } from "./components";
 
@@ -27,20 +27,22 @@ function BioLength({ bio, changeBio }) {
 }
 
 export default () => {
-  // const { t } = useTranslation();
   const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
   return (
-    <>
+    <div style={{height: "120vh"}}>
       <section id="intro">
         <div className="bio_intro-container">
           <h1 id="hello">
-            <span role="img" aria-label="Wave">👋</span> hi, I am
-        </h1>
-          <h1 id="name">
-            Omar <br /> Ibrahim
-        </h1>
+            <span role="img" aria-label="Wave">👋</span> hi, I'm
+          </h1>
+          <motion.h1
+            id="name"
+
+          >
+            Omar Ibrahim
+          </motion.h1>
         </div>
-        <Character />
+        {/* <Character /> */}
       </section>
       <section id="about" className="about">
         <BioLength bio={bio} changeBio={changeBio} />
@@ -54,6 +56,6 @@ export default () => {
           {!bioLengths.includes(bio) && <p><strong>Omar</strong> is embarassed because there has been an error. Oops.</p>}
         </div>
       </section>
-    </>
+    </div>
   )
 }
