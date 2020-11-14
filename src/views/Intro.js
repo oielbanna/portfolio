@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
-import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useViewportScroll } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
-import { STARS_COORDS } from "../constants";
 import Character from "./components/Character";
 
 function Intro() {

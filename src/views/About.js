@@ -34,7 +34,7 @@ export default () => {
       <section id="intro">
         <div className="bio_intro-container">
           <h1 id="hello">
-            👋 hi, I am
+            <span role="img" aria-label="Wave">👋</span> hi, I am
         </h1>
           <h1 id="name">
             Omar <br /> Ibrahim
