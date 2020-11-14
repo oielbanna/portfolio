@@ -1,8 +1,6 @@
 @import "./colors.scss";
 
 #intro {
-    display: flex;
-    justify-content: center;
     position: sticky;
     top: 0;
     max-height: 50vh;
@@ -26,8 +24,14 @@
             font-size: 17em;
             line-height: 187px;
             margin: 30px 0 0 0;
-            transform: scaleY(1.2);
+            transform: scaleY(1.2) scaleX(0.8) translateX(-10px);
+            transform-origin: left;
             letter-spacing: -7px;
+
+
+            span {
+                display: inline-block;
+            }
         }
     }
 
@@ -35,20 +39,16 @@
 
 .about {
     display: flex;
-    flex-direction: column;
     color: $gray;
-    
     transform: matrix(1, 0, 0, 1, 0, 0);
 
     .bio_text-container {
-        padding: 50px 0px;
-        z-index: inherit;
         max-width: 50%;
+        margin-left: 100px;
 
         p {
-            font-size: 21px;
-            line-height: 25px;
-            z-index: inherit;
+            font-size: 28px;
+            margin: 0;
 
             .link {
                 text-decoration: underline;
@@ -58,12 +58,10 @@
     }
 }
 
-$check-size: 12px;
+$check-size: 18px;
 
 #bio-length-form {
-    max-width: 160px;
-    min-width: 130px;
-    z-index: inherit;
+    width: clamp(5%, 20%, 40%);
 
     .fieldset {
         border: none;
@@ -72,7 +70,7 @@ $check-size: 12px;
     }
 
     .legend {
-        font-size: 0.85rem;
+        font-size: 1.3rem;
         font-variant: small-caps;
         font-weight: 400;
         letter-spacing: 0.05em;
@@ -128,7 +126,7 @@ $check-size: 12px;
                 display: block;
                 position: relative;
                 font-weight: 300;
-                font-size: 0.85em;
+                font-size: 1.2em;
                 letter-spacing: 0.2em;
                 font-family: 'Roboto';
                 cursor: pointer;

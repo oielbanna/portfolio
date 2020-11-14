@@ -26,20 +26,36 @@ function BioLength({ bio, changeBio }) {
   );
 }
 
+const fullScrollRange = [15, 160];
+const shortScrollRange = [130, 170];
+const shortestRange = [160, 170];
+
 export default () => {
   const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
+  const { scrollY } = useViewportScroll()
+  const opacity = useTransform(scrollY, fullScrollRange, [1, 0]);
+  const y = useTransform(scrollY, shortScrollRange, [0, 20]);
+
+  // const oTransform = {
+  //   y: useTransform(scrollY, shortestRange, [0, -120]),
+  //   x: useTransform(scrollY, shortestRange, [0, -120]),
+  //   fontSize: useTransform(scrollY, shortestRange, [0, -120]),
+  // };
+  // const y_I = useTransform(scrollY, shortestRange, [0, 20]);
+
   return (
-    <div style={{height: "120vh"}}>
+    <div style={{ height: "120vh" }}>
       <section id="intro">
         <div className="bio_intro-container">
-          <h1 id="hello">
+          <motion.h1 id="hello" style={{ opacity }}>
             <span role="img" aria-label="Wave">👋</span> hi, I'm
-          </h1>
+          </motion.h1>
           <motion.h1
             id="name"
-
           >
-            Omar Ibrahim
+            Omar
+            &nbsp;
+            Ibrahim
           </motion.h1>
         </div>
         {/* <Character /> */}
