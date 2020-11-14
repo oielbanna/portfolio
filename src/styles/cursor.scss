@@ -23,20 +23,24 @@ $size: 23px;
 
 // scale doesnt work because of animation
 .follow__active {
-    width: calc(#{$size} * 3.2);
-    height: calc(#{$size}  * 3.2);
+  width: calc(#{$size} * 3.2);
+  height: calc(#{$size} * 3.2);
 }
 
 
 @keyframes pulse {
-    0% {
-      transform: scale(0.8) translate(-50%, -50%);;
-    }
-    50% {
-      transform: scale(1) translate(-50%, -50%);;
-    }
-    100% {
-        transform: scale(0.8) translate(-50%, -50%);;
-    }
+  0% {
+    transform: scale(0.8) translate(-50%, -50%);
+    ;
   }
-  
+
+  50% {
+    transform: scale(1) translate(-50%, -50%);
+    ;
+  }
+
+  100% {
+    transform: scale(0.8) translate(-50%, -50%);
+    ;
+  }
+}

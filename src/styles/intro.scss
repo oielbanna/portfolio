@@ -3,10 +3,12 @@
 .stars_hov {
   animation: glowingPulse alternate infinite;
 }
+
 @keyframes glowingPulse {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0.1;
   }
@@ -18,8 +20,9 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  
+
   z-index: 1;
+
   div {
     margin-bottom: 20vh;
   }
@@ -37,6 +40,7 @@
       margin-left: 5px;
       font-family: "Sacramento", cursive;
     }
+
     #hello {
       transform-origin: center left;
       transform: rotate(-8deg);
@@ -94,20 +98,24 @@
 
 }
 
-#eye-left, #eye-right {
+#eye-left,
+#eye-right {
   animation: twitch 4.2s infinite cubic-bezier(0.93, 0.01, 0.36, 1);
   // transform-origin: attr(data-svg-origin);
   transform-origin: 716px 495px;
 }
 
 @keyframes twitch {
-  0%, 10%, 100% {
+
+  0%,
+  10%,
+  100% {
     transform: scaleY(1);
   }
 
   5% {
     transform: scaleY(0);
-  } 
+  }
 }
 
 @import "./screens.scss";

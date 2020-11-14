@@ -1,42 +1,46 @@
 // iphone ish
-@media only screen and (max-width: 750px){
-    // Intro
-    #home__svg {
-      left: 50%;
-      top: 0px;
-      transform: translateX(-50%);
-      height: 100vh;
-      // position: relative;
-    }
-  
-    .intro {
-      flex-direction: column;
-      margin-top: 85vh;
-      align-items: center;
-      justify-content: start;
-      height: auto;
-  
-      div, .intro__left, .intro__right {
-        margin-bottom: unset;
-        padding: unset;
-        max-width: unset;
-        text-align: center;
-      }
-    }
+@media only screen and (max-width: 750px) {
 
-    // About
-    .about {
-        .about_text-container {
-            max-width: 95%;
-        }
+  // Intro
+  #home__svg {
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+    height: 100vh;
+    // position: relative;
+  }
+
+  .intro {
+    flex-direction: column;
+    margin-top: 85vh;
+    align-items: center;
+    justify-content: start;
+    height: auto;
+
+    div,
+    .intro__left,
+    .intro__right {
+      margin-bottom: unset;
+      padding: unset;
+      max-width: unset;
+      text-align: center;
     }
+  }
+
+  // About
+  .about {
+    .about_text-container {
+      max-width: 95%;
+    }
+  }
 
 
-    // App.js
-    .App section {
-        padding: 35px;
-    }
-    .follow {
-        display: none;
-    }
+  // App.js
+  .App section {
+    padding: 35px;
+  }
+
+  .follow {
+    display: none;
+  }
 }

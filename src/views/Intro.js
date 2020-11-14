@@ -333,7 +333,7 @@ const Stars = React.memo(() => {
             const x = useTransform(scrollY, [30, 200], [0, (Math.random() > 0.3 ? 1 : -1) * (Math.random() * 2)]);
             const y = useSpring(
                 useTransform(scrollY, [20, 200], [0, (Math.random() * 50)]),
-                {stiffness: 140, damping: 100});
+                { stiffness: 140, damping: 100 });
             return (<motion.path
                 key={item}
                 fill={stars_color[Math.round(Math.random() * (stars_color.length - 1))]}

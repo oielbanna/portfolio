@@ -1,21 +1,22 @@
 @import "./colors.scss";
 
 .App {
-    // text-align: center;
-    // display: flex;
-    // justify-content: center;
-    color: $lightblack;
+  // text-align: center;
+  // display: flex;
+  // justify-content: center;
+  color: $lightblack;
 
-    section {
-      width: 100vw;
-      padding: 75px;
-    }
+  section {
+    width: 100vw;
+    padding: 75px;
+  }
 }
 
 .on-top {
   z-index: 100;
   transition: 0.5s cubic-bezier(0.670, 0.005, 0.355, 1.650) width, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) height !important;
 }
+
 .follow__active {
   width: 75px !important;
   height: 75px !important;

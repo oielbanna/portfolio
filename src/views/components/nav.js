@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion"
 import LanguageSelector from "./LanguageSelector";
 
-export function MenuLinks({ isClicked, className, onClickChange}) {
+export function MenuLinks({ isClicked, className, onClickChange }) {
     const { t } = useTranslation();
     const data = [{
         id: "home",
@@ -144,7 +144,7 @@ export const Navigation = () => {
                         <h1 dangerouslySetInnerHTML={{ __html: t("nav-lost?") }} />
                         <div className="border" />
 
-                        <MenuLinks className="menu" isClicked={isClicked} onClickChange={setClicked}/>
+                        <MenuLinks className="menu" isClicked={isClicked} onClickChange={setClicked} />
                     </div>
 
                     <div className="contact">
@@ -162,7 +162,7 @@ export const Navigation = () => {
                 </div>
                 <div className="graphic_area" >
                     <LanguageSelector />
-                    <img src={require("../../assets/nav-art.png")} height="600" alt={"polka dots on white background"}/>
+                    <img src={require("../../assets/nav-art.png")} height="600" alt={"polka dots on white background"} />
                 </div>
             </motion.div>
         </nav>

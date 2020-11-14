@@ -6,18 +6,19 @@
     // background-color: $mustard;
     color: $gray;
     z-index: 2;
-    
+
     .about_text-container {
         padding: 50px 0px;
         z-index: inherit;
         max-width: 50%;
+
         p {
             font-size: 21px;
             line-height: 25px;
             z-index: inherit;
 
             .link {
-                text-decoration:underline;
+                text-decoration: underline;
                 color: $mustard;
             }
         }
@@ -25,6 +26,7 @@
 }
 
 $check-size: 12px;
+
 #bio-length-form {
     max-width: 160px;
     min-width: 130px;
@@ -35,7 +37,7 @@ $check-size: 12px;
         padding: 0;
         padding-top: $check-size * 2; // leave the size of the radio button to the top
     }
-      
+
     .legend {
         font-size: 0.85rem;
         font-variant: small-caps;
@@ -47,88 +49,92 @@ $check-size: 12px;
         font-family: 'Roboto';
     }
 
-.container{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    .container {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
 
-    li {
-        color: lighten($gray, 0.4);
-        display: inline-block;
-        position: relative;
+        li {
+            color: lighten($gray, 0.4);
+            display: inline-block;
+            position: relative;
 
-        &:first-child { // "shortest"
-            label {
-                letter-spacing: 0.01em;
+            &:first-child {
+
+                // "shortest"
+                label {
+                    letter-spacing: 0.01em;
+                }
             }
-        }
 
-        input[type=radio] {
-            position: absolute;
-            visibility: hidden;
-            width: 100%;
-            height: 100%;
+            input[type=radio] {
+                position: absolute;
+                visibility: hidden;
+                width: 100%;
+                height: 100%;
 
-            &:checked {
-                ~ label {
-                    color: $mustard;
-        
-                    &::before {
-                        border-color: $mustard;
-                    }
-        
-                    &::after {
-                        transform: translate(0%, 0%);
-                        visibility: visible;
+                &:checked {
+                    ~label {
+                        color: $mustard;
+
+                        &::before {
+                            border-color: $mustard;
+                        }
+
+                        &::after {
+                            transform: translate(0%, 0%);
+                            visibility: visible;
+                        }
                     }
                 }
             }
-        }
 
-        label {
-            display: block;
-            position: relative;
-            font-weight: 300;
-            font-size: 0.85em;
-            letter-spacing: 0.2em;
-            font-family: 'Roboto';
-            cursor: pointer;
-            transition: all 0.25s linear;
-
-            &::before { // using this as the outer radiobutton
-                content: "";
-                position: absolute;
-                height: $check-size;
-                width: $check-size;
-                background-color: transparent;
-                border: 1px solid $gray;
-                top: - (($check-size * 0.5) + $check-size);
-                left: 0px;
-                // transform: translateX(-50%);
-                border-radius: 100%;
+            label {
+                display: block;
+                position: relative;
+                font-weight: 300;
+                font-size: 0.85em;
+                letter-spacing: 0.2em;
+                font-family: 'Roboto';
+                cursor: pointer;
                 transition: all 0.25s linear;
 
-            }
+                &::before {
+                    // using this as the outer radiobutton
+                    content: "";
+                    position: absolute;
+                    height: $check-size;
+                    width: $check-size;
+                    background-color: transparent;
+                    border: 1px solid $gray;
+                    top: - (($check-size * 0.5) + $check-size);
+                    left: 0px;
+                    // transform: translateX(-50%);
+                    border-radius: 100%;
+                    transition: all 0.25s linear;
 
-            &::after { // using this as the inner dot
-                content: "";
-                position: absolute;
-                background-color: $mustard;
-                top: - ($check-size + ($check-size * 0.5));
-                left: 0px;
-                width: $check-size + 2;
-                height: $check-size + 2;
-                transform: translate(0%, -100%);
-                border-radius: 100%;
-                transition: all 0.25s cubic-bezier(.68,-0.55,.27,1.55);
-                visibility: hidden;
+                }
+
+                &::after {
+                    // using this as the inner dot
+                    content: "";
+                    position: absolute;
+                    background-color: $mustard;
+                    top: - ($check-size + ($check-size * 0.5));
+                    left: 0px;
+                    width: $check-size + 2;
+                    height: $check-size + 2;
+                    transform: translate(0%, -100%);
+                    border-radius: 100%;
+                    transition: all 0.25s cubic-bezier(.68, -0.55, .27, 1.55);
+                    visibility: hidden;
 
 
+                }
             }
         }
     }
-  }
-    
+
 }

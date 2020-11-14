@@ -12,12 +12,12 @@ function App() {
       <Context.Provider>
         <div className="App">
           <Cursor />
-          
+
           <main>
             <Intro />
             <About />
           </main>
-          
+
         </div>
       </Context.Provider>
     </Suspense>
