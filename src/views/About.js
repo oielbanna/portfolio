@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import "../styles/about.scss";
-import { A, Character } from "./components";
+import { A } from "./components";
 import { CONTACTS } from "../constants";
 
 const bioLengths = ['shortest', 'mid', 'longest'];
