@@ -1,17 +1,33 @@
 @import "./colors.scss";
 
+#intro {
+    display: flex;
+    
+    .bio_intro-container {
+
+        #hello {
+            transform-origin: center left;
+            transform: rotate(-8deg);
+            font-family: "Sacramento", cursive;
+            font-size: 4em;
+            margin: 0 0;
+        }
+
+        #name {
+            font-family: "bebas neue";
+            font-size: 15em;
+            line-height: 175px;
+            margin: 0;
+        }
+    }
+
+}
+
 .about {
     display: flex;
     flex-direction: column;
     color: $gray;
     z-index: 2;
-
-    #hello {
-        transform-origin: center left;
-        transform: rotate(-8deg);
-        font-family: "Sacramento", cursive;
-        margin: 0 0;
-    }
 
     .bio_text-container {
         padding: 50px 0px;

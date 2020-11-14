@@ -3,11 +3,8 @@
 body,
 html {
   margin: 0;
-  font-family: jwf, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-
-  // font-family: 'Bebas Neue', cursive;
-  // height: 100vh;
-  color: rgb(201, 203, 196);
+  font-family: 'Lato', sans-serif;
+  color: $gray;
   background-color: $darkblack;
 
 }
@@ -22,6 +19,7 @@ body {
 
 #root {
   position: relative;
+  color: $gray;
 }
 
 b,
