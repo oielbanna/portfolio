@@ -25,7 +25,7 @@
             line-height: 187px;
             margin: 30px 0 0 0;
             transform: scaleY(1.2) scaleX(0.8) translateX(-10px);
-            transform-origin: left;
+            transform-origin: bottom left;
             letter-spacing: -7px;
 
 
@@ -49,6 +49,7 @@
         p {
             font-size: 28px;
             margin: 0;
+            line-height: 43px;
 
             .link {
                 text-decoration: underline;

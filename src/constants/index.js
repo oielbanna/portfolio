@@ -1,3 +1,13 @@
+export const CONTACTS = {
+    GITHUB: {
+        URL: 'https://github.com/oielbanna/'
+    },
+    TWITTER: {
+        URL: 'https://twitter.com/Omarcodess'
+    }
+}
+
+
 export const STARS_COORDS = [
     "M1103 146c-1 4 0 6 5 9-5 1-9 2-9 7-2-4-5-7-10-6 4-3 4-6 3-10 2 1 7 6 11 0z",
     "M1089 367c-8 0-13 2-14 9l-2-1c-2-6-5-8-10-9-3 0-2-1-1-2l1-1c4-2 5-6 3-11v-2l1-1c5 5 11 6 17 1-3 7-2 13 5 17z",
