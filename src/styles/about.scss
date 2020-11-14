@@ -3,11 +3,17 @@
 .about {
     display: flex;
     flex-direction: column;
-    // background-color: $mustard;
     color: $gray;
     z-index: 2;
 
-    .about_text-container {
+    #hello {
+        transform-origin: center left;
+        transform: rotate(-8deg);
+        font-family: "Sacramento", cursive;
+        margin: 0 0;
+    }
+
+    .bio_text-container {
         padding: 50px 0px;
         z-index: inherit;
         max-width: 50%;

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 // import { useTranslation } from 'react-i18next'
 import "../styles/about.scss";
 import { A } from "./components";
+const bioLengths = ['shortest', 'mid', 'longest'];
 
 function BioLength({ bio, changeBio }) {
   return (
@@ -24,15 +25,22 @@ function BioLength({ bio, changeBio }) {
   );
 }
 
-const bioLengths = ['shortest', 'mid', 'longest'];
-
 export default () => {
   // const { t } = useTranslation();
   const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
   return (
     <section id="about" className="about">
+      <div className="bio_intro-container">
+        <h1 id="hello">
+          👋 hi, I am
+        </h1>
+        <h1>
+          Omar Ibrahim
+        </h1>
+      </div>
+
       <BioLength bio={bio} changeBio={changeBio} />
-      <div className="about_text-container">
+      <div className="bio_text-container">
         {bio === "shortest" && (<p><strong>Omar</strong> is trying his very best.</p>)}
 
         {bio === "short" && (<p><strong>Omar</strong> is a Computer Science &#38; Psychology graduate from <A className="link" target="_blank" href="https://www.mcgill.ca">McGill University</A>. Now, he is working as a full-stack web developer at <A className="link" target="_blank" href="https://www.capitalone.ca">Capital One.</A></p>)}

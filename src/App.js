@@ -14,7 +14,7 @@ function App() {
           <Cursor />
 
           <main>
-            <Intro />
+            {/* <Intro /> */}
             <About />
           </main>
 
