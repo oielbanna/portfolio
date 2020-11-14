@@ -28,23 +28,31 @@ function BioLength({ bio, changeBio }) {
 
 const fullScrollRange = [15, 160];
 const shortScrollRange = [130, 170];
-const shortestRange = [160, 170];
+// const shortestRange = [160, 163];
 
 export default () => {
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
   const { scrollY } = useViewportScroll()
   const opacity = useTransform(scrollY, fullScrollRange, [1, 0]);
-  const y = useTransform(scrollY, shortScrollRange, [0, 20]);
-
-  // const oTransform = {
-  //   y: useTransform(scrollY, shortestRange, [0, -120]),
-  //   x: useTransform(scrollY, shortestRange, [0, -120]),
-  //   fontSize: useTransform(scrollY, shortestRange, [0, -120]),
-  // };
-  // const y_I = useTransform(scrollY, shortestRange, [0, 20]);
-
+  const y = useTransform(scrollY, [160, 605], [0, -500]);
+  
+  scrollY.onChange(value => {
+    console.log(value);
+    if (value > 144) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
+    }
+  });
+  // const nameStyle = {
+  //   fontSize: useTransform(scrollY, shortestRange, ["17em", "5em"]),
+  //   letterSpacing: "0px",
+  //   transform: "none",
+  // }
+  
   return (
-    <div style={{ height: "120vh" }}>
+    <div style={{ height: "200vh" }}>
       <section id="intro">
         <div className="bio_intro-container">
           <motion.h1 id="hello" style={{ opacity }}>
@@ -52,10 +60,23 @@ export default () => {
           </motion.h1>
           <motion.h1
             id="name"
+            initial={{
+              scaleY: 1.2,
+              scaleX: 0.8, 
+              translateX: "-10px",
+            }}
+            animate={{
+              scaleY: hasScrolled? 0.2: 1.2,
+              scaleX:  hasScrolled? 0.2: 0.8,
+              translateX: hasScrolled? 0 : "-10px",
+            }}
+            transition={{ 
+              ease: "easeInOut", 
+              duration: 0.4 
+            }}
+            style={{ y }} // im really sorry
           >
-            Omar
-            &nbsp;
-            Ibrahim
+            Omar Ibrahim
           </motion.h1>
         </div>
         {/* <Character /> */}

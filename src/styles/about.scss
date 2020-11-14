@@ -1,7 +1,7 @@
 @import "./colors.scss";
 
 #intro {
-    position: sticky;
+    position: sticky; // make the cool scrolling work
     top: 0;
     max-height: 50vh;
     padding-top: 160px;
