@@ -27,14 +27,14 @@ function BioLength({ bio, changeBio }) {
   );
 }
 
-const fullScrollRange = [15, 160];
+const fullScrollRange = [15, 60];
 
 export default () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
   const { scrollY } = useViewportScroll()
   const opacity = useTransform(scrollY, fullScrollRange, [1, 0]);
-  const y = useTransform(scrollY, [160, 605], [0, -470]);
+  const y = useTransform(scrollY, [60, 165], [0, -320]);
   
   scrollY.onChange(value => {
     console.log(value);
@@ -61,13 +61,11 @@ export default () => {
             id="name"
             initial={{
               scaleY: 1.2,
-              scaleX: 0.8, 
-              translateX: "-10px",
+              scaleX: 0.8,
             }}
             animate={{
               scaleY: hasScrolled? 0.2: 1.2,
               scaleX:  hasScrolled? 0.2: 0.8,
-              translateX: hasScrolled? 0 : "-10px",
             }}
             transition={{ 
               ease: "easeInOut", 

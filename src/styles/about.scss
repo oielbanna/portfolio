@@ -12,22 +12,26 @@
         flex-direction: column;
         justify-content: center;
 
+        // background-color: aquamarine;
         #hello {
             transform-origin: center left;
-            transform: rotate(-8deg);
+            // transform: rotate(-2deg);
             font-family: "Sacramento", cursive;
             font-size: 4em;
+            line-height: 80px;
             margin: 0 0;
+            // background-color: salmon;
         }
 
         #name {
             font-family: "bebas neue";
-            font-size: 17em;
-            line-height: 187px;
-            margin: 30px 0 0 0;
-            transform: scaleY(1.2) scaleX(0.8) translateX(-10px);
+            font-size: 10rem;
+            line-height: 130px;
+            margin: 18px 0 0 0;
             transform-origin: bottom left;
-            letter-spacing: -7px;
+            letter-spacing: 2px;
+
+            // background-color: pink;
 
             span {
                 display: inline-block;
@@ -43,13 +47,13 @@
     transform: matrix(1, 0, 0, 1, 0, 0);
 
     .bio_text-container {
-        max-width: 50%;
+        max-width: 60%;
         margin-left: 100px;
 
         p {
-            font-size: 28px;
+            font-size: 18px;
             margin: 0;
-            line-height: 43px;
+            line-height: 30px;
 
             .link {
                 text-decoration: underline;
@@ -59,6 +63,7 @@
             // TODO: start here withthe shake animation
             .shake {
                 position: inline-block;
+
                 &:hover {
                     animation: shake 0.5s;
                     animation-iteration-count: infinite;
@@ -68,10 +73,10 @@
     }
 }
 
-$check-size: 18px;
+$check-size: 12px;
 
 #bio-length-form {
-    width: clamp(5%, 20%, 40%);
+    width: clamp(150px, 200px, 300px);
 
     .fieldset {
         border: none;
@@ -80,7 +85,7 @@ $check-size: 18px;
     }
 
     .legend {
-        font-size: 1.3rem;
+        font-size: 0.8rem;
         font-variant: small-caps;
         font-weight: 400;
         letter-spacing: 0.05em;
@@ -106,7 +111,7 @@ $check-size: 18px;
 
                 // "shortest"
                 label {
-                    letter-spacing: 0.01em;
+                    letter-spacing: 0.01px;
                 }
             }
 
@@ -136,7 +141,7 @@ $check-size: 18px;
                 display: block;
                 position: relative;
                 font-weight: 300;
-                font-size: 1.2em;
+                font-size: 0.8rem;
                 letter-spacing: 0.2em;
                 font-family: 'Roboto';
                 cursor: pointer;
