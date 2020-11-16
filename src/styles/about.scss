@@ -63,11 +63,11 @@
         #hello {
             // display: none;
             position: absolute;
-            top: calc(-1rem - 3px);
+            top: calc(-1rem - 4px);
             font-family: "Sacramento", cursive;
             font-size: 1rem;
             margin: 0 0;
-            transform: scaleY(0.8) scale(0.8) rotate(-5deg);
+            transform: scaleY(0.8) scale(0.7) rotate(-5deg);
             transform-origin: bottom left;
         }
     }

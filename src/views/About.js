@@ -35,7 +35,6 @@ export default () => {
   const { scrollY } = useViewportScroll()
   const opacity = useTransform(scrollY, fullScrollRange, [1, 0]);
   const y = useTransform(scrollY, [0, 160], [-80, 0]);
-  const yGreeting = useTransform(scrollY, [0, 160], [0, 140]);
 
   scrollY.onChange(value => {
     console.log(value);
@@ -54,11 +53,11 @@ export default () => {
               id="name"
               initial={{
                 scaleY: 4.2,
-                scaleX: 3.3,
+                scaleX: 3,
               }}
               animate={{
                 scaleY: hasScrolled? 1: 4.2,
-                scaleX:  hasScrolled? 1: 3.3,
+                scaleX:  hasScrolled? 1: 3,
               }}
               transition={{ 
                 ease: "easeInOut", 
