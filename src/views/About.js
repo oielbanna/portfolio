@@ -48,16 +48,7 @@ export default () => {
   
   return (
     <>
-      <section id="about" className="about">
-        <section id="intro">
-          <div className="bio_intro-container">
-            <motion.h1 id="hello" style={{ opacity, y: yGreeting }}>
-              <span role="img" aria-label="Wave">👋</span> hi, I'm
-            </motion.h1>
-          </div>
-          {/* <Character /> */}
-        </section>
-        <div className="row">
+      <section id="about" className="about row">
           <div>
             <motion.h1
               id="name"
@@ -75,6 +66,9 @@ export default () => {
               }}
               style={{ y }} // im really sorry
             >
+              <motion.h1 id="hello" style={{ opacity }}>
+                <span role="img" aria-label="Wave">👋</span> hi, I'm
+              </motion.h1>
               Omar Ibrahim
             </motion.h1>
             <BioLength bio={bio} changeBio={changeBio} />
@@ -88,7 +82,6 @@ export default () => {
 
             {!bioLengths.includes(bio) && <p><strong>Omar</strong> is embarassed because there has been an error. Oops.</p>}
           </div>
-        </div>
       </section>
     </>
   )

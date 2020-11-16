@@ -1,32 +1,25 @@
 @import "./colors.scss";
 
-#intro {
-    max-height: 50vh;
-    color: $gray;
-    padding-bottom: 220px;
-    padding-top: 100px;
+// #intro {
+//     max-height: 50vh;
+//     color: $gray;
+//     padding-bottom: 220px;
+//     padding-top: 100px;
 
-    .bio_intro-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+//     .bio_intro-container {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
 
-        // background-color: aquamarine;
-        #hello {
-            transform-origin: center left;
-            // transform: rotate(-2deg);
-            font-family: "Sacramento", cursive;
-            font-size: 4em;
-            line-height: 80px;
-            margin: 0 0;
-            // background-color: salmon;
-        }
-    }
-}
+//         // background-color: aquamarine;
+
+//     }
+// }
 
 .about {
     color: $gray;
     transform: matrix(1, 0, 0, 1, 0, 0);
+    padding-top: 50vh !important;
 
     .bio_text-container {
         max-width: 60%;
@@ -55,10 +48,9 @@
     }
 
     #name {
+        position: relative;
         font-family: "bebas neue";
         font-size: 2rem;
-        line-height: 40px; // 130px
-
         margin: 0;
         transform-origin: bottom left;
         letter-spacing: 2px;
@@ -66,6 +58,17 @@
 
         span {
             display: inline-block;
+        }
+
+        #hello {
+            // display: none;
+            position: absolute;
+            top: calc(-1rem - 3px);
+            font-family: "Sacramento", cursive;
+            font-size: 1rem;
+            margin: 0 0;
+            transform: scaleY(0.8) scale(0.8) rotate(-5deg);
+            transform-origin: bottom left;
         }
     }
 }
