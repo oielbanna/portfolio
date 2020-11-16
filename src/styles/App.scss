@@ -1,10 +1,15 @@
 @import "./colors.scss";
 
 .App {
-  section {
+  main > section {
     padding: 75px 75px 75px 15em;
     color: $textGray;
   }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
 // .on-top {

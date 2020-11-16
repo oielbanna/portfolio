@@ -1,11 +1,10 @@
 @import "./colors.scss";
 
 #intro {
-    position: sticky; // make the cool scrolling work
-    top: 0;
     max-height: 50vh;
-    padding-top: 160px;
     color: $gray;
+    padding-bottom: 220px;
+    padding-top: 100px;
 
     .bio_intro-container {
         display: flex;
@@ -22,27 +21,10 @@
             margin: 0 0;
             // background-color: salmon;
         }
-
-        #name {
-            font-family: "bebas neue";
-            font-size: 10rem;
-            line-height: 130px;
-            margin: 18px 0 0 0;
-            transform-origin: bottom left;
-            letter-spacing: 2px;
-
-            // background-color: pink;
-
-            span {
-                display: inline-block;
-            }
-        }
     }
-
 }
 
 .about {
-    display: flex;
     color: $gray;
     transform: matrix(1, 0, 0, 1, 0, 0);
 
@@ -71,12 +53,28 @@
             }
         }
     }
+
+    #name {
+        font-family: "bebas neue";
+        font-size: 2rem;
+        line-height: 40px; // 130px
+
+        margin: 0;
+        transform-origin: bottom left;
+        letter-spacing: 2px;
+        color: $gray;
+
+        span {
+            display: inline-block;
+        }
+    }
 }
 
 $check-size: 12px;
 
 #bio-length-form {
     width: clamp(150px, 200px, 300px);
+    margin-top: 10px;
 
     .fieldset {
         border: none;
@@ -93,6 +91,8 @@ $check-size: 12px;
         padding: 0;
         text-transform: lowercase;
         font-family: 'Roboto';
+        margin-bottom: 4px;
+
     }
 
     .container {
