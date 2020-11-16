@@ -27,14 +27,13 @@ function BioLength({ bio, changeBio }) {
   );
 }
 
-const fullScrollRange = [15, 60];
 
 export default () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [bio, changeBio] = useState(bioLengths[Math.floor(bioLengths.length / 2)]);
   const { scrollY } = useViewportScroll()
-  const opacity = useTransform(scrollY, fullScrollRange, [1, 0]);
-  const y = useTransform(scrollY, [0, 160], [-80, 0]);
+  const opacity = useTransform(scrollY, [15, 80], [1, 0]);
+  const y = useTransform(scrollY, [0, 158], [-80, 0]);
 
   scrollY.onChange(value => {
     console.log(value);
@@ -63,7 +62,7 @@ export default () => {
                 ease: "easeInOut", 
                 duration: 0.4 
               }}
-              style={{ y }} // im really sorry
+              style={{ y }}
             >
               <motion.h1 id="hello" style={{ opacity }}>
                 <span role="img" aria-label="Wave">👋</span> hi, I'm

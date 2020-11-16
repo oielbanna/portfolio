@@ -1,21 +1,5 @@
 @import "./colors.scss";
 
-// #intro {
-//     max-height: 50vh;
-//     color: $gray;
-//     padding-bottom: 220px;
-//     padding-top: 100px;
-
-//     .bio_intro-container {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-
-//         // background-color: aquamarine;
-
-//     }
-// }
-
 .about {
     color: $gray;
     transform: matrix(1, 0, 0, 1, 0, 0);
@@ -61,13 +45,13 @@
         }
 
         #hello {
-            // display: none;
             position: absolute;
-            top: calc(-1rem - 4px);
+            top: -10px;
             font-family: "Sacramento", cursive;
             font-size: 1rem;
-            margin: 0 0;
-            transform: scaleY(0.8) scale(0.7) rotate(-5deg);
+            line-height: 15px;
+            margin: 0;
+            transform: scaleY(0.73) scale(0.7);
             transform-origin: bottom left;
         }
     }
