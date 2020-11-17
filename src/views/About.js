@@ -51,12 +51,12 @@ export default () => {
             <motion.h1
               id="name"
               initial={{
-                scaleY: 4.2,
-                scaleX: 3,
+                scaleY: 5.2,
+                scaleX: 4,
               }}
               animate={{
-                scaleY: hasScrolled? 1: 4.2,
-                scaleX:  hasScrolled? 1: 3,
+                scaleY: hasScrolled? 1: 5.2,
+                scaleX:  hasScrolled? 1: 4,
               }}
               transition={{ 
                 ease: "easeInOut", 
