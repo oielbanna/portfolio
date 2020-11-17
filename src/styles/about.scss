@@ -1,5 +1,8 @@
 @import "./colors.scss";
 
+$neonYellow: #fe019a;
+$neonPink: #fe019a;
+
 .about {
     color: $gray;
     transform: matrix(1, 0, 0, 1, 0, 0);
@@ -19,14 +22,33 @@
                 color: $mustard;
             }
 
-            // TODO: start here withthe shake animation
             .shake {
-                position: inline-block;
-
+                display: inline-block;
+                // transform: scale(5) rotate(30deg);
+                transition: all 0.2s ease-in-out;
                 &:hover {
-                    animation: shake 0.5s;
-                    animation-iteration-count: infinite;
+                    opacity: 0;
+                    transform: scale(5) rotate(10deg);
+                    // animation: shake 0.5s;
+                    // animation-iteration-count: infinite;
                 }
+            }
+
+            .fun {
+                font-family: "Sacramento", cursive;
+                font-style: italic;
+                font-size: 21px;
+                padding: 0px 3px;
+                color: $neonYellow;
+                text-shadow: 
+                    1px 0px 4px lighten($neonYellow, 30%), 
+                    0px 0px 3px $neonYellow, 
+                    2px 3px 15px $neonYellow, 
+                    2px 0px 15px, 
+                    5px 0px 125px, 
+                    20px 0vw 200px $neonYellow, 
+                    40px 0vw 200px $neonYellow;
+                animation: flicker 3s linear infinite;
             }
         }
     }
@@ -216,5 +238,61 @@ $check-size: 12px;
 
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes neon {
+    from {
+        text-shadow:
+            0 0 6px rgba(202, 228, 225, 0.92),
+            0 0 30px rgba(202, 228, 225, 0.34),
+            0 0 12px rgba(30, 132, 242, 0.52),
+            0 0 21px rgba(30, 132, 242, 0.92),
+            0 0 34px rgba(30, 132, 242, 0.78),
+            0 0 54px rgba(30, 132, 242, 0.92);
+        opacity: 0.9;
+
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var($neonPink),
+            inset 0 0 2rem var($neonPink),
+            0 0 4rem var($neonPink),
+            inset 0 0 4rem var($neonPink);
+    }
+
+    to {
+        text-shadow:
+            0 0 6px rgba(202, 228, 225, 0.98),
+            0 0 30px rgba(202, 228, 225, 0.42),
+            0 0 12px rgba(30, 132, 242, 0.58),
+            0 0 22px rgba(30, 132, 242, 0.84),
+            0 0 38px rgba(30, 132, 242, 0.88),
+            0 0 60px rgba(30, 132, 242, 1);
+        opacity: 1;
+    }
+}
+
+@keyframes flicker {
+
+    0%,
+    19.999%,
+    22%,
+    62.999%,
+    64%,
+    64.999%,
+    70%,
+    100% {
+        opacity: .99;
+
+    }
+
+    20%,
+    21.999%,
+    63%,
+    63.999%,
+    65%,
+    69.999% {
+        opacity: 0.4;
     }
 }
