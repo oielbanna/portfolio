@@ -8,9 +8,23 @@ export const CONTACTS = {
 }
 
 export const projects = [{
-    
+    name: 'Piclette',
+    github: 'https://github.com/oielbanna/piclette',
+    slug: 'A smart color palette generator',
+    description: 'This is going to be a relatively long description. Bullet points maybe?',
+    preview: 'FAKE URL',
 }, {
-
+    name: 'React-Cursor-Follow',
+    github: 'https://github.com/oielbanna/react-cursor-follow',
+    slug: 'React cursor library',
+    description: 'This is going to be a relatively long description. Bullet points maybe?',
+    preview: 'FAKE URL',
+}, {
+    name: 'React Bird Game',
+    github: 'https://github.com/oielbanna/react-plane-game',
+    slug: '',
+    description: '',
+    preview: '',
 }]
 
 export const STARS_COORDS = [
