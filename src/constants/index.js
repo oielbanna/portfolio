@@ -7,6 +7,11 @@ export const CONTACTS = {
     }
 }
 
+export const projects = [{
+    
+}, {
+
+}]
 
 export const STARS_COORDS = [
     "M1103 146c-1 4 0 6 5 9-5 1-9 2-9 7-2-4-5-7-10-6 4-3 4-6 3-10 2 1 7 6 11 0z",

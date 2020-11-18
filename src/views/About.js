@@ -34,9 +34,9 @@ export default () => {
   const { scrollY } = useViewportScroll()
   const opacity = useTransform(scrollY, [15, 100], [1, 0]);
   const y = useTransform(scrollY, [0, 158], [-80, 5]);
+  const yHello = useTransform(scrollY, [0, 158], [-230, -120]);
 
   scrollY.onChange(value => {
-    console.log(value);
     if (value > 136) {
       setHasScrolled(true);
     } else {
@@ -47,7 +47,10 @@ export default () => {
   return (
     <>
       <section id="about" className="about row">
-          <div>
+          <div style={{ position: "relative"}}>
+            <motion.h2 id="hello" style={{ opacity, y: yHello, rotate: "-7deg" }}>
+              <span role="img" aria-label="Wave">👋</span> hi, I'm
+            </motion.h2>
             <motion.h1
               id="name"
               initial={{
@@ -64,10 +67,7 @@ export default () => {
               }}
               style={{ y }}
             >
-              <motion.h2 id="hello" style={{ opacity }}>
-                <span role="img" aria-label="Wave">👋</span> hi, I'm
-              </motion.h2>
-              Omar Ibrahim
+              Omar Ibrahim.
             </motion.h1>
             <BioLength bio={bio} changeBio={changeBio} />
           </div>

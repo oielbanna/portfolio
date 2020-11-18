@@ -3,6 +3,7 @@ import './styles/App.scss';
 import './i18n'
 import { Cursor } from "./views/components";
 import About from "./views/About"
+import Projects from "./views/Projects";
 import Context from './context';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <main style={{height: "200vh"}}>
             {/* <Intro /> */}
             <About />
+            <Projects />
           </main>
 
         </div>
