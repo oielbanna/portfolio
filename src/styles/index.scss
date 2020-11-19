@@ -1,5 +1,10 @@
 @import "./colors.scss";
 
+@font-face {
+  font-family: Druk;
+  src: url(./../assets/Druk.woff.ttf);
+}
+
 body,
 html {
   margin: 0;

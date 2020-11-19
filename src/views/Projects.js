@@ -1,13 +1,14 @@
 import React from "react"
 import { projects } from '../constants';
-import Project from "./components/Project";
+import SingleProject from "./components/SingleProject";
+import '../styles/projects.scss';
 
 export default () => {
 	return (
-		<section>
+		<section id="projects">
 			<ul>
 				{projects.map((project, i) => {
-					return <Project id={i + 1} {...project} />
+					return <SingleProject id={i + 1} {...project} />
 				})}
 			</ul>
 		</section>
