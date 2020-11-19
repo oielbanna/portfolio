@@ -37,7 +37,7 @@ export default () => {
   const yHello = useTransform(scrollY, [0, 158], [-230, -120]);
 
   scrollY.onChange(value => {
-    if (value > 136) {
+    if (value > 128) {
       setHasScrolled(true);
     } else {
       setHasScrolled(false);
@@ -54,12 +54,10 @@ export default () => {
             <motion.h1
               id="name"
               initial={{
-                scaleY: 4.2,
-                scaleX: 3,
+                scale: 1,
               }}
               animate={{
-                scaleY: hasScrolled? 1: 4.2,
-                scaleX:  hasScrolled? 1: 3,
+                scale: hasScrolled? 1: 3.5,
               }}
               transition={{ 
                 ease: "easeInOut", 
