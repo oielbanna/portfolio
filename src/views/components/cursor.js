@@ -15,9 +15,13 @@ export default () => {
             var e = event;
             setCoords(e.clientX, e.clientY)
         };
-    })
+
+        return () => {
+            document.removeEventListener('click', () => { }, false);
+        }
+    }, [x, y])
 
     return (
-        <div className="follow" style={{ top: y, left: x }} />
+        <div className="follow" style={{ top: y, left: x, display: "none" }} />
     );
 }
