@@ -1,5 +1,5 @@
 import React from "react"
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { projects } from '../constants';
 import SingleProject from "./components/SingleProject";
 import '../styles/projects.scss';

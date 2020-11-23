@@ -1,5 +1,5 @@
 import React from "react"
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import '../../styles/projects.scss';
 import { A } from '.';
 import { useInView } from 'react-intersection-observer';
@@ -28,7 +28,7 @@ export default ({ name, slug, github, description, preview, id }) => {
 	// const opacity = useTransform(scrollY, [0, 150, 300], [0.4, 1, 0.4]);
 	const root = document.getElementById('projects-list');
 	console.log(root)
-	const { ref, inView, entry } = useInView({
+	const { ref, inView } = useInView({
 		// threshold: 0,
 		root: document,
 		rootMargin: `-50% 0px`,
