@@ -20,9 +20,9 @@ export default () => {
 	return (
 		<section id="projects">
 			{/* <h1>Projects I'm proud of</h1> */}
-			<motion.ul variants={staggerVariants} initial="closed" animate="open">
+			<motion.ul variants={staggerVariants} initial="closed" animate="open" id="projects-list">
 				{projects.map((project, i) => {
-					return <SingleProject id={i + 1} {...project} />
+					return <SingleProject key={i + 1} id={i + 1} {...project}/>
 				})}
 			</motion.ul>
 		</section>
