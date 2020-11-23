@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import "../styles/about.scss";
 import { A } from "./components";
@@ -36,13 +36,17 @@ export default () => {
   const y = useTransform(scrollY, [0, 158], [-80, 5]);
   const yHello = useTransform(scrollY, [0, 158], [-230, -120]);
 
-  scrollY.onChange(value => {
-    if (value > 128) {
-      setHasScrolled(true);
-    } else {
-      setHasScrolled(false);
-    }
-  });
+  useEffect(() => {
+    const stopScrollYChange = scrollY.onChange(value => {
+      if (value > 97) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    });
+    return stopScrollYChange;
+  }, [scrollY]);
+  
   
   return (
     <>
