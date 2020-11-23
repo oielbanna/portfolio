@@ -41,12 +41,15 @@ export default ({ name, slug, github, description, preview, id }) => {
 			className="project"
 		>
 			<A href={github} >
-				<span className="row" style={{ opacity: inView ? 1 : 0.3 }}
->
+				<motion.span 
+					className="row" 
+					style={{ opacity: inView ? 1 : 0.3 }}
+					// whileHover={{ opacity: 1 }} // causes errors, animation above stops working
+				>
 					<span className="project-order">{id < 9 ? 0 : null}{id}</span>
 					<h1 className="project-name">{name}</h1>
 					<p className="project-slug">{slug}</p>
-				</span>
+				</motion.span>
 			</A>
 		</motion.li>
 	)

@@ -16,12 +16,12 @@ export default () => {
             setCoords(e.clientX, e.clientY)
         };
 
-        return () => {
-            document.removeEventListener('click', () => { }, false);
-        }
+        // return () => {
+        //     document.removeEventListener('mousemove', () => { }, false);
+        // }
     }, [x, y])
 
     return (
-        <div className="follow" style={{ top: y, left: x, display: "none" }} />
+        <div className="follow" style={{ top: y, left: x }} />
     );
 }
