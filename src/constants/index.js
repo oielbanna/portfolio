@@ -16,7 +16,7 @@ export const projects = [{
 }, {
     name: 'React-Cursor-Follow',
     github: 'https://github.com/oielbanna/react-cursor-follow',
-    slug: 'React cursor library',
+    slug: 'React component library',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: 'FAKE URL',
 }, {
