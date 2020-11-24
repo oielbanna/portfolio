@@ -57,12 +57,13 @@ $neonPink: #fe019a;
     #name {
         position: relative;
         // font-family: "bebas neue";
-        font-family: Druk;
+        font-family: 'Six Caps', sans-serif;
+        // font-family: 'Dorsa', sans-serif;
         text-transform: uppercase;
-        font-size: 3rem;
+        font-size: 2.4rem;
         margin: 5px 0 0 0;
         transform-origin: bottom left;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         color: $gray;
 
         span {

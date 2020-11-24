@@ -27,12 +27,12 @@
 			}
 
 			&-name {
-				font-family: Druk;
+				font-family: 'Six Caps', sans-serif;
 				font-size: clamp(6rem, 8rem, 9rem);
 				text-transform: uppercase;
 				letter-spacing: 3px;
-				margin: 0 5px 0 0;
-				line-height: clamp(5rem, 7rem, 8rem);
+				margin: -3px 5px 25px 0;
+				line-height: clamp(6rem, 7rem, 9rem);
 			}
 
 			&-slug {
