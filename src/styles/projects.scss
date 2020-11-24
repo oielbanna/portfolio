@@ -1,6 +1,12 @@
 @import "./colors.scss";
 
 #projects {
+	.title {
+		font-size: 1.2rem;
+		margin: 20px 0;
+		font-variant: small-caps;
+	}
+
 	ul {
 		list-style: none;
 		margin: 0;
@@ -13,7 +19,7 @@
 			.row {
 				align-items: flex-start;
 				transition: opacity 0.5s ease-in-out;
-
+				margin-left: -26px;
 			}
 
 			&-order {
@@ -21,7 +27,7 @@
 				font-variant: small-caps;
 				font-weight: 400;
 				letter-spacing: 0.05em;
-				margin: 0 5px 0 0;
+				margin: 0 10px 0 0;
 				padding: 0;
 				font-family: 'Roboto';
 			}

@@ -26,8 +26,6 @@ const variants = {
 export default ({ name, slug, github, description, preview, id }) => {
 	// const { scrollY } = useViewportScroll()
 	// const opacity = useTransform(scrollY, [0, 150, 300], [0.4, 1, 0.4]);
-	const root = document.getElementById('projects-list');
-	console.log(root)
 	const { ref, inView } = useInView({
 		// threshold: 0,
 		root: document,
