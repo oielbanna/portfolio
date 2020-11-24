@@ -12,19 +12,19 @@ export const projects = [{
     github: 'https://github.com/oielbanna/piclette',
     slug: 'A smart color palette generator',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: 'FAKE URL',
+    preview: require('../assets/piclette.png'),
 }, {
     name: 'React-Cursor-Follow',
     github: 'https://github.com/oielbanna/react-cursor-follow',
     slug: 'React component library',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: 'FAKE URL',
+    preview: require('../assets/nav-art.png'),
 }, {
     name: 'React Bird Game',
     github: 'https://github.com/oielbanna/react-plane-game',
     slug: '',
     description: '',
-    preview: '',
+    preview: require('../assets/logo.svg'),
 }]
 
 export const STARS_COORDS = [

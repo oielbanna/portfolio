@@ -13,7 +13,7 @@ function App() {
         <div className="App">
           <Cursor />
 
-          <main>
+          <main style={{height: "200vh"}}>
             {/* <Intro /> */}
             <About />
             <Projects />

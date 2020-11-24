@@ -1,20 +1,39 @@
 @import "./colors.scss";
 
 #projects {
+	position: relative;
+
 	.title {
 		font-size: 1.2rem;
 		margin: 20px 0;
 		font-variant: small-caps;
+		position: relative;
+		z-index: 1;
 	}
 
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		position: relative;
+		z-index: 1;
 
 		.project {
 			margin: 0;
 			color: $textGray;
+
+			.hoveredImg {
+				position: fixed;
+				left: 14em;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				z-index: 0;
+				overflow: hidden;
+				max-width: 60vw;
+				max-height: 80vh;
+				margin: auto;
+			}
 
 			.row {
 				align-items: flex-start;

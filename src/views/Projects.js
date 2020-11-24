@@ -19,7 +19,7 @@ const staggerVariants = {
 export default () => {
 	return (
 		<section id="projects">
-			<h1 className="title">projects im proud of &#8212;</h1>
+			<h1 className="title">projects im proud of, updated&#8212;ish</h1>
 			<motion.ul variants={staggerVariants} initial="closed" animate="open" id="projects-list">
 				{projects.map((project, i) => {
 					return <SingleProject key={i + 1} id={i + 1} {...project}/>
