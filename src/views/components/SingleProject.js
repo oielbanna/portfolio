@@ -36,29 +36,28 @@ export default ({ name, slug, github, description, preview, id }) => {
 			onHoverEnd={() => setHover(false)}
 		>
 			<A href={github} >
-				<motion.span 
-					className="row" 
+				<motion.span
+					className="row"
 					variants={{
 						visible: {
 							opacity: 1,
-							transition: { duration: 0.2 }
 						},
 						invisible: {
 							opacity: 0.3,
-							transition: { duration: 0.2 }
-						} 
+						}
 					}}
 					animate={inView ? "visible" : "invisible"}
 					whileHover="visible"
+					transition={{ duration: 0.3 }}
 				>
 					<span className="project-order">{id < 9 ? 0 : null}{id}</span>
 					<h1 className="project-name">{name}</h1>
 					<p className="project-slug">{slug}</p>
 				</motion.span>
 			</A>
-			<motion.img 
-				className="hoveredImg" 
-				src={preview} 
+			<motion.img
+				className="hoveredImg"
+				src={preview}
 				variants={{
 					show: {
 						visibility: "visible"
@@ -67,7 +66,7 @@ export default ({ name, slug, github, description, preview, id }) => {
 						visibility: "hidden"
 					}
 				}}
-				animate={ isHovered? "show" : "hide" }
+				animate={isHovered ? "show" : "hide"}
 			/>
 		</motion.li>
 	)
