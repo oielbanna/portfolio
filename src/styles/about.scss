@@ -24,14 +24,11 @@ $neonPink: #fe019a;
 
             .shake {
                 display: inline-block;
-                // transform: scale(5) rotate(30deg);
                 transition: all 0.2s ease-in-out;
 
                 &:hover {
                     opacity: 0;
                     transform: scale(5) rotate(10deg);
-                    // animation: shake 0.5s;
-                    // animation-iteration-count: infinite;
                 }
             }
 
@@ -82,8 +79,6 @@ $neonPink: #fe019a;
         transform-origin: bottom left;
     }
 }
-
-
 
 $check-size: 12px;
 
@@ -247,38 +242,6 @@ $check-size: 12px;
     }
 }
 
-@keyframes neon {
-    from {
-        text-shadow:
-            0 0 6px rgba(202, 228, 225, 0.92),
-            0 0 30px rgba(202, 228, 225, 0.34),
-            0 0 12px rgba(30, 132, 242, 0.52),
-            0 0 21px rgba(30, 132, 242, 0.92),
-            0 0 34px rgba(30, 132, 242, 0.78),
-            0 0 54px rgba(30, 132, 242, 0.92);
-        opacity: 0.9;
-
-        box-shadow:
-            0 0 .5rem #fff,
-            inset 0 0 .5rem #fff,
-            0 0 2rem var($neonPink),
-            inset 0 0 2rem var($neonPink),
-            0 0 4rem var($neonPink),
-            inset 0 0 4rem var($neonPink);
-    }
-
-    to {
-        text-shadow:
-            0 0 6px rgba(202, 228, 225, 0.98),
-            0 0 30px rgba(202, 228, 225, 0.42),
-            0 0 12px rgba(30, 132, 242, 0.58),
-            0 0 22px rgba(30, 132, 242, 0.84),
-            0 0 38px rgba(30, 132, 242, 0.88),
-            0 0 60px rgba(30, 132, 242, 1);
-        opacity: 1;
-    }
-}
-
 @keyframes flicker {
 
     0%,
@@ -303,4 +266,28 @@ $check-size: 12px;
     }
 }
 
-@import "./screens.scss";
+
+@media (min-width:320px) {
+
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .about {
+        flex-direction: column;
+
+        #hello {
+            font-size: 2rem;
+        }
+
+        #name {
+            font-size: 1.8rem;
+            margin-top: -25px
+        }
+
+        .bio_text-container {
+            max-width: 80vw;
+            margin-left: unset;
+            margin-top: 25px;
+        }
+    }
+}
+
+// @import "./screens.scss";

@@ -35,6 +35,7 @@ export default () => {
 
   useEffect(() => {
     const stopScrollYChange = scrollY.onChange(value => {
+      console.log(value);
       if (value > 97) {
         setHasScrolled(true);
       } else {

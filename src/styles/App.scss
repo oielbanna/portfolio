@@ -17,9 +17,27 @@
 //   transition: 0.5s cubic-bezier(0.670, 0.005, 0.355, 1.650) width, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) height !important;
 // }
 
+.section-title {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  font-variant: small-caps;
+  position: relative;
+  z-index: 1;
+}
+
 .follow__active {
   width: 75px !important;
   height: 75px !important;
 }
 
-@import "./screens.scss";
+@media (min-width:320px) {
+
+  // App.js
+  .App main > section {
+    padding: 35px;
+  }
+
+  .follow {
+    display: none;
+  }
+}
