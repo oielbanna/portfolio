@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion";
-import { projects } from '../constants';
+import { PROJECTS } from '../constants';
 import SingleProject from "./components/SingleProject";
 import '../styles/projects.scss';
 
@@ -21,7 +21,7 @@ export default () => {
 		<section id="projects">
 			<h1 className="title">projects im proud of, updated&#8212;ish</h1>
 			<motion.ul variants={staggerVariants} initial="closed" animate="open" id="projects-list">
-				{projects.map((project, i) => {
+				{PROJECTS.map((project, i) => {
 					return <SingleProject key={i + 1} id={i + 1} {...project}/>
 				})}
 			</motion.ul>
