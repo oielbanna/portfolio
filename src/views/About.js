@@ -30,13 +30,14 @@ export default () => {
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
   const { scrollY } = useViewportScroll()
   const opacity = useTransform(scrollY, [15, 100], [1, 0]);
-  const y = useTransform(scrollY, [0, 158], [-80, 5]);
+  // const y = useTransform(scrollY, [20, 158], [-190, 2]);
+  // const y = useTransform(scrollY, [0, 40], [-190, -150]);
   const yHello = useTransform(scrollY, [0, 158], [-230, -120]);
 
   useEffect(() => {
     const stopScrollYChange = scrollY.onChange(value => {
       console.log(value);
-      if (value > 97) {
+      if (value > 50) {
         setHasScrolled(true);
       } else {
         setHasScrolled(false);
@@ -50,23 +51,30 @@ export default () => {
       <div style={{ position: "relative" }}>
         <motion.h2 id="hello" style={{ opacity, y: yHello, rotate: "-7deg" }}>
           <span role="img" aria-label="Wave">👋</span> hi, I'm
-            </motion.h2>
+        </motion.h2>
         <motion.h1
           id="name"
-          initial={{
-            scale: 1,
+          variants={{
+            big: {
+              fontSize: 130,
+              lineHeight: "130px",
+              y: -180
+            },
+            small: {
+              fontSize: 42,
+              lineHeight: "42px",
+              y: 3
+            }
           }}
-          animate={{
-            scale: hasScrolled ? 1 : 3.5,
-          }}
+          animate={ hasScrolled? "small" : "big"}
           transition={{
             ease: "easeInOut",
             duration: 0.4
           }}
-          style={{ y }}
+          // style={{ y }}
         >
           Omar Ibrahim.
-            </motion.h1>
+        </motion.h1>
         <BioLength bio={bio} changeBio={changeBio} />
       </div>
       <div className="bio_text-container">
