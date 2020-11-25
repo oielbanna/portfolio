@@ -44,3 +44,10 @@ $size: 23px;
     ;
   }
 }
+
+@media (max-width:425px) {
+
+  .follow {
+    display: none !important;
+  }
+}

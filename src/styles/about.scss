@@ -267,7 +267,7 @@ $check-size: 12px;
 }
 
 
-@media (min-width:320px) {
+@media (max-width:425px) {
 
     /* smartphones, iPhone, portrait 480x320 phones */
     .about {

@@ -45,7 +45,7 @@ export const PROJECTS = [{
 }, {
     name: 'React Bird Game',
     github: 'https://github.com/oielbanna/react-plane-game',
-    slug: '',
+    slug: 'How to describe this?',
     description: '',
     preview: require('../assets/logo.svg'),
 }, {

@@ -30,14 +30,8 @@
   height: 75px !important;
 }
 
-@media (min-width:320px) {
-
-  // App.js
+@media (max-width:425px) {
   .App main > section {
     padding: 35px;
-  }
-
-  .follow {
-    display: none;
   }
 }
