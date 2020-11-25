@@ -73,13 +73,6 @@ export default () => {
       </div>
       <div className="bio_text-container">
         <Bio />
-        {/* <p dangerouslySetInnerHTML={ABOUT[bio]}></p> */}
-
-        {/* {bio === "mid" && (<p><strong>Omar</strong> likes to make <span className="fun">fun,</span> <span className="shake">interactive</span> things with code. He gets particularly excited when these things involve working with others to make an even bigger impact.</p>)}
-
-            {bio === "longest" && (<p></p>)} */}
-
-        {/* {!bioLengths.includes(bio) && <p><strong>Omar</strong> is embarassed because there has been an error. Oops.</p>} */}
       </div>
     </section>
   )
