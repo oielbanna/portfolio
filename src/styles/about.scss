@@ -52,6 +52,7 @@ $neonPink: #fe019a;
     }
 
     #name {
+        backface-visibility: hidden;
         position: relative;
         font-family: 'Six Caps', sans-serif;
         // font-family: 'Dorsa', sans-serif;
