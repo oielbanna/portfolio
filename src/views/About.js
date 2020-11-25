@@ -58,11 +58,13 @@ export default () => {
             big: {
               fontSize: 130,
               lineHeight: "130px",
-              y: -180
+              letterSpacing: "1px",
+              y: -170
             },
             small: {
               fontSize: 42,
               lineHeight: "42px",
+              letterSpacing: "3px",
               y: 3
             }
           }}
