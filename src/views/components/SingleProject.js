@@ -41,9 +41,11 @@ export default ({ name, slug, github, description, preview, id }) => {
 					variants={{
 						visible: {
 							opacity: 1,
+							scale: 1.01,
 						},
 						invisible: {
 							opacity: 0.3,
+							scale: 1
 						}
 					}}
 					animate={inView ? "visible" : "invisible"}
