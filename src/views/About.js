@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import "../styles/about.scss";
-import { A } from "./components";
-import { CONTACTS, ABOUT, BIO_LENGTHS } from "../constants";
+import { ABOUT, BIO_LENGTHS } from "../constants";
 
 function BioLength({ bio, changeBio }) {
   return (
@@ -45,8 +44,6 @@ export default () => {
     return stopScrollYChange;
   }, [scrollY]);
 
-  const Bio = ABOUT[bio];
-
   return (
     <section id="about" className="about row">
       <div style={{ position: "relative" }}>
@@ -72,7 +69,7 @@ export default () => {
         <BioLength bio={bio} changeBio={changeBio} />
       </div>
       <div className="bio_text-container">
-        <Bio />
+        {ABOUT[bio]}
       </div>
     </section>
   )
