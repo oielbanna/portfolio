@@ -48,7 +48,29 @@ export const PROJECTS = [{
     slug: '',
     description: '',
     preview: require('../assets/logo.svg'),
+}, {
+    name: 'Legends of Andor',
+    github: 'https://github.com/oielbanna/legends-of-andor',
+    slug: 'Digital board game',
+    description: '',
+    preview: require('../assets/logo.svg'),
 }]
+
+export const EXPERIENCE = [{
+    title: 'Associate Software Developer',
+    company: 'Capital One',
+    dateRange: 'JUNE \'20 - Present',
+    description: ''
+}, {
+    title: 'FullStack Software Developer Intern',
+    company: 'Nakisa',
+    dateRange: 'JAN \'19 - MAY \'20',
+    description: ''
+}];
+
+export const EDUCATION = {
+    
+}
 
 export const STARS_COORDS = [
     "M1103 146c-1 4 0 6 5 9-5 1-9 2-9 7-2-4-5-7-10-6 4-3 4-6 3-10 2 1 7 6 11 0z",
