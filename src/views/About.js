@@ -68,8 +68,7 @@ export default () => {
               y: 3
             }
           }}
-          initial="big"
-          animate={hasScrolled ? "small" : "big"}
+          animate={hasScrolled ? 'small' : 'big'}
           transition={{
             ease: "easeInOut",
             duration: 0.4
@@ -80,6 +79,7 @@ export default () => {
         <BioLength bio={bio} changeBio={changeBio} />
       </div>
       <div className="bio_text-container">
+        {/* TODO: use AnimatePresence here!! */}
         {ABOUT[bio]}
       </div>
     </section>
