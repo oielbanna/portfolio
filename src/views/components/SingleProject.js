@@ -59,16 +59,25 @@ export default ({ name, slug, github, description, preview, id }) => {
 			</A>
 			<motion.img
 				className="hoveredImg"
+				key="projectsImg"
 				src={preview}
 				variants={{
 					show: {
-						visibility: "visible"
+						opacity: 1,
+						visibility: "visible",
+						scale: 1,
 					},
 					hide: {
-						visibility: "hidden"
+						opacity: 0,
+						visibility: "hidden",
+						scale: 0.98,
 					}
 				}}
 				animate={isHovered ? "show" : "hide"}
+				transition={{
+					duration: 0.2,
+					ease: 'easeInOut'
+				}}
 			/>
 		</motion.li>
 	)
