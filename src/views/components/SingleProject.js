@@ -35,7 +35,7 @@ export default ({ name, slug, github, description, preview, id }) => {
 			onHoverStart={() => setHover(true)}
 			onHoverEnd={() => setHover(false)}
 		>
-			<A href={github} >
+			<A href={github} target="_blank" >
 				<motion.span
 					className="row"
 					variants={{

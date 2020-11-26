@@ -68,12 +68,12 @@ export default () => {
               y: 3
             }
           }}
-          animate={ hasScrolled? "small" : "big"}
+          initial="big"
+          animate={hasScrolled ? "small" : "big"}
           transition={{
             ease: "easeInOut",
             duration: 0.4
           }}
-          // style={{ y }}
         >
           Omar Ibrahim.
         </motion.h1>
