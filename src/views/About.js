@@ -97,7 +97,15 @@ export default () => {
         >
           Omar Ibrahim.
         </motion.h1>
-        <BioLength bio={bio} changeBio={changeBio} />
+        <motion.div initial={initialAnimate}
+          animate={introAnimate}
+          transition={defaultTransition}>
+          <BioLength
+            bio={bio}
+            changeBio={changeBio}
+
+          />
+        </motion.div>
       </div>
       <div className="bio_text-container">
         {/* TODO: use AnimatePresence here!! */}
