@@ -62,6 +62,7 @@ $neonPink: #fe019a;
         transform-origin: bottom left;
         // letter-spacing: 1px;
         color: $gray;
+        font-size: 130px;
 
         span {
             display: inline-block;
@@ -78,6 +79,10 @@ $neonPink: #fe019a;
         margin: 0;
         transform: translateY(-240px) rotate(-6deg);
         // transform-origin: bottom left;
+
+        span {
+            display: inline-block; // if you remove, enter animation wont work
+        }
     }
 }
 

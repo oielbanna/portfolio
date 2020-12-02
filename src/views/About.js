@@ -24,6 +24,19 @@ function BioLength({ bio, changeBio }) {
   );
 }
 
+const initialAnimate = {
+  y: 20,
+  opacity: 0,
+};
+const introAnimate = {
+  y: 0,
+  opacity: 1,
+};
+
+const defaultTransition = {
+  ease: "easeInOut",
+  duration: 0.5
+};
 
 export default () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -32,7 +45,7 @@ export default () => {
   const opacity = useTransform(scrollY, [15, 100], [1, 0]);
   // const y = useTransform(scrollY, [20, 158], [-190, 2]);
   // const y = useTransform(scrollY, [0, 40], [-190, -150]);
-  const yHello = useTransform(scrollY, [0, 158], [-230, -120]);
+  const y = useTransform(scrollY, [0, 158], [-230, -120]);
 
   useEffect(() => {
     const stopScrollYChange = scrollY.onChange(value => {
@@ -49,30 +62,38 @@ export default () => {
   return (
     <section id="about" className="about row">
       <div style={{ position: "relative" }}>
-        <motion.h2 id="hello" style={{ opacity, y: yHello, rotate: "-7deg" }}>
-          <span role="img" aria-label="Wave">👋</span> hi, I'm
+        <motion.h2
+          id="hello"
+          style={{ opacity, y, rotate: "-7deg" }}
+        >
+          <motion.span
+            initial={initialAnimate}
+            animate={introAnimate}
+            transition={defaultTransition}
+          >
+            <span role="img" aria-label="Wave">👋</span> hi, I'm
+          </motion.span>
         </motion.h2>
         <motion.h1
           id="name"
-          variants={{
-            big: {
-              fontSize: 130,
+          initial={{
+            ...initialAnimate,
+            ...{
               lineHeight: "130px",
               letterSpacing: "1px",
               y: -170
-            },
-            small: {
-              fontSize: 42,
-              lineHeight: "42px",
-              letterSpacing: "3px",
-              y: 3
             }
           }}
-          animate={hasScrolled ? 'small' : 'big'}
-          transition={{
-            ease: "easeInOut",
-            duration: 0.4
+          animate={{
+            ...introAnimate,
+            ...{
+              fontSize: hasScrolled ? 42 : 130,
+              lineHeight: hasScrolled ? "42px" : "130px",
+              letterSpacing: hasScrolled ? "3px" : "1px",
+              y: hasScrolled ? 3 : -170,
+            }
           }}
+          transition={defaultTransition}
         >
           Omar Ibrahim.
         </motion.h1>
@@ -82,6 +103,6 @@ export default () => {
         {/* TODO: use AnimatePresence here!! */}
         {ABOUT[bio]}
       </div>
-    </section>
+    </section >
   )
 }
