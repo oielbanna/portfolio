@@ -1,13 +1,20 @@
 import React from 'react';
-import { Navigation } from "./nav";
 import '../../styles/header.scss';
+import { CONTACTS } from '../../constants';
+import { A } from '.';
 
 function Header() {
   return (
-    <header className="App-header">
-      <Navigation />
+    <header className="header">
+      {/* <img src="logo" /> */}
+
+      <ul className="social-container">
+        {Object.entries(CONTACTS).map(([platform, data], key) => {
+          return <A href={data.URL}><li className="socialLink">{platform}</li></A>
+        })}
+      </ul>
     </header>
-  );
+  );  
 }
 
 export default Header;

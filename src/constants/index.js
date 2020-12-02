@@ -2,12 +2,13 @@ import React from 'react';
 import { A } from '../views/components';
 
 export const CONTACTS = {
+    TWITTER: {
+        URL: 'https://twitter.com/Omarcodess'
+    },
     GITHUB: {
         URL: 'https://github.com/oielbanna/'
     },
-    TWITTER: {
-        URL: 'https://twitter.com/Omarcodess'
-    }
+    
 }
 
 const SHORTEST = 'shortest';
