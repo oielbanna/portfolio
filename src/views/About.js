@@ -5,7 +5,6 @@ import { ABOUT, BIO_LENGTHS } from "../constants";
 
 function BioLength({ bio, changeBio }) {
   const handleEnter = (item, $e) => {
-    console.log($e);
     if ($e.key === 'Enter') {
       changeBio(item)
     }
@@ -116,10 +115,10 @@ export default () => {
         <AnimatePresence exitBeforeEnter>
           <motion.div
             key={bio}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={defaultTransition}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{...defaultTransition, duration: 0.2}}
           >
             {ABOUT[bio]}
           </motion.div>
