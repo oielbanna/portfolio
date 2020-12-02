@@ -1,5 +1,7 @@
 import React from "react"
 
+// fancy 
+// https://tympanus.net/codrops/2020/09/30/creating-mirrors-in-react-three-fiber-and-three-js/
 export default () => {
     return (
         <section id="experience" className="experience">

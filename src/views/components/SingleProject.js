@@ -4,6 +4,8 @@ import '../../styles/projects.scss';
 import { A } from '.';
 import { useInView } from 'react-intersection-observer';
 
+// TODO: scroll reveal 
+// https://codesandbox.io/s/framer-motion-animate-in-view-gqcc8?file=/src/index.js:479-487
 const variants = {
 	open: {
 		y: 0,

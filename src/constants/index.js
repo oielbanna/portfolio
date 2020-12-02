@@ -43,6 +43,12 @@ export const PROJECTS = [{
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: require('../assets/nav-art.png'),
 }, {
+    name: 'Twitter Threading',
+    github: 'https://github.com/oielbanna/twitter-threading',
+    slug: 'Open Source Contribution',
+    description: '',
+    preview: require('../assets/logo.svg'),
+},{
     name: 'React Bird Game',
     github: 'https://github.com/oielbanna/react-plane-game',
     slug: 'How to describe this?',
