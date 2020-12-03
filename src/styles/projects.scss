@@ -22,7 +22,8 @@
 				top: 0px;
 				right: 0px;
 				bottom: 0px;
-				z-index: 0;
+				z-index: -1;
+				display: block;
 				overflow: hidden;
 				max-width: 60vw;
 				max-height: 80vh;
