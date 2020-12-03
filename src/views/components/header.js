@@ -10,7 +10,7 @@ function Header() {
 
       <ul className="social-container">
         {Object.entries(CONTACTS).map(([platform, data], key) => {
-          return <A href={data.URL}><li className="socialLink">{platform}</li></A>
+          return <A key={platform} href={data.URL}><li className="socialLink">{platform.toLowerCase()}</li></A>
         })}
       </ul>
     </header>
