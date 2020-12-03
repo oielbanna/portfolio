@@ -16,6 +16,7 @@
 			width: max-content;
 
 			.hoveredImg {
+				pointer-events: none;
 				position: fixed;
 				left: 14em;
 				top: 0px;
