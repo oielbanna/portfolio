@@ -28,7 +28,7 @@ export default ({ name, slug, github, description, preview, id }) => {
 		root: document,
 		rootMargin: `-50% 0px`,
 	});
-
+	
 	return (
 		<motion.li
 			ref={ref}
@@ -37,7 +37,7 @@ export default ({ name, slug, github, description, preview, id }) => {
 			onHoverStart={() => setHover(true)}
 			onHoverEnd={() => setHover(false)}
 		>
-			<A href={github} target="_blank" >
+			<A href={github} target="_blank">
 				<motion.span
 					className="row"
 					variants={{
@@ -59,28 +59,32 @@ export default ({ name, slug, github, description, preview, id }) => {
 					<p className="project-slug">{slug}</p>
 				</motion.span>
 			</A>
-			<motion.img
-				className="hoveredImg"
-				key="projectsImg"
-				src={preview}
-				variants={{
-					show: {
-						opacity: 1,
-						visibility: "visible",
-						scale: 1,
-					},
-					hide: {
-						opacity: 0,
-						visibility: "hidden",
-						scale: 0.98,
-					}
-				}}
-				animate={isHovered ? "show" : "hide"}
-				transition={{
-					duration: 0.2,
-					ease: 'easeInOut'
-				}}
-			/>
+			<Image preview={preview} isHovered={isHovered} />
 		</motion.li>
 	)
+}
+
+const Image = ({preview, isHovered}) => {
+	return (<motion.img
+		className="hoveredImg"
+		key="projectsImg"
+		src={preview}
+		variants={{
+			show: {
+				opacity: 1,
+				visibility: "visible",
+				scale: 1,
+			},
+			hide: {
+				opacity: 0,
+				visibility: "hidden",
+				scale: 0.98,
+			}
+		}}
+		animate={isHovered ? "show" : "hide"}
+		transition={{
+			duration: 0.2,
+			ease: 'easeInOut'
+		}}
+	/>);
 }

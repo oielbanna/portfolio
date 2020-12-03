@@ -54,9 +54,10 @@ export default () => {
 
   // this will change the bio section speed right after the app loads
   setTimeout(() => setCustomDuration(0.2), 1000);
+  
   useEffect(() => {
     const stopScrollYChange = scrollY.onChange(value => {
-      console.log(value);
+      // console.log(value);
       if (value > 50) {
         setHasScrolled(true);
       } else {
