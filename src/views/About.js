@@ -100,7 +100,7 @@ export default () => {
               y: hasScrolled ? 3 : -170,
             }
           }}
-          transition={defaultTransition}
+          transition={{...defaultTransition, delay: 0.2}}
         >
           Omar Ibrahim.
         </motion.h1>
