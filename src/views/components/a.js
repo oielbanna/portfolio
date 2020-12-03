@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from 'framer-motion';
 
 export default (props) => {
 
@@ -9,5 +10,5 @@ export default (props) => {
     var leave = (e) => {
         document.getElementsByClassName("follow")[0].classList.remove("follow__active");
     }
-    return <a {...props} onMouseEnter={enter} onMouseLeave={leave}>{props.children}</a>
+    return <motion.a {...props} onMouseEnter={enter} onMouseLeave={leave}>{props.children}</motion.a>
 }

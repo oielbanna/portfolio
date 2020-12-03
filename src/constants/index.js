@@ -2,13 +2,15 @@ import React from 'react';
 import { A } from '../views/components';
 
 export const CONTACTS = {
+    LINKEDIN: {
+        URL: 'https://www.linkedin.com/in/oielbanna/',
+    },
     TWITTER: {
         URL: 'https://twitter.com/Omarcodess'
     },
     GITHUB: {
         URL: 'https://github.com/oielbanna/'
     },
-    
 }
 
 const SHORTEST = 'shortest';
