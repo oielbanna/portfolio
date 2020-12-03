@@ -46,11 +46,14 @@ const defaultTransition = {
 
 export default () => {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [customDuration, setCustomDuration] = useState(0.5);
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
   const { scrollY } = useViewportScroll()
   const opacity = useTransform(scrollY, [15, 100], [1, 0]);
   const y = useTransform(scrollY, [0, 158], [-230, -120]);
 
+  // this will change the bio section speed right after the app loads
+  setTimeout(() => setCustomDuration(0.2), 1000);
   useEffect(() => {
     const stopScrollYChange = scrollY.onChange(value => {
       console.log(value);
@@ -104,7 +107,8 @@ export default () => {
         <motion.div 
           initial={initialAnimate}
           animate={introAnimate}
-          transition={defaultTransition}>
+          transition={defaultTransition}
+        >
           <BioLength
             bio={bio}
             changeBio={changeBio}
@@ -117,8 +121,8 @@ export default () => {
             key={bio}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{...defaultTransition, duration: 0.2}}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{...defaultTransition, duration: customDuration}}
           >
             {ABOUT[bio]}
           </motion.div>
