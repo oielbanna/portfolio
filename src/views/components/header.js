@@ -14,43 +14,43 @@ const parentVariant = {
 };
 
 const liVariants = {
-	open: {
-		x: 0,
-		opacity: 1,
-		transition: {
-			x: { stiffness: 100, velocity: -10 }
-		}
-	},
-	closed: {
-		x: 50,
-		opacity: 0,
-		transition: {
-			x: { stiffness: 100 }
-		}
-	}
+  open: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      x: { stiffness: 100, velocity: -10 }
+    }
+  },
+  closed: {
+    x: 50,
+    opacity: 0,
+    transition: {
+      x: { stiffness: 100 }
+    }
+  }
 };
 function Header() {
   return (
     <header className="header">
       {/* <img src="logo" /> */}
 
-      <motion.ul 
-        variants={parentVariant} 
-        initial="closed" 
-        animate="open" 
-        className="social-container" 
-        style={{gridTemplateRows: `repeat(${Object.entries(CONTACTS).length}, 1fr)`}}
+      <motion.ul
+        variants={parentVariant}
+        initial="closed"
+        animate="open"
+        className="social-container"
+        style={{ gridTemplateRows: `repeat(${Object.entries(CONTACTS).length}, 1fr)` }}
       >
         {Object.entries(CONTACTS).map(([platform, data], key) => {
           return (
-            <A variants={liVariants} key={platform} href={data.URL}>
+            <A target="_blank" variants={liVariants} key={platform} href={data.URL}>
               <li className="socialLink">{platform.toLowerCase()}</li>
             </A>
           );
         })}
       </motion.ul>
     </header>
-  );  
+  );
 }
 
 export default Header;
