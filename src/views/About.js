@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform, AnimatePresence } from "framer-motion";
 import "../styles/about.scss";
 import { ABOUT, BIO_LENGTHS } from "../constants";
+import { isMobileDevice } from '../utils';
 
 function BioLength({ bio, changeBio }) {
   const handleEnter = (item, $e) => {
@@ -44,6 +45,8 @@ const defaultTransition = {
   duration: 0.5
 };
 
+const isMobile = isMobileDevice();
+
 export default () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [customDuration, setCustomDuration] = useState(0.5);
@@ -66,7 +69,6 @@ export default () => {
     });
     return stopScrollYChange;
   }, [scrollY]);
-
   return (
     <section id="about" className="about row">
       <div style={{ position: "relative" }}>
@@ -82,29 +84,7 @@ export default () => {
             <span role="img" aria-label="Wave">👋</span> hi, I'm
           </motion.span>
         </motion.h2>
-        <motion.h1
-          id="name"
-          initial={{
-            ...initialAnimate,
-            ...{
-              lineHeight: "130px",
-              letterSpacing: "1px",
-              y: -170
-            }
-          }}
-          animate={{
-            ...introAnimate,
-            ...{
-              fontSize: hasScrolled ? 42 : 130,
-              lineHeight: hasScrolled ? "42px" : "130px",
-              letterSpacing: hasScrolled ? "3px" : "1px",
-              y: hasScrolled ? 3 : -170,
-            }
-          }}
-          transition={{...defaultTransition, delay: 0.2}}
-        >
-          Omar Ibrahim.
-        </motion.h1>
+        <Name hasScrolled={hasScrolled} />
         <motion.div 
           initial={initialAnimate}
           animate={introAnimate}
@@ -131,4 +111,32 @@ export default () => {
       </div>
     </section >
   )
+}
+
+const Name = ({ hasScrolled }) => {
+  return (
+    <motion.h1
+          id="name"
+          initial={{
+            ...initialAnimate,
+            ...{
+              lineHeight: "130px",
+              letterSpacing: "1px",
+              y: -170
+            }
+          }}
+          animate={{
+            ...introAnimate,
+            ...{
+              fontSize: hasScrolled && !isMobile ? 42 : 130,
+              lineHeight: hasScrolled && !isMobile ? "42px" : "130px",
+              letterSpacing: hasScrolled && !isMobile ? "3px" : "1px",
+              y: hasScrolled && !isMobile? 3 : -170,
+            }
+          }}
+          transition={{...defaultTransition, delay: 0.2}}
+        >
+          Omar Ibrahim.
+        </motion.h1>
+  );
 }
