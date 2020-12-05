@@ -276,14 +276,16 @@ $check-size: 12px;
     /* smartphones, iPhone, portrait 480x320 phones */
     .about {
         flex-direction: column;
-
+        padding-top: 45vh !important;
         #hello {
             font-size: 2rem;
+            margin-top: -25px;
         }
 
         #name {
-            font-size: 1.5rem;
-            margin-top: -25px;
+            margin-top: -55px;
+            max-width: 100%;
+            white-space: normal;
         }
 
         .bio_text-container {

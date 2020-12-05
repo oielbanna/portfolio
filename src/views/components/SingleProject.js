@@ -66,6 +66,7 @@ const Data = ({ id, name, slug, github }) => {
 				animate={inView ? "visible" : "invisible"}
 				whileHover="visible"
 				transition={{ duration: 0.3 }}
+				lang="en"
 			>
 				<span className="project-order">{id < 9 ? 0 : null}{id}</span>
 				<h1 className="project-name">{name}</h1>

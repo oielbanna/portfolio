@@ -13,7 +13,7 @@
 		.project {
 			margin: 0;
 			color: $textGray;
-			width: max-content;
+			width: fit-content;
 
 			.hoveredImg {
 				pointer-events: none;
@@ -64,11 +64,17 @@
 }
 
 @media (max-width:425px) {
-	#projects { 
+	#projects {
 		ul {
 			.project {
+
+				.hoveredImg {
+					display: none;
+				}
+
 				.row {
 					margin-left: -5px;
+					justify-content: space-between;
 				}
 
 				&-order {
@@ -79,12 +85,17 @@
 					line-height: 20px;
 					margin-top: 6px;
 					margin-left: 10px;
+					max-width: 22%;
+					hyphens: auto;
+					word-break: break-word;
+					text-align: right;
 				}
 
 				&-name {
-					margin: 0 0 25px 0;
-					line-height: clamp(5rem, 7rem, 8rem);
-					font-size: clamp(5rem, 7rem, 8rem)
+					flex-grow: 2;
+					margin: 0 0 10px 0;
+					line-height: clamp(5rem, 6.3rem, 8rem);
+					font-size: clamp(5rem, 6.5rem, 8rem)
 				}
 			}
 		}

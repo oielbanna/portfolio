@@ -29,3 +29,9 @@
     }
   }
 }
+
+@media (max-width:425px) {
+	.header { 
+    position: absolute;
+  }
+}
