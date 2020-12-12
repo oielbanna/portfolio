@@ -3,7 +3,7 @@
 .App {
   main > section {
     padding: 75px 75px 75px 14em;
-    color: $textGray;
+    color: $darkGray;
   }
 }
 
@@ -33,5 +33,10 @@
 @media (max-width:425px) {
   .App main > section {
     padding: 35px;
+    padding-left: 24px;
+  }
+
+  .section-title {
+    line-height: 1.2rem;
   }
 }

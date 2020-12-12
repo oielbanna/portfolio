@@ -2,12 +2,18 @@ import React from 'react';
 import { A } from '../views/components';
 
 export const CONTACTS = {
-    GITHUB: {
-        URL: 'https://github.com/oielbanna/'
+    LINKEDIN: {
+        URL: 'https://www.linkedin.com/in/oielbanna/',
     },
     TWITTER: {
-        URL: 'https://twitter.com/Omarcodess'
-    }
+        URL: 'https://twitter.com/Omarcodess',
+    },
+    GITHUB: {
+        URL: 'https://github.com/oielbanna/',
+    },
+    MEDIUM: {
+        URL: 'https://medium.com/@oielbanna',
+    },
 }
 
 const SHORTEST = 'shortest';
@@ -16,13 +22,13 @@ const LONGEST = 'longest';
 export const BIO_LENGTHS = [SHORTEST, MID, LONGEST];
 
 const SHORTEST_COMPONENT = () => {
-    return <p><strong>Omar</strong> is trying his very best.</p>
+    return <p><i><strong>Omar</strong> is trying his very best.</i></p>;
 }
 const MID_COMPONENT = () => {
-    return <p><strong>Omar</strong> likes to make <span className="fun">fun,</span> <span className="shake">interactive</span> things with code. He gets particularly excited when these things involve working with others to make an even bigger impact.</p>
+    return <p><strong>Omar</strong> likes to make <span className="fun">fun,</span> <span className="shake">interactive</span> things with code. He gets particularly excited when these things involve working with others to make an even <span style={{ fontWeight: 600, fontSize: 20 }}>bigger</span> impact.</p>
 }
 const LONGEST_COMPONENT = () => {
-    return <p><strong>Omar</strong> is a full-stack web developer at <A className="link" href="https://www.capitalone.ca/">Capital One</A> based in Toronto, Canada (but that\'s flexible considering, you know...the pandemic). He likes to <A className="link" target="_blank" href={CONTACTS.GITHUB.URL}>code</A> with React/Vue and Spring Boot. But his true passion lies in Software Architecture. So, he set out on a journey to take the <A className="link" href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">AWS Certified Solutions Architect</A> Course - which you can follow on <A className="link" href={CONTACTS.TWITTER.URL}>Twitter.</A> He also enjoys writing medium articles sometimes - he says it helps him <q><i>explore a new medium.</i></q><small> (get it?)</small></p>
+    return <p><strong>Omar</strong> is a full-stack web developer at <A className="link" href="https://www.capitalone.ca/">Capital One</A> based in Toronto, Canada (but that's flexible considering, you know...the pandemic). He likes to <A className="link" target="_blank" href={CONTACTS.GITHUB.URL}>code</A> with React/Vue and Spring Boot. But his true passion lies in Software Architecture. So, he set out on a journey to take the <A className="link" href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">AWS Certified Solutions Architect</A> Course - which you can follow on <A className="link" href={CONTACTS.TWITTER.URL}>Twitter.</A> He also enjoys writing <A className="link" target="_blank"  href={CONTACTS.MEDIUM.URL}>Medium</A> articles sometimes - he says it helps him <q><i>explore a new medium.</i></q><small> (get it?)</small></p>
 }
 export const ABOUT = {
     [SHORTEST]: <SHORTEST_COMPONENT />,
@@ -42,6 +48,12 @@ export const PROJECTS = [{
     slug: 'React component library',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: require('../assets/nav-art.png'),
+}, {
+    name: 'Twitter Threading',
+    github: 'https://github.com/oielbanna/twitter-threading',
+    slug: 'Open Source Contribution',
+    description: '',
+    preview: require('../assets/logo.svg'),
 }, {
     name: 'React Bird Game',
     github: 'https://github.com/oielbanna/react-plane-game',
@@ -69,7 +81,7 @@ export const EXPERIENCE = [{
 }];
 
 export const EDUCATION = {
-    
+
 }
 
 export const STARS_COORDS = [
@@ -520,4 +532,4 @@ export const STARS_COORDS = [
     "M167 49zM167 49c2-2 4-2 6-1h3c1-1 0-2-1-3v-6l1-2 1-1-2-1h-5l-4-4c-2-1-1 1-2 1v5h-1l-5 2c-2 1-2 2 0 3l5 4v1c0 2-1 4 1 4 1 1 2-1 3-2z",
     "M178 199v1l1 4c-1 3 1 4 3 4s3 2 4 3c-1 4-5 3-7 4l-1 4v1c-1 1 0 3-2 3s-2-1-3-2l-1-3c-2-2-3-1-5-1h-4c-1-1 2-2 2-4v-7c-1-1-2-2-1-4l6 2c1 0 3 0 4-2l4-3z",
     "M188 257l5 6c1 1 1 2-1 2-2 1-4 1-4 4h4c1-1 2-2 3 1l-2 5c-1 1-2 3 0 4 1 1 2-1 2-2l1-1 1-3h2v2l4 4v-2c0-2-2-4-1-5l4 2h1l1 1 3-1-2-1-6-4c0-2 1-2 2-2h5c1-1 2-1 0-2h-3c-7-1-7-1-5-8v-3l-1-3c-2 0-2 2-2 3l-2 7h-1l-2-5-1-2-1-2c-1-1-1-3-3-3-1 1 0 2 1 3s2 2 0 3c-1 0-2-2-3 0l1 2z",
-    ];
+];

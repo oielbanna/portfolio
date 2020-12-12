@@ -1,7 +1,6 @@
 @import "./colors.scss";
 
 $neonYellow: #fe019a;
-$neonPink: #fe019a;
 
 .about {
     color: $gray;
@@ -18,7 +17,7 @@ $neonPink: #fe019a;
             line-height: 30px;
 
             .link {
-                text-decoration: underline;
+                // text-decoration: underline;
                 color: $mustard;
             }
 
@@ -52,15 +51,17 @@ $neonPink: #fe019a;
     }
 
     #name {
-        position: relative;
+        white-space: nowrap;
+        max-width: 100px;
+        backface-visibility: hidden;
+        position: absolute;
         font-family: 'Six Caps', sans-serif;
-        // font-family: 'Dorsa', sans-serif;
         text-transform: uppercase;
-        font-size: 2.4rem;
         margin: 5px 0 0 0;
         transform-origin: bottom left;
-        letter-spacing: 1px;
+        // letter-spacing: 1px;
         color: $gray;
+        font-size: 130px;
 
         span {
             display: inline-block;
@@ -69,7 +70,6 @@ $neonPink: #fe019a;
     }
 
     #hello {
-        // background-color: red;
         position: absolute;
         left: 0;
         font-family: "Sacramento", cursive;
@@ -77,6 +77,10 @@ $neonPink: #fe019a;
         margin: 0;
         transform: translateY(-240px) rotate(-6deg);
         transform-origin: bottom left;
+
+        span {
+            display: inline-block; // if you remove, enter animation wont work
+        }
     }
 }
 
@@ -84,7 +88,7 @@ $check-size: 12px;
 
 #bio-length-form {
     width: clamp(150px, 200px, 300px);
-    margin-top: 10px;
+    margin-top: 55px;
 
     .fieldset {
         border: none;
@@ -267,19 +271,21 @@ $check-size: 12px;
 }
 
 
-@media (max-width:425px) {
+@media (max-width: 425px) {
 
     /* smartphones, iPhone, portrait 480x320 phones */
     .about {
         flex-direction: column;
-
+        padding-top: 45vh !important;
         #hello {
             font-size: 2rem;
+            margin-top: -25px;
         }
 
         #name {
-            font-size: 1.8rem;
-            margin-top: -25px
+            margin-top: -55px;
+            max-width: 100%;
+            white-space: normal;
         }
 
         .bio_text-container {

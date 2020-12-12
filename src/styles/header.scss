@@ -1,38 +1,37 @@
-.App-header {
-  // position: fixed;
-  // height: 100vh;
-  // width: 100vw;
+.header {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  // justify-content: space-between;
+  justify-content: flex-end;
+  padding: 2rem 1.2rem;
+  z-index: 100;
+  background-color: transparent;
+  pointer-events: none;
 
-  // border-width: 35px;
-  // border-color: white;
-  // border-style: solid;
-  // box-sizing: border-box;
-  // z-index: 99;
+  .social-container {
+    display: grid;
+    grid-row-gap: 1rem;
+    pointer-events: all;
+
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+    overflow: hidden;
+
+    .socialLink {
+      text-orientation: sideways;
+      writing-mode: vertical-lr;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-variant: small-caps;
+    }
+  }
 }
 
-// .header__lang {
-//   position: absolute;
-//   right: 0;
-//   top: -27px;
-
-//   input[type="radio"] {
-//     display: none;
-//   }
-
-//   label {
-//     transition: all 0.3s ease-in-out;
-//     font-family: "Montserrat", sans-serif;
-//     font-weight: 900;
-//     font-size: 0.4em;
-//     letter-spacing: 2px;
-//     cursor: pointer;
-
-//     &:nth-child(2) {
-//       margin-left: 5px;
-//     }
-//   }
-
-//   .active {
-//     color: lighten(black, 60);
-//   }
-// }
+@media (max-width:425px) {
+	.header { 
+    position: absolute;
+  }
+}

@@ -13,14 +13,17 @@
 		.project {
 			margin: 0;
 			color: $textGray;
+			width: fit-content;
 
 			.hoveredImg {
+				pointer-events: none;
 				position: fixed;
 				left: 14em;
 				top: 0px;
 				right: 0px;
 				bottom: 0px;
-				z-index: 0;
+				z-index: -1;
+				display: block;
 				overflow: hidden;
 				max-width: 60vw;
 				max-height: 80vh;
@@ -61,11 +64,17 @@
 }
 
 @media (max-width:425px) {
-	#projects { 
+	#projects {
 		ul {
 			.project {
+
+				.hoveredImg {
+					display: none;
+				}
+
 				.row {
 					margin-left: -5px;
+					justify-content: space-between;
 				}
 
 				&-order {
@@ -75,12 +84,18 @@
 				&-slug {
 					line-height: 20px;
 					margin-top: 6px;
+					margin-left: 10px;
+					max-width: 22%;
+					hyphens: auto;
+					word-break: break-word;
+					text-align: right;
 				}
 
 				&-name {
-					margin: 0 0 25px 0;
-					line-height: clamp(5rem, 7rem, 8rem);
-					font-size: clamp(5rem, 7rem, 8rem)
+					flex-grow: 2;
+					margin: 0 0 10px 0;
+					line-height: clamp(5rem, 6.3rem, 8rem);
+					font-size: clamp(5rem, 6.5rem, 8rem)
 				}
 			}
 		}
