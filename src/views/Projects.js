@@ -6,7 +6,7 @@ import SingleProject from "./components/SingleProject";
 import '../styles/projects.scss';
 import { useLayoutEffect } from "react";
 
-const Image = ({ isHovered = true }) => {
+const Image = () => {
 	const { selectedProject } = useContext(Context);
 	const controls = useAnimation()
 	const [src, setSrc] = useState(PROJECTS[selectedProject]?.preview);
@@ -29,11 +29,13 @@ const Image = ({ isHovered = true }) => {
 					opacity: 1,
 					visibility: "visible",
 					scale: 1,
+					y: "-50%"
 				},
 				hide: {
 					opacity: 0,
 					visibility: "hidden",
 					scale: 0.98,
+					y: "-50%"
 				}
 			}}
 			animate={controls}

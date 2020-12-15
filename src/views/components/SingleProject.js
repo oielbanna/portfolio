@@ -5,9 +5,6 @@ import '../../styles/projects.scss';
 import { A } from '.';
 import { useInView } from 'react-intersection-observer';
 
-// const SCROLL_UP = "up";
-// const SCROLL_DOWN = "down";
-
 const variants = {
 	open: {
 		y: -10,

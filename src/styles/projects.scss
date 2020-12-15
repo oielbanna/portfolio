@@ -6,31 +6,31 @@
 	.hoveredImg {
 		position: fixed;
 		pointer-events: none;
-		top: 0; left: 0;
-		
-		z-index: 12;
-		// display: block;
-		// overflow: hidden;
+		top: 50%;
+		left: 16em;
+		z-index: 1;
 		max-width: 60vw;
 		max-height: 80vh;
-		// margin: auto;
+		filter: brightness(0.6);
 	}
 
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		// position: relative;
-		z-index: 1;
+		position: relative;
+		z-index: 2;
 		
 		.project {
 			margin: 0;
 			color: $textGray;
 			width: fit-content;
 
+
 			.row {
 				align-items: flex-start;
 				margin-left: -26px;
+
 			}
 
 			&-order {
@@ -50,12 +50,14 @@
 				letter-spacing: 3px;
 				margin: -3px 5px 25px 0;
 				line-height: clamp(6rem, 7rem, 9rem);
+
 			}
 
 			&-slug {
 				line-height: 12px;
 				margin: 0;
 				letter-spacing: 0px;
+
 			}
 		}
 	}
@@ -63,12 +65,14 @@
 
 @media (max-width:425px) {
 	#projects {
+		.hoveredImg {
+			left: 40px;
+			max-width: 80vw;
+			max-height: 80vh;
+		}
+
 		ul {
 			.project {
-
-				.hoveredImg {
-					display: none;
-				}
 
 				.row {
 					margin-left: -5px;
