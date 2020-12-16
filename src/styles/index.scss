@@ -28,7 +28,7 @@ strong {
 }
 
 a {
-  display: block;
+  display: inline-block;
   
   &:visited {
     color: darken($gray, 0.5);
