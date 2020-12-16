@@ -5,24 +5,23 @@ import { Cursor, Header } from "./views/components";
 import About from "./views/About"
 import Projects from "./views/Projects";
 import Experience from './views/Experience';
-import Context from './context';
+import { Store } from './context';
 
 function App() {
   return (
     <Suspense fallback={null}>
-      <Context.Provider>
+      <Store>
         <div className="App">
           <Cursor />
           <Header />
           <main>
-            {/* <Intro /> */}
             <About />
             <Experience />
             <Projects />
           </main>
 
         </div>
-      </Context.Provider>
+      </Store>
     </Suspense>
   );
 }

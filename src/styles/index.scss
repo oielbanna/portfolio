@@ -28,6 +28,8 @@ strong {
 }
 
 a {
+  display: inline-block;
+  
   &:visited {
     color: darken($gray, 0.5);
     text-decoration: none;

@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useRef } from "react"
+import React, { useLayoutEffect, useRef, useContext, useState } from "react";
+import { Context } from '../../context';
 import { motion } from "framer-motion";
 import '../../styles/projects.scss';
 import { A } from '.';
@@ -14,13 +15,15 @@ const variants = {
 		opacity: 0.1,
 	}
 };
-export default ({ name, slug, github, description, preview, id }) => {
-	const [isHovered, setHover] = React.useState(false);
+
+export default ({ name, slug, github, description, id }) => {
+	const { selectedProject, updateSelectedProject } = useContext(Context);
+	const [oldProject, updateOldProject] = useState(-1);
 
 	const { ref, inView } = useInView({
-		root: document,
 		rootMargin: '0px 0px -100px 0px'
 	})
+
 	return (
 		<motion.li
 			ref={ref}
@@ -28,26 +31,41 @@ export default ({ name, slug, github, description, preview, id }) => {
 			initial='closed'
 			animate={inView ? 'open' : 'closed'}
 			className="project"
-			onHoverStart={() => setHover(true)}
-			onHoverEnd={() => setHover(false)}
+			onHoverStart={() => {
+				updateOldProject(selectedProject)
+				updateSelectedProject(id);
+			}}
+			onHoverEnd={() => {
+				updateSelectedProject(oldProject);
+			}}
 		>
 			<Data {...{ id, name, slug, github }} />
-			<Image preview={preview} isHovered={isHovered} />
 		</motion.li >
 	)
 }
 
+
 const Data = ({ id, name, slug, github }) => {
+	const { updateSelectedProject } = useContext(Context);
+
 	const el = useRef(null);
 	const { ref, inView } = useInView({
-		root: document,
 		rootMargin: `-50% 0px`,
 	});
+
 	useLayoutEffect(() => {
-		if(inView && el.current) {
-			el.current.focus();
+		if(inView && el?.current) {
+			// HACK: Having trouble calibraring properly with scroll direction.
+			// its easier to just force this to be the second update by delaying it
+			setTimeout(() => {
+				el.current.focus();
+				updateSelectedProject(id)
+			}, 50)
+		} else {
+			updateSelectedProject(-1);
 		}
-	});
+	}, [inView, el, id, updateSelectedProject]);
+
 	return (
 		<A ref={el} href={github} target="_blank">
 			<motion.span
@@ -76,27 +94,3 @@ const Data = ({ id, name, slug, github }) => {
 	);
 }
 
-const Image = ({ preview, isHovered }) => {
-	return (<motion.img
-		className="hoveredImg"
-		key="projectsImg"
-		src={preview}
-		variants={{
-			show: {
-				opacity: 1,
-				visibility: "visible",
-				scale: 1,
-			},
-			hide: {
-				opacity: 0,
-				visibility: "hidden",
-				scale: 0.98,
-			}
-		}}
-		animate={isHovered ? "show" : "hide"}
-		transition={{
-			duration: 0.2,
-			ease: 'easeInOut'
-		}}
-	/>);
-}
