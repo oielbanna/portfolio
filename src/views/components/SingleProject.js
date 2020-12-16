@@ -21,7 +21,6 @@ export default ({ name, slug, github, description, id }) => {
 	const [oldProject, updateOldProject] = useState(-1);
 
 	const { ref, inView } = useInView({
-		root: document,
 		rootMargin: '0px 0px -100px 0px'
 	})
 
@@ -51,7 +50,6 @@ const Data = ({ id, name, slug, github }) => {
 
 	const el = useRef(null);
 	const { ref, inView } = useInView({
-		root: document,
 		rootMargin: `-50% 0px`,
 	});
 
