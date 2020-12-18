@@ -5,31 +5,13 @@ import '../../styles/projects.scss';
 import { A } from '.';
 import { useInView } from 'react-intersection-observer';
 
-const variants = {
-	open: {
-		y: -10,
-		opacity: 1,
-	},
-	closed: {
-		y: 0,
-		opacity: 0.1,
-	}
-};
 
 export default ({ name, slug, github, description, id }) => {
 	const { selectedProject, updateSelectedProject } = useContext(Context);
 	const [oldProject, updateOldProject] = useState(-1);
 
-	const { ref, inView } = useInView({
-		rootMargin: '0px 0px -100px 0px'
-	})
-
 	return (
 		<motion.li
-			ref={ref}
-			variants={variants}
-			initial='closed'
-			animate={inView ? 'open' : 'closed'}
 			className="project"
 			onHoverStart={() => {
 				updateOldProject(selectedProject)

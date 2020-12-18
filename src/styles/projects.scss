@@ -12,6 +12,7 @@
 		max-width: 60vw;
 		max-height: 80vh;
 		filter: brightness(0.6);
+		border: none;
 	}
 
 	ul {
@@ -76,7 +77,8 @@
 
 				.row {
 					margin-left: -5px;
-					justify-content: space-between;
+					// justify-content: space-between;
+					flex-direction: column;
 				}
 
 				&-order {
@@ -85,12 +87,10 @@
 
 				&-slug {
 					line-height: 20px;
-					margin-top: 6px;
-					margin-left: 10px;
-					max-width: 22%;
+					margin-bottom: 10px;
 					hyphens: auto;
 					word-break: break-word;
-					text-align: right;
+					text-align: left;
 				}
 
 				&-name {
