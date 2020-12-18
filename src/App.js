@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import './styles/App.scss';
-import './i18n'
 import { Cursor, Header } from "./views/components";
 import About from "./views/About"
 import Projects from "./views/Projects";
