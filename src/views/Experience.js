@@ -1,7 +1,6 @@
 import React from "react"
+import { EXPERIENCE, EDUCATION } from "../constants";
 
-// fancy 
-// https://tympanus.net/codrops/2020/09/30/creating-mirrors-in-react-three-fiber-and-three-js/
 export default () => {
     return (
         <section id="experience" className="experience">

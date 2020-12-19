@@ -77,18 +77,22 @@ export const PROJECTS = [{
 
 export const EXPERIENCE = [{
     title: 'Associate Software Developer',
-    company: 'Capital One',
-    dateRange: 'JUNE \'20 - Present',
-    description: ''
+    entity: 'Capital One',
+    dateRange: 'june \'20 - present',
+    description: ['']
 }, {
-    title: 'FullStack Software Developer Intern',
-    company: 'Nakisa',
-    dateRange: 'JAN \'19 - MAY \'20',
-    description: ''
+    title: 'Software Developer Intern',
+    entity: 'Nakisa',
+    dateRange: 'jan \'19 - may \'20',
+    description: ['']
 }];
 
 export const EDUCATION = {
-
+    title: 'Major in Computer Science',
+    subtitle: 'minor in psychology',
+    entity: 'McGill University',
+    dateRange: 'Graduated may \'20',
+    description: ['']
 }
 
 export const STARS_COORDS = [
