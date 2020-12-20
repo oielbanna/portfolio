@@ -5,13 +5,13 @@ import { JOURNEY } from "../constants";
 import styled from "styled-components";
 import { A } from './components';
 
-const Connection = ({ direction }) => {
+const Connection = ({ direction, offset }) => {
     const { scrollY } = useViewportScroll();
-    const yRange = useTransform(scrollY, [window.innerHeight - 150, window.innerHeight + 100], [0.01, 1]);
+    const yRange = useTransform(scrollY, [(window.innerHeight + offset) - 350, (window.innerHeight + offset)], [0.01, 1]);
     const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
 
     return (
-        <svg viewBox="0 0 10 10">
+        <SVG viewBox="0 0 10 10">
             <motion.path
                 fill="none"
                 strokeWidth="0.1"
@@ -22,13 +22,19 @@ const Connection = ({ direction }) => {
                     scaleX: direction // Reverse direction of line animation
                 }}
             />
-        </svg>
+        </SVG>
     );
 }
 
 Connection.propTypes = {
     direction: PropTypes.oneOf([1, -1]).isRequired
 };
+
+const SVG = styled.svg({
+    // maxWidth: '100%',
+    // maxHeight: 300,
+    width: 100
+})
 
 export default () => {
     return (
@@ -37,17 +43,16 @@ export default () => {
             <div>
                 {JOURNEY.map((journey, idx) => {
                     return (
-                        <Row>
-                            {idx % 2 !== 0 && <Connection direction={-1} />}
-                            <div>
+                        <Row reverse={idx % 2 === 0} key={journey.category}>
+                            {idx !== JOURNEY.length - 1 && <Connection direction={Math.pow(-1, idx)} offset={400 * idx} />}
+                            <div style={{ background: 'pink' }}>
                                 <Intro>{journey.category}</Intro>
                                 <Title>{journey.title} <A>@{journey.entity}</A></Title>
                                 <Subtitle>{journey.dateRange}</Subtitle>
                                 <Details>
-                                    {journey.description.map((item) => <li>{item}</li>)}
+                                    {journey.description.map((item, i) => <li key={i}>{item}</li>)}
                                 </Details>
                             </div>
-                            {idx % 2 === 0 && <Connection direction={1} />}
                         </Row>
                     )
                 })}
@@ -56,23 +61,46 @@ export default () => {
     )
 }
 
-const Row = styled.div({
+const Row = styled.div(props => ({
     display: 'flex',
-    flexDirection: 'row'
-});
+    justifyContent: 'start',
+    flexDirection: props.reverse ? 'row-reverse' : 'row',
+    maxWidth: '80%',
+    background: 'lightgrey'
+}))
 
-const Intro = styled.h1({
-    fontFamily: "'Six Caps', sans-serif"
-})
+const Intro = styled.h1`
+    font-family: 'Six Caps', sans-serif;
+    font-size: clamp(4rem, 6rem, 7rem);
+    line-height: clamp(4rem, 6rem, 7rem);
+    margin: 0;
+`
 
-const Title = styled.h2({
+const Title = styled.h2`
+    margin: 10px 0 0 0;
+    font-size: 1.2rem;
+`
 
-})
+const Subtitle = styled.h3`
+    font-size: 0.9rem;
+    font-variant: small-caps;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 3px 0;
+    padding: 0;
+    font-family: Roboto;
+`
 
-const Subtitle = styled.h3({
+const Details = styled.ul`
+    list-style: none;
+    margin: 0px;
 
-})
-
-const Details = styled.ul({
-
-})
+    li::before {
+        content: "\2022";
+        color: #c68742;
+        font-weight: bold; 
+        display: inline-block;
+        width: 1em;
+        margin-left: -2em; 
+    }
+`

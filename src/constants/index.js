@@ -77,18 +77,18 @@ export const PROJECTS = [{
 
 export const JOURNEY = [{
     category: 'education',
-    title: 'Major in Computer Science',
+    title: 'Computer Science',
     entity: 'McGill University',
     dateRange: 'Graduated may \'20',
     description: ['Minor in Psychology', 'GPA 3.3/4.0'],
 },{
-    category: 'kinda education <span class="internships_joke">(and some cheap labor)</span>',
+    category: 'kinda education',
     title: 'Software Developer Intern',
     entity: 'Nakisa',
     dateRange: 'jan \'19 - may \'20',
     description: ['I did some shit', 'andsome more shit'],
 }, {
-    category: 'somehow I got a job',
+    category: 'somehow i got a job',
     title: 'Associate Software Developer',
     entity: 'Capital One',
     dateRange: 'june \'20 - present',
