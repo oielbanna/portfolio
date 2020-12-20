@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';
 import { JOURNEY } from "../constants";
@@ -57,14 +57,6 @@ export default () => {
         </section>
     )
 }
-
-const Row = styled.div(props => ({
-    display: 'flex',
-    justifyContent: 'start',
-    flexDirection: props.reverse ? 'row-reverse' : 'row',
-    maxWidth: '80%',
-    background: 'lightgrey'
-}))
 
 const Intro = styled.h1`
     font-family: 'Six Caps', sans-serif;
