@@ -10,16 +10,13 @@ function App() {
   return (
     <Suspense fallback={null}>
       <Store>
-        <div className="App" style={{height: "300vh" }}>
           <Cursor />
           <Header />
-          <main>
+          <main >
             <About />
             <Experience />
-            {/* <Projects /> */}
+            <Projects />
           </main>
-
-        </div>
       </Store>
     </Suspense>
   );

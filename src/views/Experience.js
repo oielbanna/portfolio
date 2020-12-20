@@ -38,22 +38,19 @@ const SVG = styled.svg({
 
 export default () => {
     return (
-        <section id="experience" className="experience">
-            <h1 className="section-title">how i got here</h1>
-            <div>
+        <section style={{ height: '200vh' }} id="experience" className="experience">
+            <div style={{ position: 'sticky', top: 50, height: 240 }}>
+                <h1 className="section-title">how i got here</h1>
                 {JOURNEY.map((journey, idx) => {
                     return (
-                        <Row reverse={idx % 2 === 0} key={journey.category}>
-                            {idx !== JOURNEY.length - 1 && <Connection direction={Math.pow(-1, idx)} offset={400 * idx} />}
-                            <div style={{ background: 'pink' }}>
-                                <Intro>{journey.category}</Intro>
-                                <Title>{journey.title} <A>@{journey.entity}</A></Title>
-                                <Subtitle>{journey.dateRange}</Subtitle>
-                                <Details>
-                                    {journey.description.map((item, i) => <li key={i}>{item}</li>)}
-                                </Details>
-                            </div>
-                        </Row>
+                        <div style={{ position: 'absolute' }}>
+                            <Intro>{journey.category}</Intro>
+                            <Title>{journey.title} <A>@{journey.entity}</A></Title>
+                            <Subtitle>{journey.dateRange}</Subtitle>
+                            <Details>
+                                {journey.description.map((item, i) => <li key={i}>{item}</li>)}
+                            </Details>
+                        </div>
                     )
                 })}
             </div>
