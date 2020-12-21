@@ -40,7 +40,7 @@ const Data = ({ id, name, slug, github }) => {
 			// HACK: Having trouble calibraring properly with scroll direction.
 			// its easier to just force this to be the second update by delaying it
 			setTimeout(() => {
-				if (id === 0 && window.scrollY < 500) {
+				if (id === 0 && window.scrollY < window.innerHeight) {
 					updateSelectedProject(-1);
 				} else {
 					el.current.focus();
