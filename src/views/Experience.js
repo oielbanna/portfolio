@@ -41,17 +41,16 @@ export default () => {
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
     return (
-        <section style={{ height: '180vh' }} id="experience" className="experience">
+        <section style={{ height: '180vh'}} id="experience" className="experience">
             <Sticky style={{ height: '70vh' }}>
                 <h1 className="section-title">how i got here</h1>
                 <JourneyContainer
-                    style={{ rotate, x: '40%' }}
-                    transition={{ duration: 3 }}
+                    style={{ rotate }}
                 >
                     <div style={{
                         position: 'absolute',
                         left: '50%',
-                        top: '-100%',
+                        top: '-95%',
                         transform: 'translate(-50%, 50%) scale(-1)',
                         textOrientation: 'sideways-right',
                         writingMode: 'vertical-rl',
@@ -79,7 +78,7 @@ export default () => {
                     </div>
                     <div style={{
                         position: 'absolute',
-                        bottom: '-100%',
+                        bottom: '-110%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                         transformOrigin: 'top left',
@@ -111,8 +110,8 @@ const JourneyContainer = styled(motion.div)`
     width: 70vh;
     height: 70vh;
     transform-origin: 50% 50%;
-    top: 0px;
-    left: -100%;
+    top: 50px;
+    right: 90%;
 `
 
 const Intro = styled.h1`
