@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { motion, useViewportScroll, useTransform, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useViewportScroll, useTransform, AnimatePresence, useSpring } from "framer-motion";
 import "../styles/about.scss";
 import { ABOUT, BIO_LENGTHS } from "../constants";
-import { isMobileDevice } from '../utils';
 
 function BioLength({ bio, changeBio }) {
   const handleEnter = (item, $e) => {
@@ -45,36 +44,30 @@ const defaultTransition = {
   duration: 0.5
 };
 
-const isMobile = isMobileDevice();
-
 export default () => {
-  const [hasScrolled, setHasScrolled] = useState(false);
   const [customDuration, setCustomDuration] = useState(0.5);
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
+
   const { scrollY } = useViewportScroll()
-  const opacity = useTransform(scrollY, [15, 100], [1, 0]);
-  const y = useTransform(scrollY, [0, 158], [-230, -120]);
+  const opacityRange = useTransform(scrollY, [15, 200], [1, 0]);
+  const yRange = useTransform(scrollY, [15, 200], [0, 20]);
+  const opacity = useSpring(opacityRange, { stiffness: 400, damping: 90 });
+  const y = useSpring(yRange, { stiffness: 400, damping: 90 });
+
 
   // this will change the bio section speed right after the app loads
   setTimeout(() => setCustomDuration(0.2), 1000);
-  
-  useEffect(() => {
-    const stopScrollYChange = scrollY.onChange(value => {
-      // console.log(value);
-      if (value > 50) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false);
-      }
-    });
-    return stopScrollYChange;
-  }, [scrollY]);
+
   return (
-    <section id="about" className="about row">
-      <div style={{ position: "relative" }}>
+    <section id="about" className="about">
+      <motion.div 
+        initial={initialAnimate}
+        animate={introAnimate}
+        transition={defaultTransition}
+        style={{ position: "sticky", top: 75, opacity, y, marginBottom: 50 }}
+      >
         <motion.h2
           id="hello"
-          style={{ opacity, y, rotate: "-7deg" }}
         >
           <motion.span
             initial={initialAnimate}
@@ -84,8 +77,11 @@ export default () => {
             <span role="img" aria-label="Wave">👋</span> hi, I'm
           </motion.span>
         </motion.h2>
-        <Name hasScrolled={hasScrolled} />
-        <motion.div 
+        <motion.h1 id="name" style={{ opacity }}>Omar Ibrahim</motion.h1>
+      </motion.div>
+
+      <div className="bio">
+        <motion.div
           initial={initialAnimate}
           animate={introAnimate}
           transition={defaultTransition}
@@ -95,48 +91,20 @@ export default () => {
             changeBio={changeBio}
           />
         </motion.div>
+        <div className="bio_text-container">
+          <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={bio}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ ...defaultTransition, duration: customDuration }}
+            >
+              {ABOUT[bio]}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-      <div className="bio_text-container">
-        <AnimatePresence exitBeforeEnter>
-          <motion.div
-            key={bio}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{...defaultTransition, duration: customDuration}}
-          >
-            {ABOUT[bio]}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </section >
+    </section>
   )
-}
-
-const Name = ({ hasScrolled }) => {
-  return (
-    <motion.h1
-          id="name"
-          initial={{
-            ...initialAnimate,
-            ...{
-              lineHeight: "130px",
-              letterSpacing: "1px",
-              y: -170
-            }
-          }}
-          animate={{
-            ...introAnimate,
-            ...{
-              fontSize: hasScrolled && !isMobile ? 42 : 130,
-              lineHeight: hasScrolled && !isMobile ? "42px" : "130px",
-              letterSpacing: hasScrolled && !isMobile ? "3px" : "1px",
-              y: hasScrolled && !isMobile? 3 : -170,
-            }
-          }}
-          transition={{...defaultTransition, delay: 0.2}}
-        >
-          Omar Ibrahim.
-        </motion.h1>
-  );
 }
