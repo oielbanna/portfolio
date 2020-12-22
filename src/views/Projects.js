@@ -49,7 +49,7 @@ const Image = () => {
 
 export default () => {
 	return (
-		<section id="projects" style={{ height: 1000 }}>
+		<section id="projects">
 			<h1 className="section-title">projects im proud of &#8212; a non comprehensive list</h1>
 			<motion.ul id="projects-list">
 				{PROJECTS.map((project, i) => {

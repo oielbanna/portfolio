@@ -28,7 +28,7 @@ const MID_COMPONENT = () => {
     return <p><strong>Omar</strong> likes to make <span className="fun">fun,</span> <span className="shake">interactive</span> things with code. He gets particularly excited when these things involve working with others to make an even <span style={{ fontWeight: 600, fontSize: 20 }}>bigger</span> impact.</p>
 }
 const LONGEST_COMPONENT = () => {
-    return <p><strong>Omar</strong> is a full-stack web developer at <A className="link" href="https://www.capitalone.ca/">Capital One</A> based in Toronto, Canada (but that's flexible considering, you know...the pandemic). He likes to <A className="link" target="_blank" href={CONTACTS.GITHUB.URL}>code</A> with React/Vue and Spring Boot. But his true passion lies in Software Architecture. So, he set out on a journey to take the <A className="link" href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">AWS Certified Solutions Architect</A> Course - which you can follow on <A className="link" href={CONTACTS.TWITTER.URL}>Twitter.</A> He also enjoys writing <A className="link" target="_blank"  href={CONTACTS.MEDIUM.URL}>Medium</A> articles sometimes - he says it helps him <q><i>explore a new medium.</i></q><small> (get it?)</small></p>
+    return <p><strong>Omar</strong> is a full-stack web developer at <A className="link" href="https://www.capitalone.ca/">Capital One</A> based in Toronto, Canada (but that's flexible considering, you know...the pandemic). He likes to <A className="link" target="_blank" href={CONTACTS.GITHUB.URL}>code</A> with React/Vue and Spring Boot. But his true passion lies in Software Architecture. So, he set out on a journey to take the <A className="link" href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">AWS Certified Solutions Architect</A> Course - which you can follow on <A className="link" href={CONTACTS.TWITTER.URL}>Twitter.</A> He also enjoys writing <A className="link" target="_blank" href={CONTACTS.MEDIUM.URL}>Medium</A> articles sometimes - he says it helps him <q><i>explore a new medium.</i></q><small> (get it?)</small></p>
 }
 export const ABOUT = {
     [SHORTEST]: <SHORTEST_COMPONENT />,
@@ -36,60 +36,77 @@ export const ABOUT = {
     [LONGEST]: <LONGEST_COMPONENT />,
 };
 
+const REACT = 'react';
+const VUE = 'vue';
+const EXPRESS = 'express.js';
+const SOCKET = 'socket.io';
+const SCSS = 'scss';
+const TS = 'typescript';
+const THREE = 'three.js';
+
 export const PROJECTS = [{
     name: 'Piclette',
     github: 'https://github.com/oielbanna/piclette',
     slug: 'A smart color palette generator',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: require('../assets/piclette.png'),
+    stack: [VUE, SCSS],
 }, {
     name: 'Framer Motion',
     github: 'https://github.com/framer/motion/pull/894',
     slug: 'Open Source Contribution',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/nav-art.png'),
-},
-{
-    name: 'React-Cursor-Follow',
-    github: 'https://github.com/oielbanna/react-cursor-follow',
-    slug: 'React component library',
-    description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/nav-art.png'),
-}, {
-    name: 'Twitter Threading',
-    github: 'https://github.com/oielbanna/twitter-threading',
-    slug: 'Open Source Contribution',
-    description: '',
-    preview: require('../assets/logo.svg'),
-}, {
-    name: 'React Bird Game',
-    github: 'https://github.com/oielbanna/react-plane-game',
-    slug: 'How to describe this?',
-    description: '',
-    preview: require('../assets/logo.svg'),
+    preview: require('../assets/framer.gif'),
+    stack: [TS, REACT],
 }, {
     name: 'Legends of Andor',
     github: 'https://github.com/oielbanna/legends-of-andor',
     slug: 'Digital board game',
     description: '',
-    preview: require('../assets/logo.svg'),
-}]
-
-export const EXPERIENCE = [{
-    title: 'Associate Software Developer',
-    company: 'Capital One',
-    dateRange: 'JUNE \'20 - Present',
-    description: ''
+    preview: require('../assets/andor.png'),
+    stack: [TS, EXPRESS, SOCKET, 'phaser.js'],
 }, {
-    title: 'FullStack Software Developer Intern',
-    company: 'Nakisa',
-    dateRange: 'JAN \'19 - MAY \'20',
-    description: ''
+    name: 'React Plane Game',
+    github: 'https://github.com/oielbanna/react-plane-game',
+    slug: 'Threejs game with no score',
+    description: '',
+    preview: require('../assets/plane.gif'),
+    stack: [REACT, THREE],
+}, {
+    name: 'React-Cursor-Follow',
+    github: 'https://github.com/oielbanna/react-cursor-follow',
+    slug: 'React cursor follower react component library',
+    description: 'This is going to be a relatively long description. Bullet points maybe?',
+    preview: require('../assets/follower.gif'),
+    stack: [REACT],
+},]
+
+export const JOURNEY = [{
+    category: 'education',
+    title: 'Computer Science',
+    entity: 'McGill University',
+    dateRange: 'graduated may \'20',
+    description: ['Minor in Psychology and Computer Science concentration', 'GPA 3.3/4.0'],
+}, {
+    category: 'kinda education',
+    title: 'Software Developer Intern',
+    entity: 'Nakisa',
+    dateRange: 'jan \'19 - may \'20',
+    description: [
+        'Developed a project management dashboard app with VueJS & Spring Boot.', 
+        'Implemented API webhooks to manage 50,000+ JIRA tickets, automate redundant workflow & create a Twilio notification system.',
+        'Improved search algorithm speed from ~36s to ~2.5s.'
+    ],
+}, {
+    category: 'somehow i got a job',
+    title: 'Associate Software Developer',
+    entity: 'Capital One',
+    dateRange: 'june \'20 - present',
+    description: [
+        'Developing a customer servicing application which modernizes the legacy system and improves data centralization.',
+        'Building using microfrontend, microservices, Vuejs, Nodejs, and AWS.'
+    ]
 }];
-
-export const EDUCATION = {
-
-}
 
 export const STARS_COORDS = [
     "M1103 146c-1 4 0 6 5 9-5 1-9 2-9 7-2-4-5-7-10-6 4-3 4-6 3-10 2 1 7 6 11 0z",
