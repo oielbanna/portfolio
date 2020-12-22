@@ -47,41 +47,34 @@ export const PROJECTS = [{
     github: 'https://github.com/framer/motion/pull/894',
     slug: 'Open Source Contribution',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/nav-art.png'),
-},
-{
-    name: 'React-Cursor-Follow',
-    github: 'https://github.com/oielbanna/react-cursor-follow',
-    slug: 'React component library',
-    description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/nav-art.png'),
-}, {
-    name: 'Twitter Threading',
-    github: 'https://github.com/oielbanna/twitter-threading',
-    slug: 'Open Source Contribution',
-    description: '',
-    preview: require('../assets/logo.svg'),
-}, {
-    name: 'React Bird Game',
-    github: 'https://github.com/oielbanna/react-plane-game',
-    slug: 'How to describe this?',
-    description: '',
-    preview: require('../assets/logo.svg'),
+    preview: require('../assets/framer.gif'),
 }, {
     name: 'Legends of Andor',
     github: 'https://github.com/oielbanna/legends-of-andor',
     slug: 'Digital board game',
     description: '',
-    preview: require('../assets/logo.svg'),
-}]
+    preview: require('../assets/andor.png'),
+}, {
+    name: 'React Plane Game',
+    github: 'https://github.com/oielbanna/react-plane-game',
+    slug: 'Threejs game with no score',
+    description: '',
+    preview: require('../assets/plane.gif'),
+}, {
+    name: 'React-Cursor-Follow',
+    github: 'https://github.com/oielbanna/react-cursor-follow',
+    slug: 'React cursor follower react component library',
+    description: 'This is going to be a relatively long description. Bullet points maybe?',
+    preview: require('../assets/follower.gif'),
+},]
 
 export const JOURNEY = [{
     category: 'education',
     title: 'Computer Science',
     entity: 'McGill University',
-    dateRange: 'Graduated may \'20',
+    dateRange: 'graduated may \'20',
     description: ['Minor in Psychology', 'GPA 3.3/4.0'],
-},{
+}, {
     category: 'kinda education',
     title: 'Software Developer Intern',
     entity: 'Nakisa',
