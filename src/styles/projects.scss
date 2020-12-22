@@ -11,7 +11,7 @@
 		z-index: 1;
 		max-width: 60vw;
 		max-height: 80vh;
-		filter: brightness(0.6);
+		filter: brightness(0.4);
 		border: none;
 	}
 
@@ -72,11 +72,9 @@
 				
 
 				&-item {
-					// color: var(--light-slate);
-					// font-family: var(--font-mono);
 					font-size: 0.9rem;
 					white-space: nowrap;
-					margin: 0 2px;
+					margin: 0 5px 0 0;
 					letter-spacing: 0px;
 					color: $textGray;
 					font-variant: small-caps;
