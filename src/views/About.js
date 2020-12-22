@@ -19,7 +19,7 @@ function BioLength({ bio, changeBio }) {
             return (
               <li tabIndex="0" key={i} onKeyDown={($e) => handleEnter(item, $e)}>
                 <input id={'input' + (i + 1)} name="bio-length" type="radio" value={item} checked={bio === item} onChange={() => changeBio(item)} onKeyDown={($e) => handleEnter(item, $e)} />
-                <label htmlFor={'input' + (i + 1)} >{i === 0 || i === 2 ? item : ""}</label>
+                <label htmlFor={'input' + (i + 1)} >{item}</label>
               </li>
             );
           })}
@@ -59,8 +59,8 @@ export default () => {
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
 
   const { scrollY } = useViewportScroll()
-  const opacityRange = useTransform(scrollY, [15, 200], [1, 0]);
-  const yRange = useTransform(scrollY, [15, 200], [0, 20]);
+  const opacityRange = useTransform(scrollY, [15, 120], [1, 0]);
+  const yRange = useTransform(scrollY, [15, 160], [0, 20]);
   const opacity = useSpring(opacityRange, { stiffness: 400, damping: 90 });
   const y = useSpring(yRange, { stiffness: 400, damping: 90 });
 
@@ -88,7 +88,13 @@ export default () => {
             <span role="img" aria-label="Wave">👋</span> hi, I'm
           </motion.span>
         </motion.h2>
-        <motion.h1 id="name" style={{ opacity }}>Omar Ibrahim</motion.h1>
+        <motion.h1 id="name" 
+          variants={introVariants}
+          initial="initial"
+          animate="enter"
+          transition={defaultTransition} 
+          style={{ opacity }}
+        >Omar Ibrahim</motion.h1>
       </motion.div>
 
       <div className="bio">

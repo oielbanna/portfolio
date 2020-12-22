@@ -136,6 +136,14 @@ $check-size: 12px;
                 }
             }
 
+            &:last-child {
+
+                // "longest"
+                label {
+                    letter-spacing: 0.3em;
+                }
+            }
+
             input[type=radio] {
                 position: absolute;
                 visibility: hidden;
