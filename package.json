@@ -13,7 +13,8 @@
     "react-i18next": "^11.3.1",
     "react-intersection-observer": "^8.30.3",
     "react-scripts": "3.3.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "styled-components-breakpoint": "^3.0.0-preview.20"
   },
   "scripts": {
     "start": "react-scripts start",
