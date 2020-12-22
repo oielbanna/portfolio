@@ -36,36 +36,49 @@ export const ABOUT = {
     [LONGEST]: <LONGEST_COMPONENT />,
 };
 
+const REACT = 'react';
+const VUE = 'vue';
+const EXPRESS = 'express.js';
+const SOCKET = 'socket.io';
+const SCSS = 'scss';
+const TS = 'typescript';
+const THREE = 'three.js';
+
 export const PROJECTS = [{
     name: 'Piclette',
     github: 'https://github.com/oielbanna/piclette',
     slug: 'A smart color palette generator',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: require('../assets/piclette.png'),
+    stack: [VUE, SCSS],
 }, {
     name: 'Framer Motion',
     github: 'https://github.com/framer/motion/pull/894',
     slug: 'Open Source Contribution',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: require('../assets/framer.gif'),
+    stack: [TS, REACT],
 }, {
     name: 'Legends of Andor',
     github: 'https://github.com/oielbanna/legends-of-andor',
     slug: 'Digital board game',
     description: '',
     preview: require('../assets/andor.png'),
+    stack: [TS, EXPRESS, SOCKET, 'phaser.js'],
 }, {
     name: 'React Plane Game',
     github: 'https://github.com/oielbanna/react-plane-game',
     slug: 'Threejs game with no score',
     description: '',
     preview: require('../assets/plane.gif'),
+    stack: [REACT, THREE],
 }, {
     name: 'React-Cursor-Follow',
     github: 'https://github.com/oielbanna/react-cursor-follow',
     slug: 'React cursor follower react component library',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
     preview: require('../assets/follower.gif'),
+    stack: [REACT],
 },]
 
 export const JOURNEY = [{

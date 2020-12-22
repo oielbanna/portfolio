@@ -6,7 +6,7 @@ import { A } from '.';
 import { useInView } from 'react-intersection-observer';
 
 
-export default ({ name, slug, github, description, id }) => {
+export default ({ id, ...props }) => {
 	const { selectedProject, updateSelectedProject } = useContext(Context);
 	const [oldProject, updateOldProject] = useState(-1);
 
@@ -18,16 +18,20 @@ export default ({ name, slug, github, description, id }) => {
 				updateSelectedProject(id);
 			}}
 			onHoverEnd={() => {
-				updateSelectedProject(oldProject);
+				if (window.scrollY < (window.innerHeight * 2.3)) { // 2.3 because thats how far this section is down the scroll
+					updateSelectedProject(-1);
+				} else {
+					updateSelectedProject(oldProject);
+				}
 			}}
 		>
-			<Data {...{ id, name, slug, github }} />
+			<Data {...{ id, ...props }} />
 		</motion.li >
 	)
 }
 
 
-const Data = ({ id, name, slug, github }) => {
+const Data = ({ id, name, slug, github, stack }) => {
 	const { updateSelectedProject } = useContext(Context);
 
 	const el = useRef(null);
@@ -36,7 +40,7 @@ const Data = ({ id, name, slug, github }) => {
 	});
 
 	useLayoutEffect(() => {
-		if(inView && el?.current) {
+		if (inView && el?.current) {
 			// HACK: Having trouble calibraring properly with scroll direction.
 			// its easier to just force this to be the second update by delaying it
 			setTimeout(() => {
@@ -47,7 +51,7 @@ const Data = ({ id, name, slug, github }) => {
 					el.current.focus();
 					updateSelectedProject(id)
 				}
-			}, 100)
+			}, 150)
 		} else {
 			updateSelectedProject(-1);
 		}
@@ -75,7 +79,14 @@ const Data = ({ id, name, slug, github }) => {
 			>
 				<span className="project-order">{id < 9 ? 0 : null}{id}</span>
 				<h1 className="project-name">{name}</h1>
-				<p className="project-slug">{slug}</p>
+				<div>
+					<p className="project-slug">{slug}</p>
+					<ul className="project-stack">
+					{stack.map((item) =>
+						<li key={item} className="project-stack-item">{item}</li>
+					)}
+					</ul>
+				</div>
 			</motion.span>
 		</A>
 	);

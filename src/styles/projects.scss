@@ -21,7 +21,7 @@
 		padding: 0;
 		position: relative;
 		z-index: 2;
-		
+
 		.project {
 			margin: 0;
 			color: $textGray;
@@ -52,13 +52,36 @@
 				margin: -3px 5px 25px 0;
 				line-height: clamp(6rem, 7rem, 9rem);
 
+				
+
 			}
 
 			&-slug {
 				line-height: 12px;
 				margin: 0;
 				letter-spacing: 0px;
+			}
 
+			&-stack {
+				display: flex;
+				flex-wrap: wrap;
+				position: relative;
+				margin: 10px 0;
+				padding: 0px;
+				list-style: outside none none;
+				
+
+				&-item {
+					// color: var(--light-slate);
+					// font-family: var(--font-mono);
+					font-size: 0.9rem;
+					white-space: nowrap;
+					margin: 0 2px;
+					letter-spacing: 0px;
+					color: $textGray;
+					font-variant: small-caps;
+					font-weight: 400;
+				}
 			}
 		}
 	}

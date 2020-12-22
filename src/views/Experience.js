@@ -104,7 +104,7 @@ const Sticky = styled.div`
 `
 
 const JourneyContainer = styled(motion.div)`
-    border: 1px rgba(255,255,255, 0.3) solid;
+    border: 1px rgba(198,135,66, 0.5) solid;
     position: absolute;
     border-radius: 50%;
     width: 70vh;

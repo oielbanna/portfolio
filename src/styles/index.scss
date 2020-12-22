@@ -12,6 +12,10 @@ html {
   width: 100vw;
 }
 
+img[src=""] {
+  visibility: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
