@@ -52,32 +52,33 @@ const Education = styled.div`
     text-orientation: sideways-right;
     writing-mode: vertical-rl;
     left: 50%;
-    top: -95%;
+    
     transform: translate(-50%, 50%) scale(-1);
 
     ${breakpoint('desktop')`
         max-height: 300px;  
+        top: -80%;
     `}
 
     ${breakpoint('mobile')`
         max-height: 75vw;
+        top: -85%;
     `}
 `
 
 const Internships = styled.div`
     position: absolute;
+    top: 50%;
 
     ${breakpoint('desktop')`
         max-width: 450px;  
-        top: 50%;
-        right: -100%;
+        right: -80%;
         transform: translate(0%, -50%);
     `}
 
     ${breakpoint('mobile')`
         max-width: 75vw;
-        top: 50%;
-        right: -90%;
+        right: -84%;
         transform: translate(-50%, -50%);
     `}
 `
@@ -85,19 +86,17 @@ const Work = styled.div`
     position: absolute;
     text-orientation: sideways-right;
     writing-mode: vertical-rl;
-    
+    left: 50%;
 
     ${breakpoint('desktop')`
         max-height: 450px; 
-        bottom: -100%;
-        left: 50%;
+        bottom: -80%;
         transform: translate(-50%, 0%);
     `}
 
     ${breakpoint('mobile')`
-        max-height: 75vw;
-        bottom: -100%;
-        left: 50%;
+        max-height: 70vw;
+        bottom: -54%;
         transform: translate(-50%, 0%);
     `}
 `
