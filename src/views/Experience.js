@@ -96,9 +96,9 @@ const Work = styled.div`
 
     ${breakpoint('mobile')`
         max-height: 75vw;
-        bottom: -96%;
+        bottom: -100%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
     `}
 `
 
