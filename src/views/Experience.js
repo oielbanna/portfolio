@@ -53,16 +53,18 @@ const Education = styled.div`
     writing-mode: vertical-rl;
     left: 50%;
     
-    transform: translate(-50%, 50%) scale(-1);
 
     ${breakpoint('desktop')`
-        max-height: 300px;  
-        top: -80%;
+        max-height: 360px;  
+        top: -64%;
+        transform: translate(-50%, 0%) scale(-1);
+
     `}
 
     ${breakpoint('mobile')`
         max-height: 75vw;
         top: -85%;
+        transform: translate(-50%, 50%) scale(-1);
     `}
 `
 
