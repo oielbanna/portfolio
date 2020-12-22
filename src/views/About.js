@@ -44,6 +44,16 @@ const defaultTransition = {
   duration: 0.5
 };
 
+const introVariants = {
+  initial: {
+    y: 20,
+    opacity: 0,
+  },
+  enter: {
+    y: 0,
+    opacity: 1,
+  }
+}
 export default () => {
   const [customDuration, setCustomDuration] = useState(0.5);
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
@@ -60,9 +70,10 @@ export default () => {
 
   return (
     <section id="about" className="about">
-      <motion.div 
-        initial={initialAnimate}
-        animate={introAnimate}
+      <motion.div
+        variants={introVariants}
+        initial="initial"
+        animate="enter"
         transition={defaultTransition}
         style={{ position: "sticky", top: 75, opacity, y, marginBottom: 50 }}
       >
@@ -82,9 +93,10 @@ export default () => {
 
       <div className="bio">
         <motion.div
-          initial={initialAnimate}
-          animate={introAnimate}
-          transition={defaultTransition}
+          variants={introVariants}
+          initial="initial"
+          animate="enter"
+          transition={{ ...defaultTransition, delay: 0.6 }}
         >
           <BioLength
             bio={bio}
