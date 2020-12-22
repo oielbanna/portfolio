@@ -86,19 +86,26 @@ export const JOURNEY = [{
     title: 'Computer Science',
     entity: 'McGill University',
     dateRange: 'graduated may \'20',
-    description: ['Minor in Psychology', 'GPA 3.3/4.0'],
+    description: ['Minor in Psychology and Computer Science concentration', 'GPA 3.3/4.0'],
 }, {
     category: 'kinda education',
     title: 'Software Developer Intern',
     entity: 'Nakisa',
     dateRange: 'jan \'19 - may \'20',
-    description: ['I did some shit', 'andsome more shit'],
+    description: [
+        'Developed a project management dashboard app with VueJS & Spring Boot.', 
+        'Implemented API webhooks to manage 50,000+ JIRA tickets, automate redundant workflow & create a Twilio notification system.',
+        'Improved search algorithm speed from ~36s to ~2.5s.'
+    ],
 }, {
     category: 'somehow i got a job',
     title: 'Associate Software Developer',
     entity: 'Capital One',
     dateRange: 'june \'20 - present',
-    description: ['what am i doing']
+    description: [
+        'Developing a customer servicing application which modernizes the legacy system and improves data centralization.',
+        'Building using microfrontend, microservices, Vuejs, Nodejs, and AWS.'
+    ]
 }];
 
 export const STARS_COORDS = [
