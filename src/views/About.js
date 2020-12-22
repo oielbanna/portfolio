@@ -88,12 +88,9 @@ export default () => {
             <span role="img" aria-label="Wave">👋</span> hi, I'm
           </motion.span>
         </motion.h2>
-        <motion.h1 id="name" 
-          variants={introVariants}
-          initial="initial"
-          animate="enter"
-          transition={defaultTransition} 
-          style={{ opacity }}
+        <motion.h1
+          id="name"
+          style={{ opacity, fontFamily:"'Six Caps', sans-serif"}}
         >Omar Ibrahim</motion.h1>
       </motion.div>
 
