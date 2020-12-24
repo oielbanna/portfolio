@@ -65,14 +65,16 @@ export const PROJECTS = [{
     description: '',
     preview: require('../assets/andor.png'),
     stack: [TS, EXPRESS, SOCKET, 'phaser.js'],
-}, {
-    name: 'React Plane Game',
-    github: 'https://github.com/oielbanna/react-plane-game',
-    slug: 'Threejs game with no score',
-    description: '',
-    preview: require('../assets/plane.gif'),
-    stack: [REACT, THREE],
-}, {
+},
+// }, {
+//     name: 'React Plane Game',
+//     github: 'https://github.com/oielbanna/react-plane-game',
+//     slug: 'Threejs game with no score',
+//     description: '',
+//     preview: require('../assets/plane.gif'),
+//     stack: [REACT, THREE],
+// }, {
+{
     name: 'React-Cursor-Follow',
     github: 'https://github.com/oielbanna/react-cursor-follow',
     slug: 'React cursor follower react component library',

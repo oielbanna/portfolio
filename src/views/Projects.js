@@ -56,7 +56,7 @@ export default () => {
 					return <SingleProject key={i + 1} id={i} {...project} />
 				})}
 			</motion.ul>
-			<Image />
+			{/* <Image /> */}
 		</section>
 	)
 }
