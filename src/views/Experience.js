@@ -7,7 +7,7 @@ import { A } from './components';
 
 export default () => {
     const { scrollY } = useViewportScroll();
-    const rotationRange = useTransform(scrollY, [window.innerHeight, (window.innerHeight * 1.5)], [90, -90]);
+    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.5], [90, 0, 0, -90]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
     return (
