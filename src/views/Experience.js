@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';
 import { JOURNEY } from "../constants";
 import styled from "styled-components";
@@ -6,15 +6,23 @@ import breakpoint from 'styled-components-breakpoint';
 import { A } from './components';
 
 export default () => {
+    const rotator = useRef(null);
     const { scrollY } = useViewportScroll();
     const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.5], [90, 0, 0, -90]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
+    useLayoutEffect(() => {
+        if (rotator.current && scrollY.get() > window.innerHeight * 1.5) {
+            // reset animation if we load already past it
+            rotator.current.style.transform = "rotate(-90deg)";
+        }
+    }, [scrollY])
     return (
         <section style={{ height: '180vh', paddingTop: 'unset' }} id="experience" className="experience">
             <Sticky style={{ height: '70vh' }}>
                 <h1 className="section-title">how i got here</h1>
                 <JourneyContainer
+                    ref={rotator}
                     style={{ rotate }}
                 >
                     <Education>
