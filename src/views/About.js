@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import { motion, useViewportScroll, useTransform, AnimatePresence, useSpring } from "framer-motion";
 import "../styles/about.scss";
 import { ABOUT, BIO_LENGTHS } from "../constants";
@@ -19,7 +19,7 @@ function BioLength({ bio, changeBio }) {
             return (
               <li tabIndex="0" key={i} onKeyDown={($e) => handleEnter(item, $e)}>
                 <input id={'input' + (i + 1)} name="bio-length" type="radio" value={item} checked={bio === item} onChange={() => changeBio(item)} onKeyDown={($e) => handleEnter(item, $e)} />
-                <label htmlFor={'input' + (i + 1)} >{i === 0 || i === 2 ? item : ""}</label>
+                <label htmlFor={'input' + (i + 1)} >{item}</label>
               </li>
             );
           })}
@@ -55,22 +55,29 @@ const introVariants = {
   }
 }
 export default () => {
+  const greeting = useRef(null);
   const [customDuration, setCustomDuration] = useState(0.5);
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
 
   const { scrollY } = useViewportScroll()
-  const opacityRange = useTransform(scrollY, [15, 200], [1, 0]);
-  const yRange = useTransform(scrollY, [15, 200], [0, 20]);
+  const opacityRange = useTransform(scrollY, [15, 70], [1, 0]);
+  const yRange = useTransform(scrollY, [15, 100], [0, 15]);
   const opacity = useSpring(opacityRange, { stiffness: 400, damping: 90 });
   const y = useSpring(yRange, { stiffness: 400, damping: 90 });
 
 
   // this will change the bio section speed right after the app loads
   setTimeout(() => setCustomDuration(0.2), 1000);
-
+  useLayoutEffect(() => {
+    if (greeting.current && scrollY.get() > 70) {
+      // reset animation if we load already past it
+      greeting.current.style.opacity = 0;
+    }
+  }, [scrollY])
   return (
     <section id="about" className="about">
       <motion.div
+        ref={greeting}
         variants={introVariants}
         initial="initial"
         animate="enter"
@@ -88,7 +95,9 @@ export default () => {
             <span role="img" aria-label="Wave">👋</span> hi, I'm
           </motion.span>
         </motion.h2>
-        <motion.h1 id="name" style={{ opacity }}>Omar Ibrahim</motion.h1>
+        <motion.h1
+          id="name"
+        >Omar Ibrahim</motion.h1>
       </motion.div>
 
       <div className="bio">

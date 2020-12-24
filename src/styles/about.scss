@@ -5,7 +5,7 @@ $neonYellow: #fe019a;
 .about {
     color: $gray;
     transform: matrix(1, 0, 0, 1, 0, 0);
-    min-height: 88vh;
+    min-height: 70vh;
 
     .bio_text-container {
         max-width: 40vw;
@@ -36,7 +36,7 @@ $neonYellow: #fe019a;
             .fun {
                 font-family: "Sacramento", cursive;
                 font-style: italic;
-                font-size: 21px;
+                font-size: 27px;
                 padding: 0px 3px;
                 color: $neonYellow;
                 text-shadow:
@@ -44,9 +44,9 @@ $neonYellow: #fe019a;
                     0px 0px 3px $neonYellow,
                     2px 3px 15px $neonYellow,
                     2px 0px 15px,
-                    5px 0px 125px,
-                    20px 0vw 200px $neonYellow,
-                    40px 0vw 200px $neonYellow;
+                    5px 0px 105px,
+                    20px 0vw 70px $neonYellow,
+                    10px 0vw 70px $neonYellow;
                 animation: flicker 3s linear infinite;
             }
         }
@@ -133,6 +133,14 @@ $check-size: 12px;
                 // "shortest"
                 label {
                     letter-spacing: 0.01px;
+                }
+            }
+
+            &:last-child {
+
+                // "longest"
+                label {
+                    letter-spacing: 0.3em;
                 }
             }
 

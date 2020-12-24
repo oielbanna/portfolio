@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';
 import { JOURNEY } from "../constants";
 import styled from "styled-components";
@@ -6,15 +6,23 @@ import breakpoint from 'styled-components-breakpoint';
 import { A } from './components';
 
 export default () => {
+    const rotator = useRef(null);
     const { scrollY } = useViewportScroll();
-    const rotationRange = useTransform(scrollY, [window.innerHeight, (window.innerHeight * 1.5)], [90, -90]);
+    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.5], [90, 0, 0, -90]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
+    useLayoutEffect(() => {
+        if (rotator.current && scrollY.get() > window.innerHeight * 1.5) {
+            // reset animation if we load already past it
+            rotator.current.style.transform = "rotate(-90deg)";
+        }
+    }, [scrollY])
     return (
         <section style={{ height: '180vh', paddingTop: 'unset' }} id="experience" className="experience">
             <Sticky style={{ height: '70vh' }}>
                 <h1 className="section-title">how i got here</h1>
                 <JourneyContainer
+                    ref={rotator}
                     style={{ rotate }}
                 >
                     <Education>
@@ -52,32 +60,35 @@ const Education = styled.div`
     text-orientation: sideways-right;
     writing-mode: vertical-rl;
     left: 50%;
-    top: -95%;
-    transform: translate(-50%, 50%) scale(-1);
+    
 
     ${breakpoint('desktop')`
-        max-height: 300px;  
+        max-height: 360px;  
+        top: -64%;
+        transform: translate(-50%, 0%) scale(-1);
+
     `}
 
     ${breakpoint('mobile')`
         max-height: 75vw;
+        top: -85%;
+        transform: translate(-50%, 50%) scale(-1);
     `}
 `
 
 const Internships = styled.div`
     position: absolute;
+    top: 50%;
 
     ${breakpoint('desktop')`
         max-width: 450px;  
-        top: 50%;
-        right: -100%;
+        right: -80%;
         transform: translate(0%, -50%);
     `}
 
     ${breakpoint('mobile')`
         max-width: 75vw;
-        top: 50%;
-        right: -90%;
+        right: -84%;
         transform: translate(-50%, -50%);
     `}
 `
@@ -85,19 +96,17 @@ const Work = styled.div`
     position: absolute;
     text-orientation: sideways-right;
     writing-mode: vertical-rl;
-    
+    left: 50%;
 
     ${breakpoint('desktop')`
         max-height: 450px; 
-        bottom: -100%;
-        left: 50%;
+        bottom: -80%;
         transform: translate(-50%, 0%);
     `}
 
     ${breakpoint('mobile')`
-        max-height: 75vw;
-        bottom: -100%;
-        left: 50%;
+        max-height: 70vw;
+        bottom: -54%;
         transform: translate(-50%, 0%);
     `}
 `
