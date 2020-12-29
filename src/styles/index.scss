@@ -33,6 +33,8 @@ strong {
 
 a {
   display: inline-block;
+  text-decoration: none;
+  color: var(--text-secondary);
   
   &:visited {
     color: darken($gray, 0.5);
@@ -43,6 +45,17 @@ a {
     outline: none;
   }
   
-  text-decoration: none;
-  color: $gray;
+}
+
+:root {
+  --bg-main-color: #171717;
+  --bg-secondary-color: #292929;
+
+  // --accent-dark-color: #dfab26;
+  --accent-dark-color: #c68742;
+  // --accent-light-color: #e7bb4c;
+  --accent-light-color: #d69d60;
+
+  --text-primary-color: #e9e9e9;
+  --text-secondary-color: #c8c8c8;
 }

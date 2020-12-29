@@ -113,7 +113,7 @@ export const JOURNEY = [{
     dateRange: 'june \'20 - present',
     description: [
         'Developing a customer servicing application which modernizes the legacy system and improves data centralization.',
-        'Building using microfrontend, microservices, Vuejs, Nodejs, and AWS.'
+        'Building using microfrontends, Vuejs, Nodejs, and AWS.'
     ]
 }];
 

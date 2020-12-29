@@ -1,8 +1,9 @@
 @import "./colors.scss";
 
 #projects {
-	// position: relative;
-
+	background-image: linear-gradient(var(--bg-secondary-color) .1em, transparent 0.1em), linear-gradient(90deg, var(--bg-secondary-color) .1em, transparent .1em);
+	background-size: 15vw 110vh;
+	
 	.hoveredImg {
 		position: fixed;
 		pointer-events: none;
@@ -42,6 +43,7 @@
 				margin: 0 10px 0 0;
 				padding: 0;
 				font-family: 'Roboto';
+				
 			}
 
 			&-name {
@@ -51,8 +53,6 @@
 				letter-spacing: 3px;
 				margin: -3px 5px 25px 0;
 				line-height: clamp(6rem, 7rem, 9rem);
-
-				
 
 			}
 
@@ -76,9 +76,11 @@
 					white-space: nowrap;
 					margin: 0 5px 0 0;
 					letter-spacing: 0px;
-					color: $textGray;
+					color: var(--bg-secondary-color);
 					font-variant: small-caps;
-					font-weight: 400;
+					font-weight: 700;
+					padding: 2px 4px;
+					background-color: var(--accent-light-color);
 				}
 			}
 		}
