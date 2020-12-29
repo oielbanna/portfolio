@@ -44,7 +44,7 @@ function Header() {
         {Object.entries(CONTACTS).map(([platform, data], key) => {
           return (
             <A target="_blank" variants={liVariants} key={platform} href={data.URL}>
-              <li className="socialLink">{platform.toLowerCase()}</li>
+              <li className="socialLink" dangerouslySetInnerHTML={data.LOGO}/>
             </A>
           );
         })}

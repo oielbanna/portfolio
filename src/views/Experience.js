@@ -8,7 +8,7 @@ import { A } from './components';
 export default () => {
     const rotator = useRef(null);
     const { scrollY } = useViewportScroll();
-    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.13, window.innerHeight * 1.26, window.innerHeight * 1.4], [90, 0, 0, -90]);
+    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.4], [90, 0, 0, -90]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
     useLayoutEffect(() => {

@@ -62,7 +62,7 @@ export default () => {
   const { scrollY } = useViewportScroll()
   const opacityRange = useTransform(scrollY, [15, 70], [1, 0]);
   const yRange = useTransform(scrollY, [15, 100], [0, 15]);
-  const opacity = useSpring(opacityRange, { stiffness: 400, damping: 90 });
+  const opacity = useSpring(opacityRange, { stiffness: 600, damping: 70 });
   const y = useSpring(yRange, { stiffness: 400, damping: 90 });
 
 

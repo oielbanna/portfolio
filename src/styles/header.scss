@@ -11,7 +11,7 @@
 
   .social-container {
     display: grid;
-    grid-row-gap: 1rem;
+    grid-row-gap: 2rem;
     pointer-events: all;
 
     margin: 0;
@@ -26,6 +26,7 @@
       font-size: 1.1rem;
       font-weight: 600;
       font-variant: small-caps;
+      fill: var(--text-primary-color);
     }
   }
 }
