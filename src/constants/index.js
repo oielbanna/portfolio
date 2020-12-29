@@ -14,6 +14,9 @@ export const CONTACTS = {
     MEDIUM: {
         URL: 'https://medium.com/@oielbanna',
     },
+    CODESANDBOX: {
+        URL: 'https://codesandbox.io/u/oielbanna',
+    }
 }
 
 const SHORTEST = 'shortest';
@@ -100,6 +103,10 @@ export const JOURNEY = [{
         'Improved search algorithm speed from ~36s to ~2.5s.'
     ],
 }, {
+    /*
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@elsa.majimbo/video/6875407674872188161" data-video-id="6875407674872188161" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@elsa.majimbo" href="https://www.tiktok.com/@elsa.majimbo">@elsa.majimbo</a> <p>When I’m required to participate in anything social</p> <a target="_blank" title="♬ It's a Pandemic - Elsa Majimbo" href="https://www.tiktok.com/music/It's-a-Pandemic-6875407707369704194">♬ It's a Pandemic - Elsa Majimbo</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+    */
+    // https://www.tiktok.com/@elsa.majimbo/video/6875407674872188161?sender_device=pc&sender_web_id=6869749341087794694&is_from_webapp=v2
     category: 'somehow i got a job',
     title: 'Associate Software Developer',
     entity: 'Capital One',
