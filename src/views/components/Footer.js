@@ -18,9 +18,11 @@ const Footer = () => {
 		<Section>
 			Let's be internet friends!
 			<br />
-			<A href="mailto:oielbanna@gmail.com">oielbanna@gmail.com</A>
+			<A className="email" href="mailto:oielbanna@gmail.com">oielbanna@gmail.com</A>
 
 			<SocialLinks isShown={show} isColumn={true} />
+
+			<A target="_blank" href="https://github.com/oielbanna/portfolio"><Signature>Designed &amp; built by Omar Ibrahim</Signature></A>
 		</Section>);
 }
 
@@ -30,7 +32,7 @@ const Section = styled(motion.footer)`
 	background-color: var(--accent-dark-color);
 	font-size: 1.3rem;
 
-	a {
+	.email {
 		font-weight: 900;
 		font-style: italic;
 		font-size: 2rem;
@@ -38,11 +40,21 @@ const Section = styled(motion.footer)`
 	}
 
 	${breakpoint('desktop')`
-		padding: 80px 14rem 110px;
+		padding: 80px 14rem 40px;
 	`}
 	
 	${breakpoint('mobile')`
-		padding: 35px;
-		padding-left: 24px;
-  `}
+		padding: 35px 24px 73px 24px;
+	`}
+`
+
+const Signature = styled.span`
+	position: absolute;
+	bottom: 12px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 0.9rem;
+	font-weight: 100;
+	padding: 2px 4px;
 `
