@@ -25,7 +25,7 @@ export default () => {
                     ref={rotator}
                     style={{ rotate }}
                 >
-                    <Education>
+                    <Education tabIndex="0">
                         <Intro>{JOURNEY[0].category}</Intro>
                         <Title style={{ margin: "0 5px" }}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[0].title}</span> <A>@{JOURNEY[0].entity}</A></Title>
                         <Subtitle>{JOURNEY[0].dateRange}</Subtitle>
@@ -33,7 +33,7 @@ export default () => {
                             {JOURNEY[0].description.map((item, i) => <li key={i} style={{ marginLeft: 5 }} className="details-item">{item}</li>)}
                         </Details>
                     </Education>
-                    <Internships>
+                    <Internships tabIndex="0">
                         <Intro>{JOURNEY[1].category}</Intro>
                         <Title style={{ margin: "5px 0"}}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[1].title}</span> <A>@{JOURNEY[1].entity}</A></Title>
                         <Subtitle>{JOURNEY[1].dateRange}</Subtitle>
@@ -41,7 +41,7 @@ export default () => {
                             {JOURNEY[1].description.map((item, i) => <li key={i} style={{ marginBottom: 5 }} className="details-item">{item}</li>)}
                         </Details>
                     </Internships>
-                    <Work>
+                    <Work tabIndex="0">
                         <Intro>{JOURNEY[2].category}</Intro>
                         <Title style={{ margin: "0 5px" }}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[2].title}</span> <A>@{JOURNEY[2].entity}</A></Title>
                         <Subtitle>{JOURNEY[2].dateRange}</Subtitle>
