@@ -18,7 +18,7 @@ $neonYellow: #fe019a;
 
             .link {
                 // text-decoration: underline;
-                color: $mustard;
+                color: var(--accent-dark-color);
             }
 
             .shake {
@@ -113,6 +113,7 @@ $check-size: 12px;
         text-transform: lowercase;
         font-family: 'Roboto';
         margin-bottom: 4px;
+        color: var(--accent-dark-color);
 
     }
 
@@ -152,10 +153,10 @@ $check-size: 12px;
 
                 &:checked {
                     ~label {
-                        color: $mustard;
+                        color: var(--accent-dark-color);
 
                         &::before {
-                            border-color: $mustard;
+                            border-color: var(--accent-dark-color);
                         }
 
                         &::after {
@@ -196,7 +197,7 @@ $check-size: 12px;
                     // using this as the inner dot
                     content: "";
                     position: absolute;
-                    background-color: $mustard;
+                    background-color: var(--accent-dark-color);
                     top: - ($check-size + ($check-size * 0.5));
                     left: 0px;
                     width: $check-size + 2;

@@ -2,7 +2,7 @@
 
 #projects {
 	background-image: linear-gradient(var(--bg-secondary-color) .1em, transparent 0.1em), linear-gradient(90deg, var(--bg-secondary-color) .1em, transparent .1em);
-	background-size: 15vw 110vh;
+	background-size: 15vw 100%;
 	
 	.hoveredImg {
 		position: fixed;
@@ -89,6 +89,8 @@
 
 @media (max-width:425px) {
 	#projects {
+		background-size: 35vw 100%;
+
 		.hoveredImg {
 			left: 40px;
 			max-width: 80vw;
