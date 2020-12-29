@@ -5,13 +5,13 @@ import { A } from '.';
 import { useInView } from 'react-intersection-observer';
 
 
-export default ({ id, ...props }) => {
+export default (props) => {
 
 	return (
 		<motion.li
 			className="project"
 		>
-			<Data {...{ id, ...props }} />
+			<Data {...props } />
 		</motion.li >
 	)
 }
@@ -23,25 +23,36 @@ const Data = ({ id, name, slug, github, stack }) => {
 		rootMargin: `-50% 0px`,
 	});
 
+	React.useLayoutEffect(() => {
+		if (inView && el.current) {
+			el.current.focus();
+		} else {
+			el.current.blur();
+		}
+	}, [inView, el])
+
 	return (
-		<A ref={el} href={github} target="_blank">
+		<A 
+			ref={el} 
+			variants={{
+				visible: {
+					opacity: 1,
+					scale: 1.01,
+				},
+				invisible: {
+					opacity: 0.3,
+					scale: 1
+				}
+			}}
+			initial="invisible"
+			whileFocus="visible"
+			transition={{ duration: 0.3 }} 
+			href={github} 
+			target="_blank"
+		>
 			<motion.span
 				ref={ref}
 				className="row"
-				variants={{
-					visible: {
-						opacity: 1,
-						scale: 1.01,
-					},
-					invisible: {
-						opacity: 0.3,
-						scale: 1
-					}
-				}}
-				animate={inView ? "visible" : "invisible"}
-				whileHover="visible"
-				whileFocus="visible"
-				transition={{ duration: 0.3 }}
 				lang="en"
 			>
 				<span className="project-order">{id < 9 ? 0 : null}{id}</span>

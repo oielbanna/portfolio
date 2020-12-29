@@ -8,7 +8,7 @@ import { A } from './components';
 export default () => {
     const rotator = useRef(null);
     const { scrollY } = useViewportScroll();
-    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.5], [90, 0, 0, -90]);
+    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.4], [90, 0, 0, -90]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
     useLayoutEffect(() => {
@@ -20,30 +20,30 @@ export default () => {
     return (
         <section style={{ height: '180vh', paddingTop: 'unset' }} id="experience" className="experience">
             <Sticky style={{ height: '70vh' }}>
-                <h1 className="section-title">how i got here</h1>
+                <h1 className="section-title">&#47;&#47; how i got here</h1>
                 <JourneyContainer
                     ref={rotator}
                     style={{ rotate }}
                 >
-                    <Education>
+                    <Education tabIndex="0">
                         <Intro>{JOURNEY[0].category}</Intro>
-                        <Title style={{ marginRight: 10 }}>{JOURNEY[0].title} <A>@{JOURNEY[0].entity}</A></Title>
+                        <Title style={{ margin: "0 5px" }}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[0].title}</span> <A>@{JOURNEY[0].entity}</A></Title>
                         <Subtitle>{JOURNEY[0].dateRange}</Subtitle>
                         <Details>
                             {JOURNEY[0].description.map((item, i) => <li key={i} style={{ marginLeft: 5 }} className="details-item">{item}</li>)}
                         </Details>
                     </Education>
-                    <Internships>
+                    <Internships tabIndex="0">
                         <Intro>{JOURNEY[1].category}</Intro>
-                        <Title>{JOURNEY[1].title} <A>@{JOURNEY[1].entity}</A></Title>
+                        <Title style={{ margin: "5px 0"}}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[1].title}</span> <A>@{JOURNEY[1].entity}</A></Title>
                         <Subtitle>{JOURNEY[1].dateRange}</Subtitle>
                         <Details>
                             {JOURNEY[1].description.map((item, i) => <li key={i} style={{ marginBottom: 5 }} className="details-item">{item}</li>)}
                         </Details>
                     </Internships>
-                    <Work>
+                    <Work tabIndex="0">
                         <Intro>{JOURNEY[2].category}</Intro>
-                        <Title>{JOURNEY[2].title} <A>@{JOURNEY[2].entity}</A></Title>
+                        <Title style={{ margin: "0 5px" }}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[2].title}</span> <A>@{JOURNEY[2].entity}</A></Title>
                         <Subtitle>{JOURNEY[2].dateRange}</Subtitle>
                         <Details>
                             {JOURNEY[2].description.map((item, i) => <li key={i} style={{ marginLeft: 5 }} className="details-item">{item}</li>)}
@@ -63,7 +63,7 @@ const Education = styled.div`
     
 
     ${breakpoint('desktop')`
-        max-height: 360px;  
+        max-height: 365px;  
         top: -64%;
         transform: translate(-50%, 0%) scale(-1);
 
@@ -117,7 +117,7 @@ const Sticky = styled.div`
 `
 
 const JourneyContainer = styled(motion.div)`
-    border: 1px rgba(198,135,66, 0.5) solid;
+    border: 2px var(--bg-secondary-color) solid;
     position: absolute;
     border-radius: 50%;
     width: 70vh;
@@ -132,11 +132,20 @@ const Intro = styled.h1`
     font-size: clamp(4rem, 6rem, 7rem);
     line-height: clamp(4rem, 6rem, 7rem);
     margin: 0;
+    color: var(--accent-light-color);
+    opacity: 0.8;
 `
 
 const Title = styled.h2`
     font-size: 1.2rem;
+    line-height: 2.1rem;
     margin: 0;
+    color: var(--text-secondary-color);
+
+    .colored-bg {
+        background: var(--accent-dark-color);
+        color: var(--bg-secondary-color);
+    }
 `
 
 const Subtitle = styled.h3`

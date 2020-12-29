@@ -18,9 +18,10 @@ main>section {
 .section-title {
   font-size: 1.2rem;
   margin: 20px 0;
-  font-variant: small-caps;
+  // font-variant: small-caps;
   position: relative;
   z-index: 2;
+  font-weight: 400;
 }
 
 .follow__active {

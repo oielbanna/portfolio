@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import './styles/App.scss';
-import { Cursor, Header } from "./views/components";
+import { Cursor, Header, Footer } from "./views/components";
 import About from "./views/About"
 import Projects from "./views/Projects";
 import Experience from './views/Experience';
@@ -17,6 +17,7 @@ function App() {
             <Experience />
             <Projects />
           </main>
+          <Footer />
       </Store>
     </Suspense>
   );
