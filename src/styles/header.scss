@@ -9,30 +9,33 @@
   background-color: transparent;
   pointer-events: none;
 
-  .social-container {
-    display: grid;
-    grid-row-gap: 2rem;
-    pointer-events: all;
+}
 
-    margin: 0;
-    list-style: none;
-    padding: 0;
+.social-container {
+  display: grid;
+  grid-row-gap: 2rem;
+  pointer-events: all;
 
-    overflow: hidden;
+  margin: 0;
+  list-style: none;
+  padding: 0;
 
-    .socialLink {
-      text-orientation: sideways;
-      writing-mode: vertical-lr;
-      font-size: 1.1rem;
-      font-weight: 600;
-      font-variant: small-caps;
-      fill: var(--text-primary-color);
-    }
+  overflow: hidden;
+  max-width: 300px;
+
+  .socialLink {
+    text-orientation: sideways;
+    writing-mode: vertical-lr;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-variant: small-caps;
+    fill: var(--text-primary-color);
   }
 }
 
+
 @media (max-width:425px) {
-	.header { 
+  .header {
     position: absolute;
     padding: 2rem 1rem;
   }

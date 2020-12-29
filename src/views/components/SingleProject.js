@@ -23,6 +23,14 @@ const Data = ({ id, name, slug, github, stack }) => {
 		rootMargin: `-50% 0px`,
 	});
 
+	React.useLayoutEffect(() => {
+		if (inView && el.current) {
+			el.current.focus();
+		} else {
+			el.current.blur();
+		}
+	}, [inView, el])
+
 	return (
 		<A 
 			ref={el} 
@@ -36,9 +44,7 @@ const Data = ({ id, name, slug, github, stack }) => {
 					scale: 1
 				}
 			}}
-			animate={inView ? "visible" : "invisible"}
 			initial="invisible"
-			whileHover="visible"
 			whileFocus="visible"
 			transition={{ duration: 0.3 }} 
 			href={github} 
