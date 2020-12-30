@@ -67,21 +67,18 @@ export const PROJECTS = [{
     github: 'https://github.com/oielbanna/piclette',
     slug: 'A smart color palette generator',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/piclette.png'),
     stack: [VUE, SCSS],
 }, {
     name: 'Framer Motion',
     github: 'https://github.com/framer/motion/pull/894',
     slug: 'Open Source Contribution',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/framer.gif'),
     stack: [TS, REACT],
 }, {
     name: 'Legends of Andor',
     github: 'https://github.com/oielbanna/legends-of-andor',
     slug: 'Digital board game',
     description: '',
-    preview: require('../assets/andor.png'),
     stack: [TS, EXPRESS, SOCKET, 'phaser.js'],
 },
 // }, {
@@ -97,7 +94,6 @@ export const PROJECTS = [{
     github: 'https://github.com/oielbanna/react-cursor-follow',
     slug: 'React cursor follower component',
     description: 'This is going to be a relatively long description. Bullet points maybe?',
-    preview: require('../assets/follower.gif'),
     stack: [REACT],
 },]
 
