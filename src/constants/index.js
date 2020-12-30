@@ -1,5 +1,5 @@
 import React from 'react';
-import { A } from '../views/components';
+import { A } from '../views/components'
 
 export const CONTACTS = {
     LINKEDIN: {

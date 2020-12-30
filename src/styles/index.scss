@@ -47,14 +47,21 @@ a {
   
 }
 
+* :focus {
+  outline: 1px var(--bg-secondary-color) solid;
+}
+
 :root {
   --bg-main-color: #171717;
-  --bg-secondary-color: #292929;
+  --bg-secondary-color: #242520;
 
-  // --accent-dark-color: #dfab26;
-  --accent-dark-color: #c68742;
-  // --accent-light-color: #e7bb4c;
-  --accent-light-color: #d69d60;
+  --accent-dark-color: #cf9b34;
+  --accent-light-color: #f3c03e;
+  // --accent-dark-color: #c68742;
+  // --accent-light-color: #d69d60;
+
+  --green-dark-color: #454B25;
+  --green-light-color: #736D31;
 
   --text-primary-color: #e9e9e9;
   --text-secondary-color: #c8c8c8;

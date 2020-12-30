@@ -2,10 +2,10 @@ import React from "react";
 import { motion, useViewportScroll } from 'framer-motion';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import { A } from '.';
+import { A } from './a';
 import SocialLinks from './SocialLinks';
 
-const Footer = () => {
+export const Footer = () => {
 	const { scrollYProgress } = useViewportScroll();
 	const [show, setShow] = React.useState(true);
 
@@ -25,8 +25,6 @@ const Footer = () => {
 			<A target="_blank" href="https://github.com/oielbanna/portfolio"><Signature>Designed &amp; built by Omar Ibrahim</Signature></A>
 		</Section>);
 }
-
-export default Footer;
 
 const Section = styled(motion.footer)`
 	background-color: var(--accent-dark-color);

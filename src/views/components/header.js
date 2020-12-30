@@ -4,7 +4,7 @@ import '../../styles/header.scss';
 import SocialLinks from './SocialLinks';
 
 
-function Header() {
+export const Header = () => {
   const { scrollYProgress } = useViewportScroll();
   const [show, setShow] = React.useState(true);
 
@@ -18,5 +18,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

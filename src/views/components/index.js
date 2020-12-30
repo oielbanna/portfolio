@@ -1,7 +1,5 @@
-import A from "./a";
-import Header from "./header";
-import Cursor from "./cursor";
-import Character from "./Character";
-import Footer from './Footer';
-
-export { A, Header, Cursor, Character, Footer };
+export * from "./a";
+export * from "./header";
+export * from "./cursor";
+export * from './Footer';
+export * from './ExternalLink';

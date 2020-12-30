@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import '../../styles/projects.scss';
-import { A } from '.';
+import { A } from './a';
 import { useInView } from 'react-intersection-observer';
 
 

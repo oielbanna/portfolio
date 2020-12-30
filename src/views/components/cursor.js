@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/cursor.scss';
 
-export default () => {
+export const Cursor = () => {
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
 

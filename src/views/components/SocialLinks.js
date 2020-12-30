@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import '../../styles/header.scss';
 import { CONTACTS } from '../../constants';
-import { A } from '.';
+import { A } from './a';
 
 const parentVariant = {
 	open: {

@@ -13,4 +13,4 @@ const component = (props, ref) => {
     return <motion.a ref={ref} {...props} onMouseEnter={enter} onMouseLeave={leave}>{props.children}</motion.a>
 }
 
-export default React.forwardRef(component);
+export const A = React.forwardRef(component);
