@@ -54,7 +54,7 @@ const introVariants = {
     opacity: 1,
   }
 }
-export default () => {
+const About = () => {
   const greeting = useRef(null);
   const [customDuration, setCustomDuration] = useState(0.5);
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
@@ -129,3 +129,5 @@ export default () => {
     </section>
   )
 }
+
+export default About;

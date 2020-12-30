@@ -4,8 +4,7 @@ import '../../styles/projects.scss';
 import { A } from './a';
 import { useInView } from 'react-intersection-observer';
 
-
-export default (props) => {
+const SingleProject = (props) => {
 
 	return (
 		<motion.li
@@ -70,3 +69,4 @@ const Data = ({ id, name, slug, github, stack }) => {
 	);
 }
 
+export default SingleProject;
