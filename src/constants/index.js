@@ -109,9 +109,8 @@ export const JOURNEY = [{
     entity: 'Nakisa',
     dateRange: 'jan \'19 - may \'20',
     description: [
-        'Developed a project management dashboard app with VueJS & Spring Boot.',
-        'Implemented API webhooks to manage 50,000+ JIRA tickets, automate redundant workflow & create a Twilio notification system.',
-        'Improved search algorithm speed from ~36s to ~2.5s.'
+        // 'Developed a project management dashboard app with VueJS & Spring Boot.',
+        // 'Implemented API webhooks to manage 50,000+ JIRA tickets, automate redundant workflow & create a Twilio notification system.',
     ],
 }, {
     /*
@@ -119,12 +118,12 @@ export const JOURNEY = [{
     */
     // https://www.tiktok.com/@elsa.majimbo/video/6875407674872188161?sender_device=pc&sender_web_id=6869749341087794694&is_from_webapp=v2
     category: 'somehow i got a job',
-    title: 'Associate Software Developer',
+    title: 'Sr. Associate Software Developer',
     entity: 'Capital One',
     dateRange: 'june \'20 - present',
     description: [
-        'Developing a customer servicing application which modernizes the legacy system and improves data centralization.',
-        'Building using microfrontends, Vuejs, Nodejs, and AWS.'
+        // 'Developing a customer servicing application which modernizes the legacy system and improves data centralization.',
+        // 'Building using microfrontends, Vuejs, Nodejs, and AWS.'
     ]
 }];
 
