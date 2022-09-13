@@ -1,11 +1,11 @@
 import React from 'react';
-import { useViewportScroll } from 'framer-motion';
+import { useScroll } from 'framer-motion';
 import '../../styles/header.scss';
 import SocialLinks from './SocialLinks';
 
 
 export const Header = () => {
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const [show, setShow] = React.useState(true);
 
   React.useEffect(() => {
