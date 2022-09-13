@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, useViewportScroll } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useTranslation } from 'react-i18next'
 import "../styles/intro.scss";
 import Character from "./components/Character";
@@ -7,7 +7,7 @@ import Character from "./components/Character";
 function Intro() {
     const { t } = useTranslation();
     const [hasScrolled, setHasScrolled] = useState(false);
-    const { scrollY } = useViewportScroll();
+    const { scrollY } = useScroll();
     scrollY.onChange(value => {
         if (value > 100) {
             setHasScrolled(true);

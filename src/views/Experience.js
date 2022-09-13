@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef } from "react";
-import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { JOURNEY } from "../constants";
 import styled from "styled-components";
 import breakpoint from 'styled-components-breakpoint';
@@ -7,7 +7,7 @@ import { A } from './components';
 
 const Experience = () => {
     const rotator = useRef(null);
-    const { scrollY } = useViewportScroll();
+    const { scrollY } = useScroll();
     const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.4], [90, 0, 0, -90]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 

@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
-import { motion, useViewportScroll, useTransform, AnimatePresence, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import "../styles/about.scss";
 import { ABOUT, BIO_LENGTHS } from "../constants";
 
@@ -59,7 +59,7 @@ const About = () => {
   const [customDuration, setCustomDuration] = useState(0.5);
   const [bio, changeBio] = useState(BIO_LENGTHS[Math.floor(BIO_LENGTHS.length / 2)]);
 
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const opacityRange = useTransform(scrollY, [15, 70], [1, 0]);
   const yRange = useTransform(scrollY, [15, 100], [0, 15]);
   const opacity = useSpring(opacityRange, { stiffness: 600, damping: 70 });

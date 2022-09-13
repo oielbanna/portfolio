@@ -1,12 +1,12 @@
 import React from "react";
-import { motion, useViewportScroll } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { A } from './a';
 import SocialLinks from './SocialLinks';
 
 export const Footer = () => {
-	const { scrollYProgress } = useViewportScroll();
+	const { scrollYProgress } = useScroll();
 	const [show, setShow] = React.useState(true);
 
 	React.useEffect(() => {
