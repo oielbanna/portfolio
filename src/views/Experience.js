@@ -8,7 +8,7 @@ import { A } from './components';
 const Experience = () => {
     const rotator = useRef(null);
     const { scrollY } = useScroll();
-    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.4], [90, 0, 0, -90]);
+    const rotationRange = useTransform(scrollY, [window.innerHeight, window.innerHeight * 1.1, window.innerHeight * 1.3, window.innerHeight * 1.4], [0, -45, -90, -135]);
     const rotate = useSpring(rotationRange, { stiffness: 400, damping: 90 });
 
     useLayoutEffect(() => {
@@ -17,6 +17,16 @@ const Experience = () => {
             rotator.current.style.transform = "rotate(-90deg)";
         }
     }, [scrollY])
+
+    const getMargin = (index) => {
+        if (index % 2 == 0) return "5px 0";
+        else return "0 5px";
+    }
+    // TODO use transforms instead 
+    // first
+    // right: calc(-50% - 20vh);
+// top: 50%;
+// transform: translate(0%, -50%);
     return (
         <section style={{ height: '180vh', paddingTop: 'unset' }} id="experience" className="experience">
             <Sticky style={{ height: '70vh' }}>
@@ -25,14 +35,21 @@ const Experience = () => {
                     ref={rotator}
                     style={{ rotate }}
                 >
-                    <Education tabIndex="0">
+                    {JOURNEY.map((item, i) => 
+                        (<Item left={(i + 1 % 2 == 0) ? '50%': '0%'} top={(i + 1 % 2 == 0) ? '0%': '50%'}>
+                            <Intro>{item.category}</Intro>
+                            <Title style={{ margin: getMargin(i + 1) }}><span style={{padding: "2px 3px"}} className="colored-bg">{item.title}</span> <A>@{item.entity}</A></Title>
+                            <Subtitle>{item.dateRange}</Subtitle>
+                        </Item>)
+                    )}
+                    {/* <Education tabIndex="0">
                         <Intro>{JOURNEY[0].category}</Intro>
                         <Title style={{ margin: "0 5px" }}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[0].title}</span> <A>@{JOURNEY[0].entity}</A></Title>
                         <Subtitle>{JOURNEY[0].dateRange}</Subtitle>
                         <Details>
                             {JOURNEY[0].description.map((item, i) => <li key={i} style={{ marginLeft: 5 }} className="details-item">{item}</li>)}
                         </Details>
-                    </Education>
+                    </Education> 
                     <Internships tabIndex="0">
                         <Intro>{JOURNEY[1].category}</Intro>
                         <Title style={{ margin: "5px 0"}}><span style={{padding: "2px 3px"}} className="colored-bg">{JOURNEY[1].title}</span> <A>@{JOURNEY[1].entity}</A></Title>
@@ -48,7 +65,7 @@ const Experience = () => {
                         <Details>
                             {JOURNEY[2].description.map((item, i) => <li key={i} style={{ marginLeft: 5 }} className="details-item">{item}</li>)}
                         </Details>
-                    </Work>
+                    </Work>*/}
                 </JourneyContainer>
             </Sticky>
         </section>
@@ -56,6 +73,14 @@ const Experience = () => {
 }
 
 export default Experience; 
+
+const Item = styled.div`
+    position: absolute;
+    // top: ${props => props.top || "50%"};
+    // left: ${props => props.left || "50%"};
+    
+`;
+
 
 const Education = styled.div`
     position: absolute;
@@ -77,7 +102,6 @@ const Education = styled.div`
         transform: translate(-50%, 50%) scale(-1);
     `}
 `
-
 const Internships = styled.div`
     position: absolute;
     top: 50%;
